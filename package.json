@@ -1,0 +1,22 @@
+{
+  "name": "bluetech-ui",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rojochen/bluetech-ui.git"
+  },
+  "author": "BT UI/UX Team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rojochen/bluetech-ui/issues"
+  },
+  "homepage": "https://github.com/rojochen/bluetech-ui#readme",
+  "devDependencies": {
+    "bluetech": "git+https://github.com/rojochen/bluetech.git"
+  }
+}
