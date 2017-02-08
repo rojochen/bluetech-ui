@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "browser": "browser-sync start --server --files '**'"
   },
   "repository": {
     "type": "git",
@@ -16,7 +17,10 @@
     "url": "https://github.com/rojochen/bluetech-ui/issues"
   },
   "homepage": "https://github.com/rojochen/bluetech-ui#readme",
+  "dependencies": {
+    "bluetech": "git+https://github.com/rojochen/bluetech.git#0.0.9"
+  },
   "devDependencies": {
-    "bluetech": "git+https://github.com/rojochen/bluetech.git"
+    "browser-sync": "^2.18.7"
   }
 }
