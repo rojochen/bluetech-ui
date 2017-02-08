@@ -47,6 +47,7 @@ define(['btModule'], function (btModule) {
                 // console.log('$watch' + newValue);
                 if(newValue && newValue.length === 0){
                     scope.value = [];
+                    $('#'+ datepickerId).val('');
                     scope.onDateCancel({e:'cancel'});
                 }
             },true);
