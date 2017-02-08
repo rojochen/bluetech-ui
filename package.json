@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/rojochen/bluetech-ui#readme",
   "dependencies": {
-    "bluetech": "git+https://github.com/rojochen/bluetech.git#0.0.6"
+    "bluetech": "git+https://github.com/rojochen/bluetech.git#0.0.9"
   },
   "devDependencies": {
     "browser-sync": "^2.18.7"
