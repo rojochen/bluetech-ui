@@ -9,14 +9,19 @@
 			btController: 'demo/js/controller/demoBt',
 			header: 'demo/js/component/header',
 			footer: 'demo/js/component/footer',
-			btPagination: 'demo/js/directives/btPagination',
+			demoController: 'demo/js/controller/demoController',  //要在bluetechUI前面才可...？？
 			paginationService: 'demo/js/service/btpaginationService',
-			btDatepicker: 'demo/js/directives/btDatepicker',
-			btDatepickerRange: 'demo/js/directives/btDatepickerRange',
-			demoController: 'demo/js/controller/demoController'
+			bluetechUI: 'build/js/bluetech-ui',  //bt-datepicker-range沒有出現
+			// btPagination: 'demo/js/directives/btPagination',
+			// btDatepicker: 'demo/js/directives/btDatepicker',
+			// btDatepickerRange: 'demo/js/directives/btDatepickerRange',
+			
 		}
 	});	
-	require(['bluetech', 'btModule', 'btController', 'header', 'footer', 'btPagination', 'paginationService', 'btDatepicker', 'btDatepickerRange', 'demoController'], function(bluetech, btModule, btController, header, footer, btPagination, paginationService, btDatepicker, btDatepickerRange, demoController) {
+	require(['bluetech', 'btModule', 'btController', 'header', 'footer', 'demoController', 'paginationService', 'bluetechUI'], function(bluetech, btModule, btController, header, footer, demoController, paginationService, bluetechUI) {
 		angular.bootstrap(document, ['btModule']);
 	});
+	// require(['bluetech', 'btModule', 'btController', 'header', 'footer', 'demoController', 'paginationService', 'btPagination', 'btDatepicker', 'btDatepickerRange'], function(bluetech, btModule, btController, header, footer, demoController, paginationService, btPagination, btDatepicker, btDatepickerRange) {
+	// 	angular.bootstrap(document, ['btModule']);
+	// });
 })();
