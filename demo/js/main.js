@@ -4,7 +4,7 @@
 	require.config({
 		baseUrl: '',
 		paths: {
-			bluetechUI: 'js/bluetechUI',
+			bluetechUI: 'js/bluetechUI.min',
 			btModule: 'js/module/demoModule',
 			demoController: 'js/controller/demoController',
 			paginationService: 'js/service/btpaginationService',
