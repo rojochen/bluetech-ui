@@ -1,4 +1,4 @@
-define(['btModule'], function (btModule) {
+define(['bluetechUI'], function (bluetechUI) {
     'use strict';
     var app = angular.module("btModule");
 

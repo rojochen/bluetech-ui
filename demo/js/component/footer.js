@@ -5,7 +5,7 @@ define([
     var app = angular.module("btModule");
 
     var footerComponent = {
-        templateUrl: '../demo/js/component/template/footer.html',
+        templateUrl: 'js/component/template/footer.html',
         controller: footerComponentCtrl,
         controllerAs: 'vm',
         bindings: {

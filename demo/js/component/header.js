@@ -5,7 +5,7 @@ define([
     var app = angular.module("btModule");
 
     var headerComponent = {
-        templateUrl: '../demo/js/component/template/top-menu.html',
+        templateUrl: 'js/component/template/top-menu.html',
         controller: headerComponentCtrl,
         controllerAs: 'vm',
         bindings: {

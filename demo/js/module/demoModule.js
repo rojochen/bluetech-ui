@@ -1,6 +1,6 @@
-define(['bluetech'], function(bluetech) {
+define(['bluetechUI'], function(bluetechUI) {
     'use strict';
-    var app = angular.module('btModule',['bluetech']);
+    var app = angular.module('btModule',['bluetechUI']);
     // 導頁路徑
     app.config(['$routeProvider','$locationProvider', function ($routeProvider,$locationProvider) {
 		$routeProvider.eagerInstantiationEnabled(false);
@@ -11,16 +11,16 @@ define(['bluetech'], function(bluetech) {
 				// 	templateUrl: "../demo/view/index.html"
 				// })
 				.when('/', {
-					templateUrl: "../demo/view/datepicker.html"
+					templateUrl: "view/datepicker.html"
 				})
 				.when('/datepicker', {
-					templateUrl: '../demo/view/datepicker.html'
+					templateUrl: 'view/datepicker.html'
 				})
 				.when('/datepicker_range', {
-					templateUrl: '../demo/view/datepicker_range.html'
+					templateUrl: 'view/datepicker_range.html'
 				})
 				.when('/pagination', {
-					templateUrl: '../demo/view/pagination.html'
+					templateUrl: 'view/pagination.html'
 				})
 				.otherwise({
 					redirectTo: '/'

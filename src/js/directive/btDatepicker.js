@@ -1,6 +1,6 @@
-define(['btModule'], function (btModule) {
+define([], function () {
     'use strict';
-    var app = angular.module("btModule");
+    var app = angular.module("bluetechUI");
 
     app.directive('btDatepicker', ['$timeout', function($timeout){
         function link(scope, element, attrs){
