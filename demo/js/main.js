@@ -1,11 +1,11 @@
-(function() {
+(function () {
 	'use strict';
 
 	require.config({
 		baseUrl: '',
 		paths: {
-			bluetechUI: 'js/bluetechUI.min',
-			ngRoute: 'angular-route/angular-route.min',
+			bluetechUI: '../dist/js/bluetechUI.min',
+			ngRoute: '../../node_modules/angular-route/angular-route.min',
 			btModule: 'js/module/demoModule',
 			demoController: 'js/controller/demoController',
 			paginationService: 'js/service/btpaginationService',
@@ -15,12 +15,12 @@
 		},
 		shim: {
 			'ngRoute': {
-			exports: 'ngRoute',
-			deps: ['bluetechUI']
-			} 
+				exports: 'ngRoute',
+				deps: ['bluetechUI']
+			}
 		}
-	});	
-	require(['btModule', 'demoController', 'paginationService', 'btController', 'header', 'footer'], function(btModule, demoController, paginationService, btController, header, footer) {
+	});
+	require(['btModule', 'demoController', 'paginationService', 'btController', 'header', 'footer'], function (btModule, demoController, paginationService, btController, header, footer) {
 		angular.bootstrap(document, ['btModule']);
 	});
 })();
