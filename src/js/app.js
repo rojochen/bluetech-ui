@@ -4,7 +4,8 @@ define(['bluetech'], function () {
     var app = angular.module("bluetechUI", ['bluetech']),
         btDatepicker = require('directive/btDatepicker.js'),
         btDatepickerRange = require('directive/btDatepickerRange.js'),
-        btPagination = require('directive/btPagination.js');
+        btPagination = require('directive/btPagination.js'),
+        paginationService = require('service/btpaginationService.js');
   
     return app;
 });
