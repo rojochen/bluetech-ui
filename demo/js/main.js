@@ -4,7 +4,7 @@
 	require.config({
 		baseUrl: '',
 		paths: {
-			bluetechUI: '../dist/js/bluetechUI.min',
+			bluetechUI: '../../dist/js/bluetechUI.min',
 			ngRoute: '../../node_modules/angular-route/angular-route.min',
 			btModule: 'js/module/demoModule',
 			demoController: 'js/controller/demoController',

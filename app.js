@@ -7,14 +7,14 @@ var webpackConfig = require('./webpack.config');
 var bundler = webpack(webpackConfig);
 
 browserSync({
+    startPath: 'demo/index.html',
     server: {
-        baseDir: 'demo',
-
+        baseDir: './',
         middleware: [
             webpackDevMiddleware(bundler, {
                 // IMPORTANT: dev middleware can't access config, so we should
                 // provide publicPath by ourselves
-                publicPath: webpackConfig.output.publicPath,
+                // publicPath: 'node_modules',
 
                 // pretty colored output
                 stats: {
@@ -33,6 +33,7 @@ browserSync({
     // no need to watch '*.js' here, webpack will take care of it for us,
     // including full page reloads if HMR won't work
     files: [
+        'demo/**/**',
         'demo/css/*.css',
         'demo/view/*.html',
         'demo/js/*.js'
