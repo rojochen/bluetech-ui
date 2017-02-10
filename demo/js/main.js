@@ -5,15 +5,22 @@
 		baseUrl: '',
 		paths: {
 			bluetechUI: 'js/bluetechUI.min',
+			ngRoute: 'angular-route/angular-route.min',
 			btModule: 'js/module/demoModule',
 			demoController: 'js/controller/demoController',
 			paginationService: 'js/service/btpaginationService',
 			btController: 'js/controller/demoBt',
 			header: 'js/component/header',
 			footer: 'js/component/footer'
+		},
+		shim: {
+			'ngRoute': {
+			exports: 'ngRoute',
+			deps: ['bluetechUI']
+			} 
 		}
 	});	
-	require(['bluetechUI', 'btModule', 'demoController', 'paginationService', 'btController', 'header', 'footer'], function(bluetechUI, btModule, demoController, paginationService, btController, header, footer) {
+	require(['btModule', 'demoController', 'paginationService', 'btController', 'header', 'footer'], function(btModule, demoController, paginationService, btController, header, footer) {
 		angular.bootstrap(document, ['btModule']);
 	});
 })();

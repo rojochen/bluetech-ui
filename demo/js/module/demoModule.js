@@ -1,6 +1,7 @@
-define(['bluetechUI'], function(bluetechUI) {
+define(['bluetechUI', 'ngRoute'], function(bluetechUI, ngRoute) {
     'use strict';
-    var app = angular.module('btModule',['bluetechUI']);
+	
+    var app = angular.module('btModule',['bluetechUI', 'ngRoute']);
     // 導頁路徑
     app.config(['$routeProvider','$locationProvider', function ($routeProvider,$locationProvider) {
 		$routeProvider.eagerInstantiationEnabled(false);
