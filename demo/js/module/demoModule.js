@@ -23,6 +23,9 @@ define(['bluetechUI', 'ngRoute'], function(bluetechUI, ngRoute) {
 				.when('/pagination', {
 					templateUrl: 'view/pagination.html'
 				})
+				.when('/pnotifyService', {
+					templateUrl: 'view/pnotifyService.html'
+				})
 				.otherwise({
 					redirectTo: '/'
 				});

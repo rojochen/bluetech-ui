@@ -2,8 +2,8 @@ define(['btModule'], function (btModule) {
   'use strict';
   var app = angular.module('btModule');
 
-  demoCtrl.$inject = ['$scope', '$log', 'paginationService'];
-  function demoCtrl($scope, $log, paginationService) {
+  demoCtrl.$inject = ['$scope', '$log', 'paginationService', 'pnotifyService'];
+  function demoCtrl($scope, $log, paginationService, pnotifyService) {
     /*begin Portlet */
     $('.collapse-link').on('click', function() {
         var $BOX_PANEL = $(this).closest('.x_panel'),
@@ -215,6 +215,24 @@ define(['btModule'], function (btModule) {
       console.log(e);
     }
     /* end datepicker、datepickerRange頁面 */
+
+    /* begin pnotifyService頁面 */
+    $scope.pnotify_success = function(){
+      pnotifyService.pnotifySuccess('title', 'content text');
+    }
+    $scope.pnotify_info = function(){
+      pnotifyService.pnotifyInfo('title', 'content text');
+    }
+    $scope.pnotify_error = function(){
+      pnotifyService.pnotifyError('title', 'content text');
+    }
+    $scope.pnotify_warn = function(){
+      pnotifyService.pnotifyWarn('title', 'content text');
+    }
+    $scope.pnotify_dark = function(){
+      pnotifyService.pnotifyDark('title', 'content text');
+    }
+    /* end pnotifyService頁面 */
   }
   app.controller('demoCtrl', demoCtrl);
 
