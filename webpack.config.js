@@ -26,7 +26,7 @@ module.exports = {
         ],
         extensions: [".js", ".json", ".jsx", ".css"],
         alias: {
-            bluetech: 'bluetech/dist/js/bluetech.min'
+            bluetech: 'bluetech/dist/js/bluetech'
         }
     },
     resolveLoader: {
@@ -97,6 +97,18 @@ module.exports = {
         }),
         new webpack.LoaderOptionsPlugin({
             minimize: true
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: "bluetechUI",
+
+            filename: "bluetechUI.min.js",
+            // (Give the chunk a different name)
+
+            minChunks: Infinity,
+            children: true,
+            async: true,
+            // (with more entries, this ensures that no other module
+            //  goes into the vendor chunk)
         })
     ]
 };
