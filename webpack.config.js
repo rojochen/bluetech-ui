@@ -3,7 +3,7 @@ const webpack = require('webpack'),
     path = require('path');
 
 module.exports = {
-    devtool: '#eval-source-map',
+    devtool: 'eval',
     context: path.join(__dirname, 'app', 'js'),
     entry: {
         bluetechUI: ['webpack/hot/dev-server',
@@ -85,7 +85,8 @@ module.exports = {
             filename: "../css/bluetechStyle.min.css",
             disable: false,
             allChunks: true
-        }), new webpack.optimize.UglifyJsPlugin({
+        }),
+         new webpack.optimize.UglifyJsPlugin({
             beautify: false,
             sourceMap: false,
             compress: {
