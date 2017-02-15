@@ -78,13 +78,16 @@ module.exports = {
             }, {
                 test: /\.(jpg|woff|svg|ttf|png|eot)([\?]?.*)$/,
                 use: "file?name=../css/img/[name].[ext]"
+            }, { // THIS IS THE MAGIC!
+                test: /\.html$/,
+                exclude: /node_modules/,
+                use: 'raw'
             }
         ]
 
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin(),
         new webpack.LoaderOptionsPlugin({
             minimize: true
         }),
