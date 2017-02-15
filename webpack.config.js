@@ -89,8 +89,15 @@ module.exports = {
          new webpack.optimize.UglifyJsPlugin({
             beautify: false,
             sourceMap: false,
+            // 删除所有的注释
+            comments: false,
             compress: {
-                drop_console: true
+                // 在UglifyJs删除没有用到的代码时不输出警告
+                warnings: false,
+                drop_console: true,
+                // 内嵌定义了但是只用到一次的变量
+                collapse_vars: true,
+                reduce_vars: true,
             },
             mangle: {
                 except: ['$super', '$', 'exports', 'require', '$q', '$ocLazyLoad']
@@ -107,7 +114,7 @@ module.exports = {
 
             minChunks: Infinity,
             children: true,
-            async: true,
+            // async: true,
             // (with more entries, this ensures that no other module
             //  goes into the vendor chunk)
         })
