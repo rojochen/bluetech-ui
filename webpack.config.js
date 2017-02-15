@@ -39,6 +39,12 @@ module.exports = {
     },
     module: {
         rules: [{
+                test: /\.js$/,
+                loader: 'babel',
+                query: {
+                    presets: ['es2015']
+                }
+            }, {
                 test: /\.(png|gif)$/,
                 use: 'url?limit=100000'
             },
@@ -86,7 +92,7 @@ module.exports = {
             disable: false,
             allChunks: true
         }),
-         new webpack.optimize.UglifyJsPlugin({
+        new webpack.optimize.UglifyJsPlugin({
             beautify: false,
             sourceMap: false,
             // 删除所有的注释
@@ -111,9 +117,8 @@ module.exports = {
 
             filename: "bluetechUI.min.js",
             // (Give the chunk a different name)
-
             minChunks: Infinity,
-            children: true,
+            children: true
             // async: true,
             // (with more entries, this ensures that no other module
             //  goes into the vendor chunk)
