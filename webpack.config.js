@@ -1,63 +1,102 @@
-var webpack = require('webpack'),
-    ExtractTextPlugin = require("extract-text-webpack-plugin");
-var path = require('path');
+const webpack = require('webpack'),
+    ExtractTextPlugin = require("extract-text-webpack-plugin"),
+    path = require('path');
 
 module.exports = {
-    debug: true,
     devtool: '#eval-source-map',
     context: path.join(__dirname, 'app', 'js'),
     entry: {
         bluetechUI: ['webpack/hot/dev-server',
-            'webpack-hot-middleware/client', __dirname + '/src/js/app.js'
+            'webpack-hot-middleware/client', `${__dirname}/src/js/app.js`
         ],
         bluetechStyle: ['webpack/hot/dev-server',
-            'webpack-hot-middleware/client', __dirname + '/src/js/style.js'
+            'webpack-hot-middleware/client', `${__dirname}/src/js/style.js`
         ]
     },
+
     output: {
-        path: __dirname + '/dist/js',
+        path: `${__dirname}/dist/js`,
         // publicPath: '/dist/',
         filename: '[name].min.js',
+        libraryTarget: "amd", // defined with AMD defined method
     },
     resolve: {
-        modulesDirectories: ['src/js/', 'node_modules'],
+        modules: [
+            'src/js/', 'node_modules'
+        ],
+        extensions: [".js", ".json", ".jsx", ".css"],
         alias: {
-            bluetech: 'bluetech/dist/js/bluetech'
+            bluetech: 'bluetech/dist/js/bluetech.min'
         }
     },
+    resolveLoader: {
+        // 讓loader不用打
+        moduleExtensions: ['-loader']
+    },
+    //禁止显示webpack的build.js太大的提示
+    performance: {
+        hints: false
+    },
     module: {
-        loaders: [{
-            test: /\.(png|gif)$/,
-            loader: 'url-loader?limit=100000'
-        }, {
-            test: /\.css$/,
-            loader: ExtractTextPlugin.extract("style-loader", "css?minimize!sass")
-        }, {
-            test: /\.scss$/,
-            loader: ExtractTextPlugin.extract("style", "css?minimize!sass")
-        }, {
-            test: /\.(jpg|woff|svg|ttf|eot)([\?]?.*)$/,
-            loader: "file-loader?name=../css/img/[name].[ext]"
-        }]
+        rules: [{
+                test: /\.(png|gif)$/,
+                use: 'url?limit=100000'
+            },
+            {
+                test: /\.css$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style',
+                    loader: [{
+                        loader: 'css',
+                        query: {
+                            import: true,
+                            modules: false,
+                            sourceMaps: true
+                        }
+                    }, "sass"]
+                })
+            }, {
+                test: /\.scss$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style',
+                    loader: [{
+                        loader: 'css',
+                        query: {
+                            import: true,
+                            modules: false,
+                            sourceMaps: true
+                        }
+                    }, "sass"]
+                })
+            }, {
+                test: /\.(jpg|woff|svg|ttf|png|eot)([\?]?.*)$/,
+                use: "file?name=../css/img/[name].[ext]"
+            }
+        ]
+
     },
     plugins: [
-        new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin(),
-        new webpack.optimize.UglifyJsPlugin({
-            debug: true,
-            minimize: true,
-            sourceMap: true,
-            output: {
-                comments: true
+        new webpack.LoaderOptionsPlugin({
+            minimize: true
+        }),
+        new ExtractTextPlugin({
+            filename: "../css/bluetechStyle.min.css",
+            disable: false,
+            allChunks: true
+        }), new webpack.optimize.UglifyJsPlugin({
+            beautify: false,
+            sourceMap: false,
+            compress: {
+                drop_console: true
             },
-            compressor: {
-                warnings: false
+            mangle: {
+                except: ['$super', '$', 'exports', 'require', '$q', '$ocLazyLoad']
             }
         }),
-        new webpack.optimize.DedupePlugin(),
-        new ExtractTextPlugin("../css/bluetechStyle.min.css", {
-            allChunks: true
+        new webpack.LoaderOptionsPlugin({
+            minimize: true
         })
     ]
 };
