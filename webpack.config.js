@@ -18,7 +18,7 @@ module.exports = {
         path: `${__dirname}/dist/js`,
         // publicPath: '/dist/',
         filename: '[name].min.js',
-        libraryTarget: "amd", // defined with AMD defined method
+        libraryTarget: "umd", // defined with AMD defined method
     },
     resolve: {
         modules: [
