@@ -2,6 +2,7 @@
 	'use strict';
 
 	require.config({
+		waitSeconds: 90,
 		baseUrl: '',
 		paths: {
 			bluetechUI: '../../dist/js/bluetechUI.min',
