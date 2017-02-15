@@ -40,6 +40,7 @@ module.exports = {
     module: {
         rules: [{
                 test: /\.js$/,
+                exclude: /(node_modules|vendors)/,
                 loader: 'babel',
                 query: {
                     presets: ['es2015']
