@@ -21,6 +21,11 @@ define([], function () {
             }
 
 
+            scope.cancel = function(){
+                scope.onConfirmEvent({e:{status: 'no'}});
+            }
+
+
             $(document).on('show.bs.modal', '.modal', function (event) {
                 var zIndex = 1050 + (10 * $('.modal:visible').length);
                 $(this).css('z-index', zIndex);
@@ -82,7 +87,7 @@ define([], function () {
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-primary" ng-bind="btn_1" ng-click="confirm()"></button>
-                                            <button type="button" class="btn btn-default" data-dismiss="modal" ng-bind="btn_2"></button>
+                                            <button type="button" class="btn btn-default" ng-bind="btn_2" ng-click="cancel()"></button>
                                         </div>
                                     </div>
                                 </div>
