@@ -3,7 +3,7 @@
     padding-right:0 !important;
 }
 .nav-md.modal-open {
-    overflow: auto;
+    /*overflow: auto;*/
 }
 .modal{
 }
