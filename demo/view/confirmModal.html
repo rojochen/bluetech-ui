@@ -41,65 +41,24 @@
 					<div class="clearfix"></div>
 				</div>
 				<div class="x_content bs-example-popovers">
-					<p>可藉。</p>
-					<p><code>&lt;bt-datepicker-range &gt;&lt;/bt-datepicker-range&gt;</code></p>
+					<p>可藉由bt-confirm-modal這個directive新增確認視窗。</p>
+					<p><code>&lt;bt-confirm-modal <strong>modal-id</strong>="rr" <strong>ng-model</strong>="confirmModal" <strong>keyboard</strong>="false" <strong>backdrop</strong>="static" <strong>on-confirm-event</strong>="eventConfirm(e)"&gt;&lt;/bt-confirm-modal&gt;</code></p>
 					<p>說明如下：</p>
 					<ol>
-						<li>d</li>
+						<li>modal-id，視同id，唯一值。(必填)</li>
+						<li>ng-model，可設定modal的title、content，甚至button名稱。(object，必填)</li>
+						<li>keyboard，可設定鍵盤按下Esc鈕關閉互動視窗，預設true。</li>
+						<li>backdrop，可設定為static，點擊遮罩不會關閉modal，預設點擊遮罩會關閉modal。</li>
+						<li>on-confirm-event，bt-confirm-modal點擊確認button後的事件。</li>
+						<li>提供modalService.openModal(id Name)，開啟modal視窗。</li>
+						<li>提供modalService.closeModal(id Name)，關閉modal視窗。</li>
 					</ol>
 					<div class="col-md-6 col-sm-12 col-xs-12">
-						<button class="btn btn-primary" ng-click="openConfirmModal()">open</button>
-						<!-- Large modal -->
-						<button type="button" class="btn btn-primary" ng-click="bigMOdal()">Large model</button>
-						<div class="modal fade bs-example-modal-lg" id="bigMOdal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-							<div class="modal-dialog modal-lg">
-								<div class="modal-content">
-									<div class="modal-header">
-										<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
-										<h4 class="modal-title" id="myModalLabel">Model 標題</h4>
-									</div>
-									<div class="modal-body">
-										<h4>Text in a model</h4>
-																					<button class="btn btn-primary" ng-click="openConfirmModal_1()">open_1</button>
-									</div>
-									<div class="modal-footer">
-										<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-										<button type="button" class="btn btn-primary">儲存</button>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-							<div class="modal-dialog modal-lg">
-								<!-- Modal content-->
-								<div class="modal-content">
-									<div class="modal-header">
-										<button type="button" class="close" data-dismiss="modal">&times;</button>
-										<h4 class="modal-title">Modal Header</h4>
-									</div>
-									<div class="modal-body">
-										<a href="#rr" role="button" class="btn btn-primary" data-toggle="modal">Launch other modal 1</a>
-									</div>
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-									<button type="button" class="btn btn-primary">儲存</button>
-								</div>
-							</div>
-						</div>
-						<!-- Large modal -->
-
-
-						<bt-confirm-modal modal-id="rr" ng-model="confirmModal" on-confirm-event="eventConfirm(e)"></bt-confirm-modal>
-
-
-						
-
-
+						<button class="btn btn-primary" ng-click="openConfirmModal()">open modal</button>
 					</div>	
 				</div>
 			</div>
 		</div>	
 	</div>
+	<bt-confirm-modal modal-id="rr" ng-model="confirmModal" keyboard="false" backdrop="static" on-confirm-event="eventConfirm(e)"></bt-confirm-modal>
 </div>

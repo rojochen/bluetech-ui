@@ -7,8 +7,6 @@
 			bluetechUI: 'js/bluetechUI.min',
 			ngRoute: 'angular-route/angular-route.min',
 			btModule: 'js/module/demoModule',
-			btConfirmModal: 'js/directive/btConfirmModal',
-			modalService: 'js/service/modalService',
 			demoController: 'js/controller/demoController',
 			btController: 'js/controller/demoBt',
 			header: 'js/component/header',
@@ -21,7 +19,7 @@
 			} 
 		}
 	});	
-	require(['btModule', 'btConfirmModal', 'modalService', 'demoController', 'btController', 'header', 'footer'], function(btModule, btConfirmModal, modalService, demoController, btController, header, footer) {
+	require(['btModule', 'demoController', 'btController', 'header', 'footer'], function(btModule, demoController, btController, header, footer) {
 		angular.bootstrap(document, ['btModule']);
 	});
 })();

@@ -235,10 +235,10 @@ define(['btModule'], function (btModule) {
     /* end pnotifyService頁面 */
 
     /* begin btConfirmModal頁面 */
-    // $scope.confirmModal = {
-    //   title: 'title-text',
-    //   content: 'content-text'
-    // }
+    $scope.confirmModal = {
+      title: 'title-text',
+      content: 'content-text'
+    }
     $scope.openConfirmModal = function(){
       modalService.openModal('rr');
     };
@@ -246,20 +246,8 @@ define(['btModule'], function (btModule) {
       console.log(e);
       modalService.closeModal('rr');
     };
-    $scope.confirmModal = {
-      title: '修改主約類型多筆維護畫面',
-      content: '確定修改主約類型多筆維護？',
-      btn_1: '確定ss',
-      btn_2: '取消ss'
-    }
-    $scope.bigMOdal = function(){
-      // $('#bigMOdal').modal('show');
-      $('#myModal').modal('show');
-    }
-    $scope.openConfirmModal_1 = function(){  //第二層會有問題
-      modalService.openModal('rr');
-    };
     /* end btConfirmModal頁面 */
+    
   }
   app.controller('demoCtrl', demoCtrl);
 
