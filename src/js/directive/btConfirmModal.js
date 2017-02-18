@@ -1,12 +1,18 @@
-define([], function () {
-    'use strict';
-    var app = angular.module("bluetechUI");
+// define([], function () {
+//     'use strict';
+//     var app = angular.module("bluetechUI");
 
-    app.directive('btConfirmModal', ['$timeout', function($timeout){
-        function link(scope, element, attrs){
+
+
+//     return app;
+// });
+
+(function () {
+    app.directive('btConfirmModal', ['$timeout', function ($timeout) {
+        function link(scope, element, attrs) {
             var id = attrs['modalId'],
-                keyboard = attrs['keyboard']?attrs['keyboard']=='true':true,
-                backdrop = attrs['backdrop']?attrs['backdrop']:' ';
+                keyboard = attrs['keyboard'] ? attrs['keyboard'] == 'true' : true,
+                backdrop = attrs['backdrop'] ? attrs['backdrop'] : ' ';
             // console.log(id);
             // console.log(keyboard);
             // console.log(backdrop);
@@ -14,15 +20,23 @@ define([], function () {
 
             scope.keyboard = keyboard;
             scope.backdrop = backdrop;
-            
-            
-            scope.confirm = function(){
-                scope.onConfirmEvent({e:{status: 'yes'}});
+
+
+            scope.confirm = function () {
+                scope.onConfirmEvent({
+                    e: {
+                        status: 'yes'
+                    }
+                });
             }
 
 
-            scope.cancel = function(){
-                scope.onConfirmEvent({e:{status: 'no'}});
+            scope.cancel = function () {
+                scope.onConfirmEvent({
+                    e: {
+                        status: 'no'
+                    }
+                });
             }
 
 
@@ -33,9 +47,9 @@ define([], function () {
             });
 
 
-            $(document).on('keydown', function(e) {
+            $(document).on('keydown', function (e) {
                 // console.log('ddd-esc');
-                if($('.modal').is(':visible') && e.target.nodeName === 'BODY'){
+                if ($('.modal').is(':visible') && e.target.nodeName === 'BODY') {
                     var closeModal = $('.modal:visible').attr('id');
                     $('#' + closeModal).modal('hide');
                 }
@@ -50,21 +64,21 @@ define([], function () {
 
             // console.log(scope.ngModel);
             scope.isShow = false;
-            if(id && scope.ngModel && scope.ngModel.title && scope.ngModel.content){
+            if (id && scope.ngModel && scope.ngModel.title && scope.ngModel.content) {
                 scope.title = scope.ngModel.title;
                 scope.content = scope.ngModel.content;
-                scope.btn_1 = scope.ngModel.btn_1?scope.ngModel.btn_1:'確定';
-                scope.btn_2 = scope.ngModel.btn_2?scope.ngModel.btn_2:'取消';
+                scope.btn_1 = scope.ngModel.btn_1 ? scope.ngModel.btn_1 : '確定';
+                scope.btn_2 = scope.ngModel.btn_2 ? scope.ngModel.btn_2 : '取消';
                 scope.id = id;
                 scope.isShow = true;
-            }else if(!id){
+            } else if (!id) {
                 scope.isShow = false;
                 scope.dangerText = '請填寫 modal-id。';
-            }else{
+            } else {
                 scope.isShow = false;
                 scope.dangerText = 'model 格式不齊全，未填寫title或content。';
             }
-            
+
         }
 
 
@@ -95,6 +109,4 @@ define([], function () {
                             <p ng-if="!isShow" ng-bind="dangerText"></p>`
         };
     }])
-
-    return app;
-});
+})();
