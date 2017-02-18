@@ -1,0 +1,19 @@
+/* begin modal style */
+.nav-md {
+    padding-right:0 !important;
+}
+.nav-md.modal-open {
+    overflow: auto;
+}
+.modal{
+}
+.modal .modal-content > .modal-header{
+    padding:10px;
+}
+.modal .modal-content > .modal-body{
+    padding:20px 15px;
+}
+.modal .modal-content > .modal-footer{
+    padding:7px;
+}
+/* end modal style */
