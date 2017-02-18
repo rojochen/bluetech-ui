@@ -26,6 +26,9 @@ define(['bluetechUI', 'ngRoute'], function(bluetechUI, ngRoute) {
 				.when('/pnotifyService', {
 					templateUrl: 'view/pnotifyService.html'
 				})
+				.when('/confirmModal', {
+					templateUrl: 'view/confirmModal.html'
+				})
 				.otherwise({
 					redirectTo: '/'
 				});

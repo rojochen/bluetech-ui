@@ -2,8 +2,8 @@ define(['btModule'], function (btModule) {
   'use strict';
   var app = angular.module('btModule');
 
-  demoCtrl.$inject = ['$scope', '$log', 'paginationService', 'pnotifyService'];
-  function demoCtrl($scope, $log, paginationService, pnotifyService) {
+  demoCtrl.$inject = ['$scope', '$log', 'paginationService', 'pnotifyService', 'modalService'];
+  function demoCtrl($scope, $log, paginationService, pnotifyService, modalService) {
     /*begin Portlet */
     $('.collapse-link').on('click', function() {
         var $BOX_PANEL = $(this).closest('.x_panel'),
@@ -233,6 +233,21 @@ define(['btModule'], function (btModule) {
       pnotifyService.pnotifyDark('title', 'content text');
     }
     /* end pnotifyService頁面 */
+
+    /* begin btConfirmModal頁面 */
+    $scope.confirmModal = {
+      title: 'title-text',
+      content: 'content-text'
+    }
+    $scope.openConfirmModal = function(){
+      modalService.openModal('rr');
+    };
+    $scope.eventConfirm = function(e){
+      console.log(e);
+      modalService.closeModal('rr');
+    };
+    /* end btConfirmModal頁面 */
+    
   }
   app.controller('demoCtrl', demoCtrl);
 

@@ -12,7 +12,7 @@ module.exports = {
         filename: '[name].min.js',
     },
     resolve:{
-        modulesDirectories: ['src/js/', 'node_modules'],
+        modulesDirectories: ['src/js/', 'src/css/', 'node_modules'],
         alias: {
             bluetech: 'bluetech/dist/js/bluetech'
         }
