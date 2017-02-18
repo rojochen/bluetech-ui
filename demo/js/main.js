@@ -21,7 +21,7 @@
 		}
 
 	});
-	require(['btModule', 'demoController', 'paginationService', 'btController', 'header', 'footer'], function (btModule, demoController, paginationService, btController, header, footer) {
+	require(['btModule', 'demoController', 'btController', 'header', 'footer'], function (btModule, demoController, btController, header, footer) {
 		angular.bootstrap(document, ['btModule']);
 	});
 })();
