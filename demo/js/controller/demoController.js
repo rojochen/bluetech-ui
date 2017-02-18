@@ -244,6 +244,11 @@ define(['btModule'], function (btModule) {
     };
     $scope.eventConfirm = function(e){
       console.log(e);
+      if(e.status === 'yes'){
+        pnotifyService.pnotifySuccess('confirmModal 狀態', '點選確定按鈕');
+      }else{
+        pnotifyService.pnotifyError('confirmModal 狀態', '點選取消按鈕');
+      }
       modalService.closeModal('rr');
     };
     /* end btConfirmModal頁面 */
