@@ -2,8 +2,8 @@ define(['btModule'], function (btModule) {
   'use strict';
   var app = angular.module('btModule');
 
-  demoCtrl.$inject = ['$scope', '$log', 'paginationService'];
-  function demoCtrl($scope, $log, paginationService) {
+  demoCtrl.$inject = ['$scope', '$log', 'paginationService', 'pnotifyService', 'modalService'];
+  function demoCtrl($scope, $log, paginationService, pnotifyService, modalService) {
     /*begin Portlet */
     $('.collapse-link').on('click', function() {
         var $BOX_PANEL = $(this).closest('.x_panel'),
@@ -215,6 +215,44 @@ define(['btModule'], function (btModule) {
       console.log(e);
     }
     /* end datepicker、datepickerRange頁面 */
+
+    /* begin pnotifyService頁面 */
+    $scope.pnotify_success = function(){
+      pnotifyService.pnotifySuccess('title', 'content text');
+    }
+    $scope.pnotify_info = function(){
+      pnotifyService.pnotifyInfo('title', 'content text');
+    }
+    $scope.pnotify_error = function(){
+      pnotifyService.pnotifyError('title', 'content text');
+    }
+    $scope.pnotify_warn = function(){
+      pnotifyService.pnotifyWarn('title', 'content text');
+    }
+    $scope.pnotify_dark = function(){
+      pnotifyService.pnotifyDark('title', 'content text');
+    }
+    /* end pnotifyService頁面 */
+
+    /* begin btConfirmModal頁面 */
+    $scope.confirmModal = {
+      title: 'title-text',
+      content: 'content-text'
+    }
+    $scope.openConfirmModal = function(){
+      modalService.openModal('rr');
+    };
+    $scope.eventConfirm = function(e){
+      console.log(e);
+      if(e.status === 'yes'){
+        pnotifyService.pnotifySuccess('confirmModal 狀態', '點選確定按鈕');
+      }else{
+        pnotifyService.pnotifyError('confirmModal 狀態', '點選取消按鈕');
+      }
+      modalService.closeModal('rr');
+    };
+    /* end btConfirmModal頁面 */
+    
   }
   app.controller('demoCtrl', demoCtrl);
 

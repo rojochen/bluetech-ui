@@ -1,0 +1,64 @@
+<div class="" ng-controller="demoCtrl">
+	<div class="page-title">
+		<div class="title_left">
+			<h3>確認視窗</h3>
+		</div>
+
+		<div class="title_right">
+			<div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+				<div class="input-group">
+					<input type="text" class="form-control" placeholder="搜尋">
+					<span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	<div class="row">
+		<div class="col-md-12 col-sm-12 col-xs-12">
+			<div class="x_panel">
+				<div class="x_title">
+					<h2>確認視窗設計</h2>
+					<ul class="nav navbar-right panel_toolbox">
+						<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="#">設定 1</a>
+								</li>
+								<li><a href="#">設定 2</a>
+								</li>
+							</ul>
+						</li>
+						<li><a class="close-link"><i class="fa fa-close"></i></a>
+						</li>
+					</ul>
+					<div class="clearfix"></div>
+				</div>
+				<div class="x_content bs-example-popovers">
+					<p>可藉由bt-confirm-modal這個directive新增確認視窗。</p>
+					<p><code>&lt;bt-confirm-modal <strong>modal-id</strong>="rr" <strong>ng-model</strong>="confirmModal" <strong>keyboard</strong>="false" <strong>backdrop</strong>="static" <strong>on-confirm-event</strong>="eventConfirm(e)"&gt;&lt;/bt-confirm-modal&gt;</code></p>
+					<p>說明如下：</p>
+					<ol>
+						<li>modal-id，視同id，唯一值。(必填)</li>
+						<li>ng-model，可設定modal的title、content，甚至button名稱。(object，必填)</li>
+						<li>keyboard，可設定鍵盤按下Esc鈕關閉互動視窗，預設true。</li>
+						<li>backdrop，可設定為static，點擊遮罩不會關閉modal，預設點擊遮罩會關閉modal。</li>
+						<li>on-confirm-event，點擊確定或取消button後的事件，返回一object。</li>
+						<li>提供modalService.openModal(id Name)，開啟modal視窗。</li>
+						<li>提供modalService.closeModal(id Name)，關閉modal視窗。</li>
+					</ol>
+					<div class="col-md-6 col-sm-12 col-xs-12">
+						<button class="btn btn-primary" ng-click="openConfirmModal()">open modal</button>
+					</div>	
+				</div>
+			</div>
+		</div>	
+	</div>
+	<bt-confirm-modal modal-id="rr" ng-model="confirmModal" keyboard="false" backdrop="static" on-confirm-event="eventConfirm(e)"></bt-confirm-modal>
+</div>

@@ -20,11 +20,13 @@ module.exports = {
         filename: '[name].min.js',
         libraryTarget: "umd", // defined with AMD defined method
     },
+
     resolve: {
         modules: [
             'src/js/', 'node_modules'
         ],
         extensions: [".js", ".json", ".jsx", ".css"],
+
         alias: {
             bluetech: 'bluetech/dist/js/bluetech'
         }
