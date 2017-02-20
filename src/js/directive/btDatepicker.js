@@ -6,8 +6,9 @@
 
 //     return app;
 // });
+import app from '../blue.js';
 
-((() => {
+export function btDatepicker() {
     app.directive('btDatepicker', ['$timeout', $timeout => {
         function link(scope, element, attrs) {
             const datepickerId = attrs['datepickerId'];
@@ -202,4 +203,4 @@
                         <span ng-show="!isShowDatepicker">請設定bt-datepicker-range的datepicker-id。</span>`
         };
     }])
-}))();
+}

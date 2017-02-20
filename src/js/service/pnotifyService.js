@@ -8,7 +8,12 @@
 // });
 
 
-((() => {
+// ((() => {
+
+// }))();
+
+import app from '../blue.js';
+export function pnotifyService() {
     pnotifyService.$inject = ['$log'];
 
     function pnotifyService($log) {
@@ -59,4 +64,4 @@
     }
 
     app.factory('pnotifyService', pnotifyService);
-}))();
+}

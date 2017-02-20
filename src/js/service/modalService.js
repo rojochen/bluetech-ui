@@ -8,7 +8,12 @@
 // });
 
 
-((() => {
+// ((() => {
+
+// }))();
+
+import app from '../blue.js';
+export function modalService() {
     modalService.$inject = ['$log'];
 
     function modalService($log) {
@@ -24,4 +29,4 @@
     }
 
     app.factory('modalService', modalService);
-}))();
+}

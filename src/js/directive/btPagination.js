@@ -8,7 +8,12 @@
 // });
 
 
-((() => {
+// ((() => {
+
+// }))();
+import app from '../blue.js';
+
+export function btPagination() {
     app.directive('btPagination', ['paginationService', paginationService => {
         function link(scope, element, attrs) {
             const totalCount = scope.ngModel.totalCount,
@@ -158,4 +163,4 @@
                     <p ng-show="!isShowPagination">沒有資料或未設定id...，請確認格式！</p>`
         };
     }])
-}))();
+}

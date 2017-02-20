@@ -8,7 +8,11 @@
 // });
 
 
-((() => {
+// ((() => {
+
+// }))();
+import app from '../blue.js';
+export function paginationService() {
     paginationService.$inject = ['$log'];
 
     function paginationService($log) {
@@ -28,4 +32,4 @@
     }
 
     app.factory('paginationService', paginationService);
-}))();
+}

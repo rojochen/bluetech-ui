@@ -7,8 +7,9 @@
 
 //     return app;
 // });
+export let counter = 3;
 
-((() => {
+export function btConfirmModal() {
     app.directive('btConfirmModal', ['$timeout', $timeout => {
         function link(scope, element, attrs) {
             const id = attrs['modalId'],
@@ -110,7 +111,7 @@
                             <p ng-if="!isShow" ng-bind="dangerText"></p>`
         };
     }])
-}))();
+};
 // define([], function () {
 //     'use strict';
 //     var app = angular.module("bluetechUI");
@@ -120,7 +121,8 @@
 //     return app;
 // });
 
-((() => {
+
+export function btDatepicker() {
     app.directive('btDatepicker', ['$timeout', $timeout => {
         function link(scope, element, attrs) {
             const datepickerId = attrs['datepickerId'];
@@ -315,7 +317,7 @@
                         <span ng-show="!isShowDatepicker">請設定bt-datepicker-range的datepicker-id。</span>`
         };
     }])
-}))();
+}
 // define([], function () {
 //     'use strict';
 //     var app = angular.module("bluetechUI");
@@ -324,7 +326,7 @@
 //     return app;
 // });
 
-((() => {
+export function btDatepickerRange() {
     app.directive('btDatepickerRange', ['$timeout', $timeout => {
         function link(scope, element, attrs) {
             const datepickerId = attrs['datepickerId'];
@@ -527,8 +529,7 @@
                         <span ng-show="!isShowDatepicker">請設定bt-datepicker-range的datepicker-id。</span>`
         };
     }])
-
-}))();
+}
 // define([], function () {
 //     'use strict';
 //     var app = angular.module("bluetechUI");

@@ -6,7 +6,7 @@
 
 //     return app;
 // });
-export let counter = 3;
+import app from '../blue.js';
 
 export function btConfirmModal() {
     app.directive('btConfirmModal', ['$timeout', $timeout => {
@@ -111,5 +111,3 @@ export function btConfirmModal() {
         };
     }])
 };
-
- 
