@@ -1,34 +1,48 @@
-// define([], function () {
-//     'use strict';
-//     var app = angular.module("bluetechUI");
+// // define([], function () {
+// //     'use strict';
+// //     var app = angular.module("bluetechUI");
 
 
 
-//     return app;
-// });
+// //     return app;
+// // });
 
 
-// ((() => {
+// // ((() => {
 
-// }))();
+// // }))();
 
-import app from '../blue.js';
-// export function modalService() {
-btmodalService.$inject = ['$log'];
+//  // export function modalService() {
+//          let app = angular.module("bluetechUI");
 
-function btmodalService($log) {
-    return {
-        openModal(id) {
-            $(`#${id}`).modal('show');
-        },
-        closeModal(id) {
-            $(`#${id}`).modal('hide');
-        }
-    };
+// btmodalService.$inject = ['$log'];
+
+// function btmodalService($log) {
+//     return {
+//         openModal(id) {
+//             $(`#${id}`).modal('show');
+//         },
+//         closeModal(id) {
+//             $(`#${id}`).modal('hide');
+//         }
+//     };
     
-}
-
-export let modalService = app.factory('modalService', btmodalService);
-
-
 // }
+
+// export let modalService = app.factory('modalService', btmodalService);
+((myApp)=>{
+    function btmodalService($log) {
+        return {
+            openModal(id) {
+                $(`#${id}`).modal('show');
+            },
+            closeModal(id) {
+                $(`#${id}`).modal('hide');
+            }
+        };
+    }
+    btmodalService.$inject = ['$log'];
+    myApp.factory('modalService', btmodalService);
+})(app);
+
+ 

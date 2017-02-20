@@ -12,57 +12,57 @@
 
 // }))();
 
-import app from '../blue.js';
-// export function pnotifyService() {
-btpnotifyService.$inject = ['$log'];
-
-function btpnotifyService($log) {
-    const paginationInfo = null;
-    return {
-        pnotifySuccess(title, content) {
-            new PNotify({
-                title,
-                text: content,
-                type: 'success',
-                styling: 'bootstrap3'
-            });
-        },
-        pnotifyInfo(title, content) {
-            new PNotify({
-                title,
-                text: content,
-                type: 'info',
-                styling: 'bootstrap3'
-            });
-        },
-        pnotifyError(title, content) {
-            new PNotify({
-                title,
-                text: content,
-                type: 'error',
-                styling: 'bootstrap3'
-            });
-        },
-        pnotifyWarn(title, content) {
-            new PNotify({
-                title,
-                text: content,
-                type: 'warn',
-                styling: 'bootstrap3'
-            });
-        },
-        pnotifyDark(title, content) {
-            new PNotify({
-                title,
-                text: content,
-                styling: 'bootstrap3',
-                addclass: 'dark'
-            });
-        }
-    };
-    
-}
-
-export let pnotifyService = app.factory('pnotifyService', btpnotifyService);
+ // export function pnotifyService() {
+        
+((myApp)=>{
+    function btpnotifyService($log) {
+        const paginationInfo = null;
+        return {
+            pnotifySuccess(title, content) {
+                new PNotify({
+                    title,
+                    text: content,
+                    type: 'success',
+                    styling: 'bootstrap3'
+                });
+            },
+            pnotifyInfo(title, content) {
+                new PNotify({
+                    title,
+                    text: content,
+                    type: 'info',
+                    styling: 'bootstrap3'
+                });
+            },
+            pnotifyError(title, content) {
+                new PNotify({
+                    title,
+                    text: content,
+                    type: 'error',
+                    styling: 'bootstrap3'
+                });
+            },
+            pnotifyWarn(title, content) {
+                new PNotify({
+                    title,
+                    text: content,
+                    type: 'warn',
+                    styling: 'bootstrap3'
+                });
+            },
+            pnotifyDark(title, content) {
+                new PNotify({
+                    title,
+                    text: content,
+                    styling: 'bootstrap3',
+                    addclass: 'dark'
+                });
+            }
+        };
+        
+    }
+    btpnotifyService.$inject = ['$log'];
+    myApp.factory('pnotifyService', btpnotifyService);
+})(app);
 
 // }
