@@ -1,7 +1,4 @@
-define([], function () {
-    'use strict';
-    var app = angular.module("bluetechUI");
-
+(function(){
     paginationService.$inject = ['$log'];
 
     function paginationService($log) {
@@ -21,6 +18,4 @@ define([], function () {
     }
 
     app.factory('paginationService', paginationService);
-
-    return app;
-});
+})();

@@ -1,7 +1,4 @@
-define([], function () {
-    'use strict';
-    var app = angular.module("bluetechUI");
-
+(function(){
     app.directive('btPagination', ['paginationService', function(paginationService){
         function link(scope, element, attrs){
             var totalCount = scope.ngModel.totalCount,
@@ -149,6 +146,4 @@ define([], function () {
                     <p ng-show="!isShowPagination">沒有資料或未設定id...，請確認格式！</p>`
         };
     }])
-
-    return app;
-});
+})();

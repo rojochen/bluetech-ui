@@ -1,7 +1,4 @@
-define([], function () {
-    'use strict';
-    var app = angular.module("bluetechUI");
-
+(function(){
     app.directive('btDatepickerRange', ['$timeout', function($timeout){
         function link(scope, element, attrs){
             var datepickerId = attrs['datepickerId'],
@@ -197,6 +194,4 @@ define([], function () {
                         <span ng-show="!isShowDatepicker">請設定bt-datepicker-range的datepicker-id。</span>`
         };
     }])
-
-    return app;
-});
+})();

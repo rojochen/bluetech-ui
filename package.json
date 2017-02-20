@@ -29,6 +29,8 @@
     "file-loader": "^0.10.0",
     "css-loader": "^0.26.1",
     "node-sass": "^4.5.0",
-    "sass-loader": "^5.0.1"
+    "sass-loader": "^5.0.1",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1"
   }
 }

@@ -1,7 +1,4 @@
-define([], function () {
-    'use strict';
-    var app = angular.module("bluetechUI");
-
+(function(){
     pnotifyService.$inject = ['$log'];
 
     function pnotifyService($log) {
@@ -52,6 +49,4 @@ define([], function () {
     }
 
     app.factory('pnotifyService', pnotifyService);
-
-    return app;
-});
+})();

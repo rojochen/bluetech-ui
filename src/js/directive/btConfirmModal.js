@@ -1,7 +1,4 @@
-define([], function () {
-    'use strict';
-    var app = angular.module("bluetechUI");
-
+(function(){
     app.directive('btConfirmModal', ['$timeout', function($timeout){
         function link(scope, element, attrs){
             var id = attrs['modalId'],
@@ -95,6 +92,4 @@ define([], function () {
                             <p ng-if="!isShow" ng-bind="dangerText"></p>`
         };
     }])
-
-    return app;
-});
+})();
