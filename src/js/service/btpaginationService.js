@@ -1,4 +1,4 @@
-((myApp)=>{
+(()=>{
     function btpaginationService1($log) {
         let paginationInfo = null;
         return {
@@ -15,6 +15,6 @@
         
     }
     btpaginationService1.$inject = ['$log'];
-    myApp.factory('paginationService', btpaginationService1);
-})(app);
+    angular.module("bluetechUI").factory('paginationService', btpaginationService1);
+})();
 // }

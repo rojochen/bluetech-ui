@@ -30,7 +30,7 @@
 // }
 
 // export let modalService = app.factory('modalService', btmodalService);
-((myApp)=>{
+(()=>{
     function btmodalService($log) {
         return {
             openModal(id) {
@@ -42,7 +42,7 @@
         };
     }
     btmodalService.$inject = ['$log'];
-    myApp.factory('modalService', btmodalService);
-})(app);
+    angular.module("bluetechUI").factory('modalService', btmodalService);
+})();
 
  

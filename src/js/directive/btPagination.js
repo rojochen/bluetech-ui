@@ -13,9 +13,9 @@
 // }))();
     //  let app = angular.module("bluetechUI");
 
-((myApp)=>{
+(()=>{
  
-    myApp.directive('btPagination', ['paginationService', paginationService => {
+    angular.module("bluetechUI").directive('btPagination', ['paginationService', paginationService => {
         function link(scope, element, attrs) {
             const totalCount = scope.ngModel.totalCount,
                 pageSize = Number.isNaN(Number.parseInt(attrs['pageSize'])) ? 10 : Number.parseInt(attrs['pageSize']),
@@ -164,4 +164,4 @@
                     <p ng-show="!isShowPagination">沒有資料或未設定id...，請確認格式！</p>`
         };
     }]);
-})(app);
+})();

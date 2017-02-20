@@ -14,7 +14,7 @@
 
  // export function pnotifyService() {
         
-((myApp)=>{
+(()=>{
     function btpnotifyService($log) {
         const paginationInfo = null;
         return {
@@ -62,7 +62,7 @@
         
     }
     btpnotifyService.$inject = ['$log'];
-    myApp.factory('pnotifyService', btpnotifyService);
-})(app);
+     angular.module("bluetechUI").factory('pnotifyService', btpnotifyService);
+})();
 
 // }
