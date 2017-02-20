@@ -13,9 +13,9 @@
 // }))();
 import app from '../blue.js';
 // export function paginationService() {
-paginationService.$inject = ['$log'];
+btpaginationService.$inject = ['$log'];
 
-function paginationService($log) {
+function btpaginationService1($log) {
     let paginationInfo = null;
     const paginationService = {
         setInfo(data) {
@@ -28,9 +28,8 @@ function paginationService($log) {
             $(`#${id}`).triggerHandler('goFirst');
         }
     };
-    return paginationService;
+    return btpaginationService1;
 }
 
-let paginationService = app.factory('paginationService', paginationService);
+export let paginationService = app.factory('paginationService', btpaginationService1);
 // }
-export let paginationService;

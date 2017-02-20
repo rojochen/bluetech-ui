@@ -14,9 +14,9 @@
 
 import app from '../blue.js';
 // export function pnotifyService() {
-pnotifyService.$inject = ['$log'];
+btpnotifyService.$inject = ['$log'];
 
-function pnotifyService($log) {
+function btpnotifyService($log) {
     const paginationInfo = null;
     const pnotifyService = {
         pnotifySuccess(title, content) {
@@ -60,11 +60,9 @@ function pnotifyService($log) {
             });
         }
     };
-    return pnotifyService;
+    return btpnotifyService;
 }
 
-let pnotifyService = app.factory('pnotifyService', pnotifyService);
+export let pnotifyService = app.factory('pnotifyService', btpnotifyService);
 
-
-export let pnotifyService;
 // }

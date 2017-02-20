@@ -58,7 +58,7 @@ export {
 }
 from 'service/modalService.js';
 
-paginationService();
-pnotifyService();
-modalService();
+// paginationService();
+// pnotifyService();
+// modalService();
 // const btService = require("./service/dist/btService");

@@ -14,9 +14,9 @@
 
 import app from '../blue.js';
 // export function modalService() {
-modalService.$inject = ['$log'];
+btmodalService.$inject = ['$log'];
 
-function modalService($log) {
+function btmodalService($log) {
     const modalService = {
         openModal(id) {
             $(`#${id}`).modal('show');
@@ -25,10 +25,10 @@ function modalService($log) {
             $(`#${id}`).modal('hide');
         }
     };
-    return modalService;
+    return btmodalService;
 }
 
-let modalService = app.factory('modalService', modalService);
+export let modalService = app.factory('modalService', btmodalService);
 
-export let modalService;
+
 // }
