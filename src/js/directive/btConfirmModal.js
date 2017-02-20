@@ -7,10 +7,10 @@
 //     return app;
 // });
 
-(function () {
-    app.directive('btConfirmModal', ['$timeout', function ($timeout) {
+((() => {
+    app.directive('btConfirmModal', ['$timeout', $timeout => {
         function link(scope, element, attrs) {
-            var id = attrs['modalId'],
+            const id = attrs['modalId'],
                 keyboard = attrs['keyboard'] ? attrs['keyboard'] == 'true' : true,
                 backdrop = attrs['backdrop'] ? attrs['backdrop'] : ' ';
             // console.log(id);
@@ -22,7 +22,7 @@
             scope.backdrop = backdrop;
 
 
-            scope.confirm = function () {
+            scope.confirm = () => {
                 scope.onConfirmEvent({
                     e: {
                         status: 'yes'
@@ -31,7 +31,7 @@
             }
 
 
-            scope.cancel = function () {
+            scope.cancel = () => {
                 scope.onConfirmEvent({
                     e: {
                         status: 'no'
@@ -41,22 +41,22 @@
 
 
             $(document).on('show.bs.modal', '.modal', function (event) {
-                var zIndex = 1050 + (10 * $('.modal:visible').length);
+                const zIndex = 1050 + (10 * $('.modal:visible').length);
                 $(this).css('z-index', zIndex);
                 // console.log(zIndex);
             });
 
 
-            $(document).on('keydown', function (e) {
+            $(document).on('keydown', e => {
                 // console.log('ddd-esc');
                 if ($('.modal').is(':visible') && e.target.nodeName === 'BODY') {
-                    var closeModal = $('.modal:visible').attr('id');
-                    $('#' + closeModal).modal('hide');
+                    const closeModal = $('.modal:visible').attr('id');
+                    $(`#${closeModal}`).modal('hide');
                 }
             })
 
 
-            element.on('$destroy', function () {
+            element.on('$destroy', () => {
                 // console.log("on destroy");
                 scope.$destroy();
             });
@@ -88,7 +88,7 @@
                 ngModel: '=',
                 onConfirmEvent: '&'
             },
-            link: link,
+            link,
             template: `<div class="modal fade bs-example-modal-sm" id="{{id}}" tabindex="-1" role="dialog" aria-hidden="true" data-keyboard="{{keyboard}}" data-backdrop="{{backdrop}}">
                                 <div class="modal-dialog modal-sm">
                                     <div class="modal-content">
@@ -109,4 +109,4 @@
                             <p ng-if="!isShow" ng-bind="dangerText"></p>`
         };
     }])
-})();
+}))();

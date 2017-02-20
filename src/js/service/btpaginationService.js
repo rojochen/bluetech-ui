@@ -8,24 +8,24 @@
 // });
 
 
-(function () {
+((() => {
     paginationService.$inject = ['$log'];
 
     function paginationService($log) {
-        var paginationInfo = null;
-        var paginationService = {
-            setInfo: function (data) {
+        let paginationInfo = null;
+        const paginationService = {
+            setInfo(data) {
                 paginationInfo = angular.copy(data);
             },
-            getInfo: function () {
+            getInfo() {
                 return paginationInfo;
             },
-            goFirst: function (id) {
-                $('#' + id).triggerHandler('goFirst');
+            goFirst(id) {
+                $(`#${id}`).triggerHandler('goFirst');
             }
         };
         return paginationService;
     }
 
     app.factory('paginationService', paginationService);
-})();
+}))();

@@ -6,36 +6,38 @@
 //     return app;
 // });
 
-(function () {
-    app.directive('btDatepickerRange', ['$timeout', function ($timeout) {
+((() => {
+    app.directive('btDatepickerRange', ['$timeout', $timeout => {
         function link(scope, element, attrs) {
-            var datepickerId = attrs['datepickerId'],
-                format = attrs['format'],
-                drops = attrs['drops'] ? attrs['drops'] : 'down',
-                opens = attrs['opens'] ? attrs['opens'] : 'right',
-                minDate = attrs['minDate'],
-                maxDate = attrs['maxDate'],
-                showDropdowns = attrs['showDropdowns'] ? attrs['showDropdowns'] == 'true' : false,
-                timePicker = attrs['timePicker'] ? attrs['timePicker'] == 'true' : false,
-                timePickerIncrement = attrs['timePickerIncrement'] ? Number.parseInt(attrs['timePickerIncrement']) : null,
-                timePicker24Hour = attrs['timePicker24Hour'] ? attrs['timePicker24Hour'] == 'true' : false,
-                timePickerSeconds = attrs['timePickerSeconds'] ? attrs['timePickerSeconds'] == 'true' : false,
-                optionSet = {
-                    locale: {
-                        applyLabel: '送出',
-                        cancelLabel: '清除',
-                        daysOfWeek: ['日', '一', '二', '三', '四', '五', '六'],
-                        monthNames: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月']
-                    },
-                    showDropdowns: showDropdowns,
-                    timePicker: timePicker,
-                    timePickerIncrement: timePickerIncrement,
-                    timePicker24Hour: timePicker24Hour,
-                    timePickerSeconds: timePickerSeconds,
-                    drops: drops,
-                    opens: opens
+            const datepickerId = attrs['datepickerId'];
+            let format = attrs['format'];
+            const drops = attrs['drops'] ? attrs['drops'] : 'down';
+            const opens = attrs['opens'] ? attrs['opens'] : 'right';
+            const minDate = attrs['minDate'];
+            const maxDate = attrs['maxDate'];
+            const showDropdowns = attrs['showDropdowns'] ? attrs['showDropdowns'] == 'true' : false;
+            const timePicker = attrs['timePicker'] ? attrs['timePicker'] == 'true' : false;
+            const timePickerIncrement = attrs['timePickerIncrement'] ? Number.parseInt(attrs['timePickerIncrement']) : null;
+            const timePicker24Hour = attrs['timePicker24Hour'] ? attrs['timePicker24Hour'] == 'true' : false;
+            const timePickerSeconds = attrs['timePickerSeconds'] ? attrs['timePickerSeconds'] == 'true' : false;
+
+            const optionSet = {
+                locale: {
+                    applyLabel: '送出',
+                    cancelLabel: '清除',
+                    daysOfWeek: ['日', '一', '二', '三', '四', '五', '六'],
+                    monthNames: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月']
                 },
-                modelZIndex = $(element).parents('.modal').css('z-index');
+                showDropdowns,
+                timePicker,
+                timePickerIncrement,
+                timePicker24Hour,
+                timePickerSeconds,
+                drops,
+                opens
+            };
+
+            const modelZIndex = $(element).parents('.modal').css('z-index');
             // console.log(datepickerId);
             // console.log(format);
             // console.log(drops);
@@ -48,18 +50,18 @@
             // console.log(timePicker24Hour);
             // console.log(timePickerSeconds);
 
-            var unbindWatcher = scope.$watch('ngModel', function (newValue, oldValue) {
+            const unbindWatcher = scope.$watch('ngModel', (newValue, oldValue) => {
                 // console.log('$watch' + newValue);
                 if (newValue && newValue.length === 0) {
                     scope.value = [];
-                    $('#' + datepickerId).val('');
+                    $(`#${datepickerId}`).val('');
                     scope.onDateCancel({
                         e: 'cancel'
                     });
                 }
             }, true);
 
-            var unBindonDataWatcher = scope.$watch('bindonData', function (newValue, oldValue) {
+            const unBindonDataWatcher = scope.$watch('bindonData', (newValue, oldValue) => {
                 // console.log(newValue);
                 if (newValue && newValue.minDate) {
                     optionSet.minDate = newValue.minDate;
@@ -76,13 +78,13 @@
                 init();
             }, true);
 
-            var unBindonDisable = scope.$watch('bindonDisable', function (newValue, oldValue) {
+            const unBindonDisable = scope.$watch('bindonDisable', (newValue, oldValue) => {
                 // console.log('$watch' + newValue);
-                var disableStatus = newValue ? newValue : false;
+                const disableStatus = newValue ? newValue : false;
                 element.find('input').attr('disabled', disableStatus);
-            })
+            });
 
-            element.on('$destroy', function () {
+            element.on('$destroy', () => {
                 // console.log("on destroy");
                 unbindWatcher();
                 unBindonDataWatcher();
@@ -90,11 +92,11 @@
                 scope.$destroy();
             });
 
-            var init = function () {
-                $timeout(function () {
-                    $('#' + datepickerId).daterangepicker(optionSet, function (start, end, label) {
+            var init = () => {
+                $timeout(() => {
+                    $(`#${datepickerId}`).daterangepicker(optionSet, (start, end, label) => {
                         scope.ngModel = [];
-                        scope.$apply(function () {
+                        scope.$apply(() => {
                             scope.ngModel.push(start._d);
                             scope.ngModel.push(end._d);
                         });
@@ -103,17 +105,18 @@
                         });
                     });
 
-                    $('#' + datepickerId).on('cancel.daterangepicker', function (ev, picker) {
+                    $(`#${datepickerId}`).on('cancel.daterangepicker', function (ev, picker) {
                         $(this).val('');
-                        scope.$apply(function () {
+                        scope.$apply(() => {
                             scope.ngModel.length = 0;
                         });
                     });
 
-                    $('#' + datepickerId).on('showCalendar.daterangepicker', function () {
+                    $(`#${datepickerId}`).on('showCalendar.daterangepicker', function () {
                         // console.log('open-1');
-                        var zIndex = 2,
-                            layuiLayerZIndex = $(this).parents('.layui-layer').css('z-index');
+                        let zIndex = 2;
+
+                        const layuiLayerZIndex = $(this).parents('.layui-layer').css('z-index');
                         if (modelZIndex) zIndex = modelZIndex;
                         if (layuiLayerZIndex) zIndex = layuiLayerZIndex;
                         // console.log(zIndex);
@@ -121,15 +124,15 @@
                         $('.daterangepicker').css('z-index', zIndex);
                     });
 
-                    $('#' + datepickerId).on('show.daterangepicker', function () {
+                    $(`#${datepickerId}`).on('show.daterangepicker', () => {
                         // console.log('open-2');
                     });
 
-                    $('#' + datepickerId).on('hideCalendar.daterangepicker', function () {
+                    $(`#${datepickerId}`).on('hideCalendar.daterangepicker', () => {
                         console.log('close-1');
                     });
 
-                    $('#' + datepickerId).on('hide.daterangepicker', function () {
+                    $(`#${datepickerId}`).on('hide.daterangepicker', function () {
                         // console.log('close-2');
                         if (!scope.ngModel || scope.ngModel.length === 0) {
                             $(this).val('');
@@ -177,8 +180,8 @@
                 if (maxDate && maxDate.replace(/\D/g, "").length >= 7) optionSet.maxDate = maxDate;
 
                 if (modelZIndex) {
-                    var id = $(element).parents('.modal').attr('id');
-                    optionSet.parentEl = '#' + id;
+                    const id = $(element).parents('.modal').attr('id');
+                    optionSet.parentEl = `#${id}`;
                 }
 
                 init();
@@ -196,7 +199,7 @@
                 onDateSelect: '&',
                 onDateCancel: '&'
             },
-            link: link,
+            link,
             template: `<div class="input-prepend input-group" ng-show="isShowDatepicker">
                             <span class="add-on input-group-addon">
                                 <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
@@ -207,4 +210,4 @@
         };
     }])
 
-})();
+}))();

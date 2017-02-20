@@ -1,1 +1,1 @@
-    var app = angular.module("bluetechUI");
+    const app = angular.module("bluetechUI");

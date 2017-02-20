@@ -8,47 +8,47 @@
 // });
 
 
-(function () {
+((() => {
     pnotifyService.$inject = ['$log'];
 
     function pnotifyService($log) {
-        var paginationInfo = null;
-        var pnotifyService = {
-            pnotifySuccess: function (title, content) {
+        const paginationInfo = null;
+        const pnotifyService = {
+            pnotifySuccess(title, content) {
                 new PNotify({
-                    title: title,
+                    title,
                     text: content,
                     type: 'success',
                     styling: 'bootstrap3'
                 });
             },
-            pnotifyInfo: function (title, content) {
+            pnotifyInfo(title, content) {
                 new PNotify({
-                    title: title,
+                    title,
                     text: content,
                     type: 'info',
                     styling: 'bootstrap3'
                 });
             },
-            pnotifyError: function (title, content) {
+            pnotifyError(title, content) {
                 new PNotify({
-                    title: title,
+                    title,
                     text: content,
                     type: 'error',
                     styling: 'bootstrap3'
                 });
             },
-            pnotifyWarn: function (title, content) {
+            pnotifyWarn(title, content) {
                 new PNotify({
-                    title: title,
+                    title,
                     text: content,
                     type: 'warn',
                     styling: 'bootstrap3'
                 });
             },
-            pnotifyDark: function (title, content) {
+            pnotifyDark(title, content) {
                 new PNotify({
-                    title: title,
+                    title,
                     text: content,
                     styling: 'bootstrap3',
                     addclass: 'dark'
@@ -59,4 +59,4 @@
     }
 
     app.factory('pnotifyService', pnotifyService);
-})();
+}))();
