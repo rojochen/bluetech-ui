@@ -12,9 +12,9 @@
 
 // }))();
 
- // export function pnotifyService() {
-        
-(()=>{
+// export function pnotifyService() {
+
+(() => {
     function btpnotifyService($log) {
         const paginationInfo = null;
         return {
@@ -59,10 +59,8 @@
                 });
             }
         };
-        
+
     }
     btpnotifyService.$inject = ['$log'];
-     angular.module("bluetechUI").factory('pnotifyService', btpnotifyService);
+    angular.module("bluetechUI").factory('pnotifyService', btpnotifyService);
 })();
-
-// }

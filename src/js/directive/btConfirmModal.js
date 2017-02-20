@@ -1,23 +1,5 @@
-// define([], function () {
-//     'use strict';
-//     var app = angular.module("bluetechUI");
-
-
-
-//     return app;
-// });
-
-//     let app = angular.module("bluetechUI");
-
-// export function btConfirmModal() {
-
-// };
-
-
-
-
-(()=> {
-     angular.module("bluetechUI").directive('btConfirmModal', ['$timeout', $timeout => {
+(() => {
+    angular.module("bluetechUI").directive('btConfirmModal', ['$timeout', $timeout => {
         function link(scope, element, attrs) {
             const id = attrs['modalId'],
                 keyboard = attrs['keyboard'] ? attrs['keyboard'] == 'true' : true,

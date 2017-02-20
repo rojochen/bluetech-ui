@@ -1,13 +1,3 @@
-// define([], function () {
-//     'use strict';
-//     var app = angular.module("bluetechUI");
-
-
-
-//     return app;
-// });
-//let app = angular.module("bluetechUI");
-
 (() => {
     angular.module("bluetechUI").directive('btDatepicker', ['$timeout', $timeout => {
         function link(scope, element, attrs) {

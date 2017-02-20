@@ -1,14 +1,5 @@
-// define([], function () {
-//     'use strict';
-//     var app = angular.module("bluetechUI");
+(() => {
 
-
-//     return app;
-// });
- //    let app = angular.module("bluetechUI");
-
-(()=>{
- 
     angular.module("bluetechUI").directive('btDatepickerRange', ['$timeout', $timeout => {
         function link(scope, element, attrs) {
             const datepickerId = attrs['datepickerId'];

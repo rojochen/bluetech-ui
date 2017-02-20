@@ -116,7 +116,7 @@ module.exports = {
             }
         }),
         new webpack.LoaderOptionsPlugin({
-            minimize: false
+            minimize: true
         }),
         new webpack.optimize.CommonsChunkPlugin({
             name: "bluetechUI",
