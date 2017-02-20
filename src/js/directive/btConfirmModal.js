@@ -6,8 +6,9 @@
 
 //     return app;
 // });
+export let counter = 3;
 
-((() => {
+export function btConfirmModal() {
     app.directive('btConfirmModal', ['$timeout', $timeout => {
         function link(scope, element, attrs) {
             const id = attrs['modalId'],
@@ -109,4 +110,6 @@
                             <p ng-if="!isShow" ng-bind="dangerText"></p>`
         };
     }])
-}))();
+};
+
+ 
