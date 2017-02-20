@@ -17,7 +17,7 @@ import app from '../blue.js';
 btmodalService.$inject = ['$log'];
 
 function btmodalService($log) {
-    const modalService = {
+    return {
         openModal(id) {
             $(`#${id}`).modal('show');
         },
@@ -25,7 +25,7 @@ function btmodalService($log) {
             $(`#${id}`).modal('hide');
         }
     };
-    return btmodalService;
+    
 }
 
 export let modalService = app.factory('modalService', btmodalService);

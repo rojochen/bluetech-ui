@@ -18,7 +18,7 @@ btpnotifyService.$inject = ['$log'];
 
 function btpnotifyService($log) {
     const paginationInfo = null;
-    const pnotifyService = {
+    return {
         pnotifySuccess(title, content) {
             new PNotify({
                 title,
@@ -60,7 +60,7 @@ function btpnotifyService($log) {
             });
         }
     };
-    return btpnotifyService;
+    
 }
 
 export let pnotifyService = app.factory('pnotifyService', btpnotifyService);
