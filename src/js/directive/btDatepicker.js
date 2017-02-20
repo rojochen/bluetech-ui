@@ -6,9 +6,10 @@
 
 //     return app;
 // });
-import app from '../blue.js';
+    //let app = angular.module("bluetechUI");
 
-export function btDatepicker() {
+((myApp)=>{
+ 
     app.directive('btDatepicker', ['$timeout', $timeout => {
         function link(scope, element, attrs) {
             const datepickerId = attrs['datepickerId'];
@@ -203,4 +204,4 @@ export function btDatepicker() {
                         <span ng-show="!isShowDatepicker">請設定bt-datepicker-range的datepicker-id。</span>`
         };
     }])
-}
+})(app);

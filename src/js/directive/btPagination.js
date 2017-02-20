@@ -11,10 +11,11 @@
 // ((() => {
 
 // }))();
-import app from '../blue.js';
+    //  let app = angular.module("bluetechUI");
 
-export function btPagination() {
-    app.directive('btPagination', ['paginationService', paginationService => {
+((myApp)=>{
+ 
+    myApp.directive('btPagination', ['paginationService', paginationService => {
         function link(scope, element, attrs) {
             const totalCount = scope.ngModel.totalCount,
                 pageSize = Number.isNaN(Number.parseInt(attrs['pageSize'])) ? 10 : Number.parseInt(attrs['pageSize']),
@@ -162,5 +163,5 @@ export function btPagination() {
                     <p ng-show="isShowPagination && isShowInfo">{{infoText}}</p>
                     <p ng-show="!isShowPagination">沒有資料或未設定id...，請確認格式！</p>`
         };
-    }])
-}
+    }]);
+})(app);
