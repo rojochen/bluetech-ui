@@ -17,7 +17,7 @@ btpaginationService.$inject = ['$log'];
 
 function btpaginationService1($log) {
     let paginationInfo = null;
-    const paginationService = {
+    return {
         setInfo(data) {
             paginationInfo = angular.copy(data);
         },
@@ -28,7 +28,7 @@ function btpaginationService1($log) {
             $(`#${id}`).triggerHandler('goFirst');
         }
     };
-    return btpaginationService1;
+     
 }
 
 export let paginationService = app.factory('paginationService', btpaginationService1);
