@@ -6,11 +6,11 @@
 
 //     return app;
 // });
-    //let app = angular.module("bluetechUI");
+//let app = angular.module("bluetechUI");
 
-((myApp)=>{
- 
-    app.directive('btDatepicker', ['$timeout', $timeout => {
+((myApp) => {
+
+    myApp.directive('btDatepicker', ['$timeout', $timeout => {
         function link(scope, element, attrs) {
             const datepickerId = attrs['datepickerId'];
             let format = attrs['format'];

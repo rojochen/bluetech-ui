@@ -20,45 +20,50 @@
 //     return app;
 // });
 
-export {
+import {
     bluetech
 }
 from "bluetech";
-export {
-    btDatepicker
-}
-from 'directive/btDatepicker.js';
-export {
-    btDatepickerRange
-}
-from 'directive/btDatepickerRange.js';
-export {
-    btPagination
-}
-from 'directive/btPagination.js';
-export {
-    btConfirmModal
-}
-from 'directive/btConfirmModal.js';
+// export {
+//     btDatepicker
+// }
+// from 'directive/btDatepicker.js';
+// export {
+//     btDatepickerRange
+// }
+// from 'directive/btDatepickerRange.js';
+// export {
+//     btPagination
+// }
+// from 'directive/btPagination.js';
+// export {
+//     btConfirmModal
+// }
+// from 'directive/btConfirmModal.js';
 // btDatepicker();
 // btDatepickerRange();
 // btPagination();
 // btConfirmModal();
 
-export {
-    paginationService
-}
-from 'service/btpaginationService.js';
-export {
-    pnotifyService
-}
-from 'service/pnotifyService.js';
-export {
-    modalService
-}
-from 'service/modalService.js';
+// export {
+//     paginationService
+// }
+// from 'service/btpaginationService.js';
+// export {
+//     pnotifyService
+// }
+// from 'service/pnotifyService.js';
+// export {
+//     modalService
+// }
+// from 'service/modalService.js';
 
 // paginationService();
 // pnotifyService();
 // modalService();
 // const btService = require("./service/dist/btService");
+
+export {
+    bluetechUI
+}
+from "buletech-ui.js";
