@@ -1,9 +1,9 @@
-(function(){
-    app.directive('btConfirmModal', ['$timeout', function($timeout){
+(() => {
+    app.directive('btConfirmModal', ['$timeout', ($timeout) => {
         function link(scope, element, attrs){
-            var id = attrs['modalId'],
-                keyboard = attrs['keyboard']?attrs['keyboard']=='true':true,
-                backdrop = attrs['backdrop']?attrs['backdrop']:' ';
+            let id = attrs['modalId'];
+            const keyboard = attrs['keyboard']?attrs['keyboard']=='true':true,
+                  backdrop = attrs['backdrop']?attrs['backdrop']:' ';
             // console.log(id);
             // console.log(keyboard);
             // console.log(backdrop);
@@ -13,33 +13,33 @@
             scope.backdrop = backdrop;
             
             
-            scope.confirm = function(){
+            scope.confirm = () => {
                 scope.onConfirmEvent({e:{status: 'yes'}});
             }
 
 
-            scope.cancel = function(){
+            scope.cancel = () => {
                 scope.onConfirmEvent({e:{status: 'no'}});
             }
 
 
-            $(document).on('show.bs.modal', '.modal', function (event) {
-                var zIndex = 1050 + (10 * $('.modal:visible').length);
+            $(document).on('show.bs.modal', '.modal', (event) => {
+                let zIndex = 1050 + (10 * $('.modal:visible').length);
                 $(this).css('z-index', zIndex);
                 // console.log(zIndex);
             });
 
 
-            $(document).on('keydown', function(e) {
+            $(document).on('keydown', (e) => {
                 // console.log('ddd-esc');
                 if($('.modal').is(':visible') && e.target.nodeName === 'BODY'){
-                    var closeModal = $('.modal:visible').attr('id');
+                    let closeModal = $('.modal:visible').attr('id');
                     $('#' + closeModal).modal('hide');
                 }
             })
 
 
-            element.on('$destroy', function () {
+            element.on('$destroy', () => {
                 // console.log("on destroy");
                 scope.$destroy();
             });

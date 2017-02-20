@@ -1,14 +1,14 @@
-(function(){
-    app.directive('btPagination', ['paginationService', function(paginationService){
+(() => {
+    app.directive('btPagination', ['paginationService', (paginationService) => {
         function link(scope, element, attrs){
-            var totalCount = scope.ngModel.totalCount,
-                pageSize = Number.isNaN(Number.parseInt(attrs['pageSize']))?10:Number.parseInt(attrs['pageSize']),
-                pageCount = Number.isNaN(Number.parseInt(attrs['pageCount']))?5:Number.parseInt(attrs['pageCount']),
-                currentPage = Number.isNaN(Number.parseInt(attrs['currentPage']))?1:Number.parseInt(attrs['currentPage']),
-                showInfo = (angular.isUndefined(attrs['showInfo'])?'true':attrs['showInfo']) == 'true',
-                infoText = angular.isUndefined(attrs['infoText'])?'顯示第 0 筆至第 0 筆，共有 0 筆':attrs['infoText'],
-                isDisabled = (angular.isUndefined(attrs['isDisabled'])?'false':attrs['isDisabled']) == 'true',
-                id = attrs['id'];
+            let totalCount = scope.ngModel.totalCount;
+            const pageSize = Number.isNaN(Number.parseInt(attrs['pageSize']))?10:Number.parseInt(attrs['pageSize']),
+                  pageCount = Number.isNaN(Number.parseInt(attrs['pageCount']))?5:Number.parseInt(attrs['pageCount']),
+                  currentPage = Number.isNaN(Number.parseInt(attrs['currentPage']))?1:Number.parseInt(attrs['currentPage']),
+                  showInfo = (angular.isUndefined(attrs['showInfo'])?'true':attrs['showInfo']) == 'true',
+                  infoText = angular.isUndefined(attrs['infoText'])?'顯示第 0 筆至第 0 筆，共有 0 筆':attrs['infoText'],
+                  isDisabled = (angular.isUndefined(attrs['isDisabled'])?'false':attrs['isDisabled']) == 'true',
+                  id = attrs['id'];
             // console.log(totalCount);
             // console.log(pageSize);
             // console.log(pageCount);
@@ -19,7 +19,7 @@
             // console.log(id);
             
 
-            scope.changePage = function(x, isInit){
+            scope.changePage = (x, isInit) => {
                 // console.log(isInit);
                 // console.log(x);
                 scope.showPageArray = [];
@@ -27,7 +27,7 @@
                     scope.showPageArray = angular.copy(scope.pageArray);
                     // console.log(scope.showPageArray);
                 }else {
-                    var point = null;
+                    let point = null;
                     if(x === 1){
                         point = x - 1;
                     }
@@ -55,7 +55,7 @@
                 scope.page = x;
                 scope.startList = (x-1)*pageSize+1;
                 scope.endList = (totalCount < x*pageSize)?totalCount:x*pageSize;
-                var infoTextArray = [];
+                let infoTextArray = [];
                 infoTextArray = infoText.match(/\D+/g);
                 scope.infoText = infoTextArray[0] + scope.startList + infoTextArray[1] + scope.endList + infoTextArray[2] + scope.ngModel.totalCount + infoTextArray[3];
                 
@@ -71,33 +71,33 @@
                 }
             }
             
-            scope.changeFirst = function(){
+            scope.changeFirst = () => {
                 if(scope.page !== 1 && !isDisabled) scope.changePage(1);
             }
 
-            scope.changePre = function(){
+            scope.changePre = () => {
                 if(scope.page-1 > 0 && !isDisabled){
                     scope.changePage(scope.page-1);
                 }
             }
 
-            scope.changeNext = function(){
+            scope.changeNext = () => {
                 if(scope.page+1 <= scope.pageArray.length && !isDisabled){
                     scope.changePage(scope.page+1);
                 }
             }
 
-            scope.changeLast = function(){
+            scope.changeLast = ()=> {
                 if(scope.page !== scope.pageArray.length && !isDisabled) scope.changePage(scope.pageArray.length);
             }
 
 
-            $('#'+id).on('goFirst', function(){
+            $('#'+id).on('goFirst', () => {
                 scope.changePage(1);
             });
 
 
-            element.on('$destroy', function () {
+            element.on('$destroy', () => {
                 // console.log("on destroy");
                 scope.$destroy();
             });
@@ -112,9 +112,9 @@
 
                 if(isDisabled !== true){
                     scope.pageArray = [];
-                    var endPage = Math.ceil(totalCount/pageSize);
+                    let endPage = Math.ceil(totalCount/pageSize);
                     // console.log(endPage);
-                    for (var num = 1; num <= endPage;num++){
+                    for (let num = 1; num <= endPage;num++){
                         scope.pageArray.push(num);
                     }
                     // console.log(scope.pageArray);

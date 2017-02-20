@@ -1,12 +1,12 @@
-(function(){
+(() => {
     modalService.$inject = ['$log'];
 
     function modalService($log) {
-        var modalService = {
-            openModal: function (id) {
+        let modalService = {
+            openModal: (id) => {
                 $('#'+id).modal('show');
             },
-            closeModal: function(id){
+            closeModal: (id) => {
                 $('#'+id).modal('hide');
             }
         };

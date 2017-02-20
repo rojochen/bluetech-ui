@@ -1,10 +1,10 @@
-(function(){
+(() => {
     pnotifyService.$inject = ['$log'];
 
     function pnotifyService($log) {
-        var paginationInfo = null;
-        var pnotifyService = {
-            pnotifySuccess: function (title ,content) {
+        let paginationInfo = null;
+        let pnotifyService = {
+            pnotifySuccess: (title ,content) => {
                 new PNotify({
                     title: title,
                     text: content,
@@ -12,7 +12,7 @@
                     styling: 'bootstrap3'
                 });
             },
-            pnotifyInfo: function (title ,content) {
+            pnotifyInfo: (title ,content) => {
                 new PNotify({
                     title: title,
                     text: content,
@@ -20,7 +20,7 @@
                     styling: 'bootstrap3'
                 });
             },
-            pnotifyError: function (title ,content) {
+            pnotifyError: (title ,content) => {
                 new PNotify({
                     title: title,
                     text: content,
@@ -28,7 +28,7 @@
                     styling: 'bootstrap3'
                 });
             },
-            pnotifyWarn: function (title ,content) {
+            pnotifyWarn: (title ,content) => {
                 new PNotify({
                     title: title,
                     text: content,
@@ -36,7 +36,7 @@
                     styling: 'bootstrap3'
                 });
             },
-            pnotifyDark: function (title ,content) {
+            pnotifyDark: (title ,content) => {
                 new PNotify({
                     title: title,
                     text: content,

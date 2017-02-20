@@ -2,7 +2,7 @@ define(['bluetech'], function () {
     'use strict';
 
     var app = angular.module("bluetechUI", ['bluetech']),
-        gulpBuild = require('gulpBuild/gulpBuild.js');
+        gulpBuild = require('gulpBuild/gulpBuild');
         //directive
         // btDatepicker = require('directive/btDatepicker.js'),
         // btDatepickerRange = require('directive/btDatepickerRange.js'),
