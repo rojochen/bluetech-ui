@@ -12,8 +12,8 @@ export const AppModule  =
     .factory('paginationService',($log)=> new PaginationService($log))
     .factory('modalService',($log)=>new ModalService($log))
     .factory('pnotifyService',($log)=>new PnotifyService($log))
-    .directive('btConfirmModal', ($timeout)=>new ConfirmModal($timeout))
     .directive('btPagination',(paginationService)=>new Pagination(paginationService))
+    .directive('btConfirmModal', ($timeout)=>new ConfirmModal($timeout))
     .directive('btDatepicker', ($timeout) => new Datepicker($timeout))
     .directive('btDatepickerRange', ($timeout) => new DatepickerRange($timeout))
     .name;
