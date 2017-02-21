@@ -1,5 +1,3 @@
-let app = angular.module("bluetechUI");
-
 export class ConfirmModal {
     constructor($timeout){
         this.restrict = 'E';
