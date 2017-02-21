@@ -29,7 +29,7 @@ module.exports = {
                 test: /\.css$/,
                 use: ExtractTextPlugin.extract({
                     fallback: 'style',
-                    loader: [{
+                    use: [{
                         loader: 'css',
                         query: {
                             import: true,
@@ -42,7 +42,7 @@ module.exports = {
                 test: /\.scss$/,
                 use: ExtractTextPlugin.extract({
                     fallback: 'style',
-                    loader: [{
+                    use: [{
                         loader: 'css',
                         query: {
                             import: true,
@@ -65,9 +65,9 @@ module.exports = {
     },
     plugins: [
         // new webpack.HotModuleReplacementPlugin(),  //?
-        new webpack.LoaderOptionsPlugin({  //有用？
-            minimize: true
-        }),
+        // new webpack.LoaderOptionsPlugin({  //有用？
+        //     minimize: true
+        // }),
         new ExtractTextPlugin({
             filename: "../css/bluetechStyle.min.css",
             // disable: false,
