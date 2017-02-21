@@ -1,19 +1,16 @@
-define([], function () {
-    'use strict';
-    var app = angular.module("bluetechUI");
-
+(() => {
     paginationService.$inject = ['$log'];
 
     function paginationService($log) {
-        var paginationInfo = null;
-        var paginationService = {
-            setInfo: function(data){
+        let paginationInfo = null;
+        let paginationService = {
+            setInfo: (data) => {
                 paginationInfo = angular.copy(data);
             },
-            getInfo: function(){
+            getInfo: () => {
                 return paginationInfo;
             },
-            goFirst: function (id) {
+            goFirst: (id) => {
                 $('#'+id).triggerHandler('goFirst');
             }
         };
@@ -21,6 +18,4 @@ define([], function () {
     }
 
     app.factory('paginationService', paginationService);
-
-    return app;
-});
+})();

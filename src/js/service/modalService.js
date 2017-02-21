@@ -1,15 +1,12 @@
-define([], function () {
-    'use strict';
-    var app = angular.module("bluetechUI");
-
+(() => {
     modalService.$inject = ['$log'];
 
     function modalService($log) {
-        var modalService = {
-            openModal: function (id) {
+        let modalService = {
+            openModal: (id) => {
                 $('#'+id).modal('show');
             },
-            closeModal: function(id){
+            closeModal: (id) => {
                 $('#'+id).modal('hide');
             }
         };
@@ -17,6 +14,4 @@ define([], function () {
     }
 
     app.factory('modalService', modalService);
-
-    return app;
-});
+})();
