@@ -1,18 +1,14 @@
-define(['bluetech'], function () {
-    'use strict';
 
-    var app = angular.module("bluetechUI", ['bluetech']),
-        gulpBuild = require('gulpBuild/gulpBuild');
-        //directive
-        // btDatepicker = require('directive/btDatepicker.js'),
-        // btDatepickerRange = require('directive/btDatepickerRange.js'),
-        // btPagination = require('directive/btPagination.js'),
-        // btConfirmModal = require('directive/btConfirmModal.js'),  
+import {blueHello} from 'bluetech';
+import {PaginationService} from './service/PaginationService.js';
+import {ModalService} from './service/ModalService.js';
+import {PnotifyService} from './service/PnotifyService.js';
 
-        //service
-        // paginationService = require('service/btpaginationService.js'),
-        // pnotifyService = require('service/pnotifyService.js'),
-        // modalService = require('service/modalService.js');
-  
-    return app;
-});
+import {ConfirmModal} from './directive/ConfirmModal.js';
+export const AppModule  = 
+    angular.module("bluetechUI", ['bluetech'])
+    .factory('paginationService',($log)=> new PaginationService($log))
+    .factory('modalService',($log)=>new ModalService($log))
+    .factory('pnotifyService',($log)=>new PnotifyService($log))
+    .directive('btConfirmModal', ($timeout)=>new ConfirmModal($timeout))
+    .name;
