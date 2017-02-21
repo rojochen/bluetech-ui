@@ -9,7 +9,7 @@ module.exports = {
     },
     output: {
         path: 'demo/js/',
-        filename: 'bundle.min.js',
+        filename: '[name].min.js',
     },
     resolve:{
         modules: ['src/js/', 'src/css/', 'node_modules'],
