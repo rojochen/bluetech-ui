@@ -3,8 +3,7 @@ var webpack = require('webpack'),
 
 module.exports = {
     devtool: 'eval',
-    entry: {
-        demo: './demo/js/modules/demo/main.js',
+    entry: {        
         app: './demo/js/app.js'    
     },
     output: {
