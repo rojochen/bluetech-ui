@@ -1,57 +1,52 @@
-(() => {
-    pnotifyService.$inject = ['$log'];
-
-    function pnotifyService($log) {
-        let paginationInfo = null;
-        let pnotifyService = {
-            pnotifySuccess: (title ,content, delay) => {
-                new PNotify({
+export class PnotifyService{
+        constructor($log){
+            this.$log = $log;   
+            this.styling = 'bootstrap3';      
+        }         
+        pnotifySuccess(title ,content, delay){
+              new PNotify({
                     title: title,
                     text: content,
                     type: 'success',
-                    styling: 'bootstrap3',
+                    styling: this.styling,
                     delay: delay?delay:4000
-                });
-            },
-            pnotifyInfo: (title ,content, delay) => {
-                new PNotify({
+              });
+        }
+        pnotifyInfo(title ,content, delay){
+             new PNotify({
                     title: title,
                     text: content,
                     type: 'info',
-                    styling: 'bootstrap3',
+                    styling: this.styling,
                     delay: delay?delay:4000
-                });
-            },
-            pnotifyError: (title ,content, delay) => {
-                new PNotify({
+             });
+        }
+        pnotifyError(title ,content, delay){
+             new PNotify({
                     title: title,
                     text: content,
                     type: 'error',
-                    styling: 'bootstrap3',
+                    styling: this.styling,
                     delay: delay?delay:4000
-                });
-            },
-            pnotifyWarn: (title ,content, delay) => {
-                new PNotify({
+             });            
+        }
+        pnotifyWarn(title ,content, delay){
+             new PNotify({
                     title: title,
                     text: content,
                     type: 'warn',
-                    styling: 'bootstrap3',
+                    styling:  this.styling,
                     delay: delay?delay:4000
                 });
-            },
-            pnotifyDark: (title ,content, delay) => {
+        }
+        pnotifyDark (title ,content, delay) {
                 new PNotify({
                     title: title,
                     text: content,
-                    styling: 'bootstrap3',
+                    styling: this.styling,
                     addclass: 'dark',
                     delay: delay?delay:4000
                 });
-            }
-        };
-        return pnotifyService;
-    }
-
-    app.factory('pnotifyService', pnotifyService);
-})();
+        }
+}
+PnotifyService.$inject = ['$log'];

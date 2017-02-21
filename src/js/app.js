@@ -1,18 +1,19 @@
-define(['bluetech'], function () {
-    'use strict';
 
-    var app = angular.module("bluetechUI", ['bluetech']),
-        gulpBuild = require('gulpBuild/gulpBuild');
-        //directive
-        // btDatepicker = require('directive/btDatepicker.js'),
-        // btDatepickerRange = require('directive/btDatepickerRange.js'),
-        // btPagination = require('directive/btPagination.js'),
-        // btConfirmModal = require('directive/btConfirmModal.js'),  
-
-        //service
-        // paginationService = require('service/btpaginationService.js'),
-        // pnotifyService = require('service/pnotifyService.js'),
-        // modalService = require('service/modalService.js');
-  
-    return app;
-});
+import {blueHello} from 'bluetech';
+import {PaginationService} from './service/PaginationService.js';
+import {ModalService} from './service/ModalService.js';
+import {PnotifyService} from './service/PnotifyService.js';
+import {Pagination} from './directive/Pagination.js';
+import {ConfirmModal} from './directive/ConfirmModal.js';
+import {Datepicker} from './directive/Datepicker.js';
+import {DatepickerRange} from './directive/DatepickerRange.js';
+export const AppModule  = 
+    angular.module("bluetechUI", ['bluetech'])
+    .factory('paginationService',($log)=> new PaginationService($log))
+    .factory('modalService',($log)=>new ModalService($log))
+    .factory('pnotifyService',($log)=>new PnotifyService($log))
+    .directive('btPagination',(paginationService)=>new Pagination(paginationService))
+    .directive('btConfirmModal', ($timeout)=>new ConfirmModal($timeout))
+    .directive('btDatepicker', ($timeout) => new Datepicker($timeout))
+    .directive('btDatepickerRange', ($timeout) => new DatepickerRange($timeout))
+    .name;
