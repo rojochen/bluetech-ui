@@ -4,44 +4,49 @@
     function pnotifyService($log) {
         let paginationInfo = null;
         let pnotifyService = {
-            pnotifySuccess: (title ,content) => {
+            pnotifySuccess: (title ,content, delay) => {
                 new PNotify({
                     title: title,
                     text: content,
                     type: 'success',
-                    styling: 'bootstrap3'
+                    styling: 'bootstrap3',
+                    delay: delay?delay:4000
                 });
             },
-            pnotifyInfo: (title ,content) => {
+            pnotifyInfo: (title ,content, delay) => {
                 new PNotify({
                     title: title,
                     text: content,
                     type: 'info',
-                    styling: 'bootstrap3'
+                    styling: 'bootstrap3',
+                    delay: delay?delay:4000
                 });
             },
-            pnotifyError: (title ,content) => {
+            pnotifyError: (title ,content, delay) => {
                 new PNotify({
                     title: title,
                     text: content,
                     type: 'error',
-                    styling: 'bootstrap3'
+                    styling: 'bootstrap3',
+                    delay: delay?delay:4000
                 });
             },
-            pnotifyWarn: (title ,content) => {
+            pnotifyWarn: (title ,content, delay) => {
                 new PNotify({
                     title: title,
                     text: content,
                     type: 'warn',
-                    styling: 'bootstrap3'
+                    styling: 'bootstrap3',
+                    delay: delay?delay:4000
                 });
             },
-            pnotifyDark: (title ,content) => {
+            pnotifyDark: (title ,content, delay) => {
                 new PNotify({
                     title: title,
                     text: content,
                     styling: 'bootstrap3',
-                    addclass: 'dark'
+                    addclass: 'dark',
+                    delay: delay?delay:4000
                 });
             }
         };

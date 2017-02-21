@@ -221,7 +221,7 @@ define(['btModule'], function (btModule) {
       pnotifyService.pnotifySuccess('title', 'content text');
     }
     $scope.pnotify_info = function(){
-      pnotifyService.pnotifyInfo('title', 'content text');
+      pnotifyService.pnotifyInfo('title', 'content text', 1000);
     }
     $scope.pnotify_error = function(){
       pnotifyService.pnotifyError('title', 'content text');

@@ -42,13 +42,13 @@
 				</div>
 				<div class="x_content bs-example-popovers">
 					<p>藉由controller注入pnotifyService，即可呼叫pnotify。</p>
-					<p>呼叫方式如下：</p>
+					<p>delay可不填寫(預設4秒)，呼叫方式如下：</p>
 					<ol>
-						<li>pnotifyService.pnotifySuccess()</li>
-						<li>pnotifyService.pnotifyInfo()</li>
-						<li>pnotifyService.pnotifyError()</li>
-						<li>pnotifyService.pnotifyWarn()</li>
-						<li>pnotifyService.pnotifyDark()</li>
+						<li>pnotifyService.pnotifySuccess(title ,content, delay)</li>
+						<li>pnotifyService.pnotifyInfo(title ,content, delay)</li>
+						<li>pnotifyService.pnotifyError(title ,content, delay)</li>
+						<li>pnotifyService.pnotifyWarn(title ,content, delay)</li>
+						<li>pnotifyService.pnotifyDark(title ,content, delay)</li>
 					</ol>
 					<div class="col-md-6 col-sm-12 col-xs-12">
 						<button class="btn btn-success" ng-click='pnotify_success()'>success</button>

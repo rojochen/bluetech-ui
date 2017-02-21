@@ -1,1 +1,1 @@
-var app = angular.module("bluetechUI");
+let app = angular.module("bluetechUI");
