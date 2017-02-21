@@ -1,6 +1,24 @@
-(() => {
-    app.directive('btPagination', ['paginationService', (paginationService) => {
-        function link(scope, element, attrs){
+export class Pagination{
+    constructor(paginationService){
+        this.paginationService = paginationService;
+        this.restrict = 'E';
+        this.scope =  {
+                ngModel: '=',
+                onChangePage: '&'
+        };
+        this.link = this.linkFunc;
+        this.template =`<ul class="pagination" ng-show="isShowPagination">
+						<li ng-class="{'disabled': page === 1}"><a href ng-click="changeFirst()">« 第一頁</a></li>
+						<li ng-class="{'disabled': page === 1}"><a href ng-click="changePre()">‹上一頁 </a></li>
+						<li ng-class="{'active': x === page}" ng-repeat="x in showPageArray track by $index"> <a href ng-bind="x" ng-click="changePage(x)"></a> </li>
+						<li ng-class="{'disabled': page === pageArray.length}"><a href ng-click="changeNext()">下一頁 ›</a></li>
+						<li ng-class="{'disabled': page === pageArray.length}"><a href ng-click="changeLast()">最後一頁 »</a></li>
+					</ul>
+                    <p ng-show="isShowPagination && isShowInfo">{{infoText}}</p>
+                    <p ng-show="!isShowPagination">沒有資料或未設定id...，請確認格式！</p>`;
+        
+    }
+    linkFunc(scope, element, attrs){
             let totalCount = scope.ngModel.totalCount;
             const pageSize = Number.isNaN(Number.parseInt(attrs['pageSize']))?10:Number.parseInt(attrs['pageSize']),
                   pageCount = Number.isNaN(Number.parseInt(attrs['pageCount']))?5:Number.parseInt(attrs['pageCount']),
@@ -9,16 +27,7 @@
                   infoText = angular.isUndefined(attrs['infoText'])?'顯示第 0 筆至第 0 筆，共有 0 筆':attrs['infoText'],
                   isDisabled = (angular.isUndefined(attrs['isDisabled'])?'false':attrs['isDisabled']) == 'true',
                   id = attrs['id'];
-            // console.log(totalCount);
-            // console.log(pageSize);
-            // console.log(pageCount);
-            // console.log(currentPage);
-            // console.log(showInfo);
-            // console.log(infoText);
-            // console.log(isDisabled);
-            // console.log(id);
-            
-
+ 
             scope.changePage = (x, isInit) => {
                 // console.log(isInit);
                 // console.log(x);
@@ -126,24 +135,6 @@
                 }
             }
 
-        }
-
-        return {
-            restrict: 'E',
-            scope: {
-                ngModel: '=',
-                onChangePage: '&'
-            },
-            link: link,
-            template: `<ul class="pagination" ng-show="isShowPagination">
-						<li ng-class="{'disabled': page === 1}"><a href ng-click="changeFirst()">« 第一頁</a></li>
-						<li ng-class="{'disabled': page === 1}"><a href ng-click="changePre()">‹上一頁 </a></li>
-						<li ng-class="{'active': x === page}" ng-repeat="x in showPageArray track by $index"> <a href ng-bind="x" ng-click="changePage(x)"></a> </li>
-						<li ng-class="{'disabled': page === pageArray.length}"><a href ng-click="changeNext()">下一頁 ›</a></li>
-						<li ng-class="{'disabled': page === pageArray.length}"><a href ng-click="changeLast()">最後一頁 »</a></li>
-					</ul>
-                    <p ng-show="isShowPagination && isShowInfo">{{infoText}}</p>
-                    <p ng-show="!isShowPagination">沒有資料或未設定id...，請確認格式！</p>`
-        };
-    }])
-})();
+    }
+}
+Pagination.$inject = ['paginationService'];

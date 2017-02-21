@@ -1,17 +1,12 @@
-(() => {
-    modalService.$inject = ['$log'];
-
-    function modalService($log) {
-        let modalService = {
-            openModal: (id) => {
-                $('#'+id).modal('show');
-            },
-            closeModal: (id) => {
-                $('#'+id).modal('hide');
-            }
-        };
-        return modalService;
-    }
-
-    app.factory('modalService', modalService);
-})();
+export class ModalService{
+        constructor($log){
+            this.$log = $log;            
+        }
+        openModal(id){
+             $('#'+id).modal('show');
+        }
+        closeModal(id){
+            $('#'+id).modal('hide');
+        }
+}
+ ModalService.$inject = ['$log'];

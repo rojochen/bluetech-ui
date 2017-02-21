@@ -1,13 +1,35 @@
-(() => {
-    app.directive('btConfirmModal', ['$timeout', ($timeout) => {
-        function link(scope, element, attrs){
+export class ConfirmModal {
+    constructor($timeout){
+        this.restrict = 'E';
+        this.scope = {
+            ngModel: '=',
+            onConfirmEvent: '&'
+        };
+        this.link = this.linkFunc;
+        this.$timeout = $timeout;
+        this.template = `<div class="modal fade bs-example-modal-sm" id="{{id}}" tabindex="-1" role="dialog" aria-hidden="true" data-keyboard="{{keyboard}}" data-backdrop="{{backdrop}}">
+                                <div class="modal-dialog modal-sm">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                            <h4 class="modal-title" ng-bind="title"></h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p ng-bind="content"></p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-primary" ng-bind="btn_1" ng-click="confirm()"></button>
+                                            <button type="button" class="btn btn-default" ng-bind="btn_2" ng-click="cancel()"></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p ng-if="!isShow" ng-bind="dangerText"></p>`;
+    }   
+    linkFunc(scope, element, attrs){
             let id = attrs['modalId'];
             const keyboard = attrs['keyboard']?attrs['keyboard']=='true':true,
                   backdrop = attrs['backdrop']?attrs['backdrop']:' ';
-            // console.log(id);
-            // console.log(keyboard);
-            // console.log(backdrop);
-
 
             scope.keyboard = keyboard;
             scope.backdrop = backdrop;
@@ -34,7 +56,7 @@
                 // console.log('ddd-esc');
                 if($('.modal').is(':visible') && e.target.nodeName === 'BODY'){
                     let closeModal = $('.modal:visible').attr('id');
-                    $('#' + closeModal).modal('hide');
+                    $(`#${closeModal}`).modal('hide');
                 }
             })
 
@@ -61,35 +83,6 @@
                 scope.isShow = false;
                 scope.dangerText = 'model 格式不齊全，未填寫title或content。';
             }
-            
-        }
-
-
-        return {
-            restrict: 'E',
-            scope: {
-                ngModel: '=',
-                onConfirmEvent: '&'
-            },
-            link: link,
-            template: `<div class="modal fade bs-example-modal-sm" id="{{id}}" tabindex="-1" role="dialog" aria-hidden="true" data-keyboard="{{keyboard}}" data-backdrop="{{backdrop}}">
-                                <div class="modal-dialog modal-sm">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                            <h4 class="modal-title" ng-bind="title"></h4>
-                                        </div>
-                                        <div class="modal-body">
-                                            <p ng-bind="content"></p>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-primary" ng-bind="btn_1" ng-click="confirm()"></button>
-                                            <button type="button" class="btn btn-default" ng-bind="btn_2" ng-click="cancel()"></button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <p ng-if="!isShow" ng-bind="dangerText"></p>`
-        };
-    }])
-})();
+    }
+}
+ConfirmModal.$inject = ['$timeout'];
