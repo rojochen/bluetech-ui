@@ -2,13 +2,13 @@ class FooterCompoentCtrl {
 
     constructor($log) {
         'ngInject';
-        console.log($log);
-        $log.debug(this);
+        // console.log($log);
+        // $log.debug(this);
 
 
     }
     $onInit($log) {
-        console.log(this.name);
+        // console.log(this.name);
 
     }
     $onChanges() {
