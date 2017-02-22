@@ -5,7 +5,7 @@ export class DemoCtrl {
         this.paginationService = paginationService;
         this.pnotifyService = pnotifyService;
         this.modalService = modalService;
-        DemoCtrlFun();
+        this.DemoCtrlFun();
     }
     DemoCtrlFun(){
         /*begin Portlet */
