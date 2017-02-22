@@ -3,14 +3,14 @@ var webpack = require('webpack'),
 
 module.exports = {
     devtool: 'eval',
-    entry: {        
-        app: './demo/js/app.js'    
+    entry: {
+        app: './demo/js/app.js'
     },
     output: {
         path: 'demo/js/',
         filename: '[name].min.js',
     },
-    resolve:{
+    resolve: {
         modules: ['src/js/', 'src/css/', 'node_modules'],
         extensions: ['.js', '.css'],
         alias: {
@@ -18,49 +18,57 @@ module.exports = {
         }
     },
     resolveLoader: {
-        moduleExtensions: ['-loader']  //讓loader不用打
+        moduleExtensions: ['-loader'] //讓loader不用打
     },
     module: {
         rules: [{
-                test: /\.(png|gif)$/,
-                use: 'url?limit=100000'
-            }, {
-                test: /\.css$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: 'style',
-                    use: [{
-                        loader: 'css',
-                        query: {
-                            import: true,
-                            modules: false,
-                            sourceMaps: true
-                        }
-                    }, "sass"]
-                })
-            }, {
-                test: /\.scss$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: 'style',
-                    use: [{
-                        loader: 'css',
-                        query: {
-                            import: true,
-                            modules: false,
-                            sourceMaps: true
-                        }
-                    }, "sass"]
-                })
-            }, {
-                test: /\.(jpg|woff|svg|ttf|png|eot)([\?]?.*)$/,
-                use: "file?name=../css/img/[name].[ext]"
-            }, {
-                test: /\.js$/,
-                exclude: /(node_modules|vendors)/,
-                loader: 'babel',
-                query: {
-                    presets: ['es2015']
+            test: /\.html$/,
+            use: [{
+                loader: 'html-loader',
+                options: {
+                    minimize: true
                 }
-            }]
+            }],
+        }, {
+            test: /\.(png|gif)$/,
+            use: 'url?limit=100000'
+        }, {
+            test: /\.css$/,
+            use: ExtractTextPlugin.extract({
+                fallback: 'style',
+                use: [{
+                    loader: 'css',
+                    query: {
+                        import: true,
+                        modules: false,
+                        sourceMaps: true
+                    }
+                }, "sass"]
+            })
+        }, {
+            test: /\.scss$/,
+            use: ExtractTextPlugin.extract({
+                fallback: 'style',
+                use: [{
+                    loader: 'css',
+                    query: {
+                        import: true,
+                        modules: false,
+                        sourceMaps: true
+                    }
+                }, "sass"]
+            })
+        }, {
+            test: /\.(jpg|woff|svg|ttf|png|eot)([\?]?.*)$/,
+            use: "file?name=../css/img/[name].[ext]"
+        }, {
+            test: /\.js$/,
+            exclude: /(node_modules|vendors)/,
+            loader: 'babel',
+            query: {
+                presets: ['es2015']
+            }
+        }]
     },
     plugins: [
         // new webpack.HotModuleReplacementPlugin(),  //?
