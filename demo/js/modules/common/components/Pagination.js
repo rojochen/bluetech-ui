@@ -139,8 +139,9 @@ class PaginationCtrl{
     }
 }
 
+import template from "./../views/pagination.html";
 export const Pagination = {
-    templateUrl: "./js/modules/demo/views/pagination.html",
+    template,
     controller: PaginationCtrl
 }
 

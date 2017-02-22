@@ -31,8 +31,9 @@ class DatepickerCtrl{
     }
 }
 
+import template from "./../views/datepicker.html";
 export const Datepicker = {
-    templateUrl: "./js/modules/demo/views/datepicker.html",
+    template,
     controller: DatepickerCtrl
 }
 

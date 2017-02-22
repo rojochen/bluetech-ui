@@ -26,8 +26,9 @@ class ConfirmModalCtrl{
     }
 }
 
+import template from "./../views/confirmModal.html";
 export const ConfirmModal = {
-    templateUrl: "./js/modules/demo/views/confirmModal.html",
+    template,
     controller: ConfirmModalCtrl
 }
 

@@ -24,8 +24,9 @@ class PnotifyServiceCtrl{
     }
 }
 
+import template from "./../views/pnotifyService.html";
 export const PnotifyService = {
-    templateUrl: "./js/modules/demo/views/pnotifyService.html",
+    template,
     controller: PnotifyServiceCtrl
 }
 

@@ -36,8 +36,9 @@ class DatepickerRangeCtrl{
     }
 }
 
+import template from "./../views/datepicker_range.html";
 export const DatepickerRange = {
-    templateUrl: "./js/modules/demo/views/datepicker_range.html",
+    template,
     controller: DatepickerRangeCtrl
 }
 
