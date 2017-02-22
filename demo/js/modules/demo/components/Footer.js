@@ -2,13 +2,13 @@ class FooterCompoentCtrl {
 
     constructor($log) {
         'ngInject';
-        console.log($log);
-        $log.debug(this);
+        // console.log($log);
+        // $log.debug(this);
 
 
     }
     $onInit($log) {
-        console.log(this.name);
+        // console.log(this.name);
 
     }
     $onChanges() {
@@ -19,8 +19,10 @@ class FooterCompoentCtrl {
         alert("hello");
     }
 }
+// import templateUrl from "./js/modules/demo/views/btFooter.html";
+import template from "./../views/btFooter.html";
 export const BtFooter = {
-    templateUrl: "./js/modules/demo/views/btFooter.html",
+    template,
     controller: FooterCompoentCtrl,
     controllerAs: 'vm',
     bindings: {
