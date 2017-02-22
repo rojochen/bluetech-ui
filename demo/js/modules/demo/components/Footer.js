@@ -9,11 +9,14 @@ class FooterCompoentCtrl {
     }
     $onInit($log) {
         console.log(this.name);
+
     }
     $onChanges() {
         let vm = this;
-        vm.name = 123;
         // this.name = "123";
+    }
+    click() {
+        alert("hello");
     }
 }
 export const BtFooter = {
