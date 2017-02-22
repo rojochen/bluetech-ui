@@ -21,7 +21,7 @@ import {
 
 export const appModule = angular.module('bluetechUI.demo', ['bluetechUI', 'ngRoute'])
     .config(($routeProvider, $locationProvider) => new RouteConfig($routeProvider, $locationProvider))
-    .component('btFooter', () => new BtFooter())
+    .component('btFooter',BtFooter)
     .controller('sliderMenu', ($timeout) => new SliderMenu($timeout))
     .controller('demoCtrl', ($scope, $log, paginationService, pnotifyService, modalService) => new DemoCtrl($scope, $log, paginationService, pnotifyService, modalService))
     .name;
