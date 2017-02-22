@@ -8,22 +8,22 @@ export class RouteConfig {
 				// 	templateUrl: "../demo/view/index.html"
 				// })
 				.when('/', {
-					templateUrl: "view/datepicker.html"
+					templateUrl: "js/modules/demo/views/datepicker.html"
 				})
 				.when('/datepicker', {
-					templateUrl: 'view/datepicker.html'
+					templateUrl: 'js/modules/demo/views/datepicker.html'
 				})
 				.when('/datepicker_range', {
-					templateUrl: 'view/datepicker_range.html'
+					templateUrl: 'js/modules/demo/views/datepicker_range.html'
 				})
 				.when('/pagination', {
-					templateUrl: 'view/pagination.html'
+					templateUrl: 'js/modules/demo/views/pagination.html'
 				})
 				.when('/pnotifyService', {
-					templateUrl: 'view/pnotifyService.html'
+					templateUrl: 'js/modules/demo/views/pnotifyService.html'
 				})
 				.when('/confirmModal', {
-					templateUrl: 'view/confirmModal.html'
+					templateUrl: 'js/modules/demo/views/confirmModal.html'
 				})
 				.otherwise({
 					redirectTo: '/'
