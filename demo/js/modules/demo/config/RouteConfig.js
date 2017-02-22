@@ -1,11 +1,7 @@
-define(['bluetechUI', 'ngRoute'], function(bluetechUI, ngRoute) {
-    'use strict';
-	
-    var app = angular.module('btModule',['bluetechUI', 'ngRoute']);
-    // 導頁路徑
-    app.config(['$routeProvider','$locationProvider', function ($routeProvider,$locationProvider) {
-		$routeProvider.eagerInstantiationEnabled(false);
 
+export class RouteConfig {
+ 	constructor($routeProvider,$locationProvider){
+		$routeProvider.eagerInstantiationEnabled(false);
 		$locationProvider.hashPrefix('');
 		$routeProvider
 				// .when('/', {
@@ -31,8 +27,9 @@ define(['bluetechUI', 'ngRoute'], function(bluetechUI, ngRoute) {
 				})
 				.otherwise({
 					redirectTo: '/'
-				});
-		}]);
+				});		
+	}
+ }
 
-    return app;
-});
+
+RouteConfig.$inject = ['$routeProvider','$locationProvider'];

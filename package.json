@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server  --open"
+    "dev": "webpack-dev-server  --open",
+    "build-demo": "webpack --config webpack.demo.config.js"
   },
   "repository": {
     "type": "git",
@@ -18,8 +19,8 @@
   },
   "homepage": "https://github.com/rojochen/bluetech-ui#readme",
   "dependencies": {
-    "bluetech": "git+https://github.com/rojochen/bluetech.git#0.1.1",
-    "angular-route": "1.6.0"
+    "bluetech": "git+https://github.com/rojochen/bluetech.git#0.1.5",
+    "angular-route": "1.6.2"
   },
   "devDependencies": {
     "webpack": "^2.2.1",

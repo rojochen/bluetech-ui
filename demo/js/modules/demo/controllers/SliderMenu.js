@@ -1,28 +1,33 @@
-define(['btModule'], function (btModule) {
-    'use strict';
-    var app = angular.module("btModule");
+export class SliderMenu {
+    constructor($timeout){
+        this.$timeout = $timeout;
+        this.sliderMenuFun();
+    }
+    
+    sliderMenuFun(){
+      
 
-    app.controller('sliderMenu', ['$scope', '$timeout', function ($scope, $timeout) {
-        var CURRENT_URL = window.location.href.split('?')[0],
-            $BODY = $('body'),
-            $MENU_TOGGLE = $('#menu_toggle'),
-            $SIDEBAR_MENU = $('#sidebar-menu'),
-            $SIDEBAR_FOOTER = $('.sidebar-footer'),
-            $LEFT_COL = $('.left_col'),
-            $RIGHT_COL = $('.right_col'),
-            $NAV_MENU = $('.nav_menu'),
-            $FOOTER = $('footer'),
-            topNav = $('.main_container .top_nav');
-        $timeout(function () {
+        this.$timeout(() => {
+                  
             // Sidebar
-            $(document).ready(function () {
+            $(document).ready(() => {
+                let CURRENT_URL = window.location.href.split('?')[0],
+                    $BODY = $('body'),
+                    $MENU_TOGGLE = $('#menu_toggle'),
+                    $SIDEBAR_MENU = $('#sidebar-menu'),
+                    $SIDEBAR_FOOTER = $('.sidebar-footer'),
+                    $LEFT_COL = $('.left_col'),
+                    $RIGHT_COL = $('.right_col'),
+                    $NAV_MENU = $('.nav_menu'),
+                    $FOOTER = $('footer'),
+                    topNav = $('.main_container .top_nav');                 
                 $RIGHT_COL.css('padding-top', $NAV_MENU.height());
                 // TODO: This is some kind of easy fix, maybe we can improve this
-                var setContentHeight = function () {
+                let setContentHeight = () => {
                     // reset height
                     $RIGHT_COL.css('min-height', $(window).height());
 
-                    var bodyHeight = $BODY.outerHeight(),
+                    let bodyHeight = $BODY.outerHeight(),
                         footerHeight = $BODY.hasClass('footer_fixed') ? -10 : $FOOTER.height(),
                         leftColHeight = $LEFT_COL.eq(1).height() + $SIDEBAR_FOOTER.height(),
                         // contentHeight = bodyHeight < leftColHeight ? leftColHeight : bodyHeight;
@@ -34,9 +39,9 @@ define(['btModule'], function (btModule) {
                     // $RIGHT_COL.css('min-height', contentHeight);
                 };
 
-                $SIDEBAR_MENU.find('a').on('click', function (ev) {
-                    var $li = $(this).parent();
-                    var $slideUpTime = 150;
+                $SIDEBAR_MENU.find('a').on('click', function(ev){
+                    let $li = $(this).parent(),
+                        $slideUpTime = 150;
                     if ($BODY.hasClass('nav-md')) {
                         $slideUpTime = 150;
                     } else {
@@ -45,7 +50,7 @@ define(['btModule'], function (btModule) {
 
                     if ($li.is('.active')) {
                         $li.removeClass('active active-sm');
-                        $('ul:first', $li).slideUp($slideUpTime, function () {
+                        $('ul:first', $li).slideUp($slideUpTime, () => {
                             setContentHeight();
                         });
                     } else {
@@ -59,14 +64,14 @@ define(['btModule'], function (btModule) {
 
                         $li.addClass('active');
 
-                        $('ul:first', $li).slideDown($slideUpTime, function () {
+                        $('ul:first', $li).slideDown($slideUpTime, () => {
                             // setContentHeight();
                         });
                     }
                 });
 
                 // toggle small or large menu
-                $MENU_TOGGLE.on('click', function () {
+                $MENU_TOGGLE.on('click',function(event){
                     if ($BODY.hasClass('nav-md')) {
                         $SIDEBAR_MENU.find('li.active ul').hide();
                         $SIDEBAR_MENU.find('li.active').addClass('active-sm').removeClass('active');
@@ -81,7 +86,7 @@ define(['btModule'], function (btModule) {
                         $RIGHT_COL.css('margin-left', '230px');
                         topNav.css('margin-left', '230px');
                         $FOOTER.css('margin-left', '230px');
-                        setTimeout(function(){
+                        setTimeout(() => {
                             topNav.css('width', topNav.width()-230+'px');
                             $FOOTER.css('width', $FOOTER.width()-190+'px'); 
                         },450);
@@ -103,14 +108,14 @@ define(['btModule'], function (btModule) {
                 // check active menu
                 $SIDEBAR_MENU.find('a[href="' + CURRENT_URL + '"]').parent('li').addClass('current-page');
 
-                $SIDEBAR_MENU.find('a').filter(function () {
+                $SIDEBAR_MENU.find('a').filter(() => {
                     return this.href == CURRENT_URL;
-                }).parent('li').addClass('current-page').parents('ul').slideDown(function () {
+                }).parent('li').addClass('current-page').parents('ul').slideDown(() => {
                     setContentHeight();
                 }).parent().addClass('active');
 
                 // recompute content when resizing
-                $(window).smartresize(function () {
+                $(window).smartresize(() => {
                     if($LEFT_COL.css('left') !== '-230px'){
                         topNav.css('width', $('body').width()-230+'px');
                         $FOOTER.css('width', $('body').width()-230+'px'); 
@@ -133,12 +138,9 @@ define(['btModule'], function (btModule) {
                     });
                 }
             });
-
-
-
         });
-        // /Sidebar				
-    }]);
-    
-    return app;
-});
+        // /Sidebar	
+    }
+}
+
+SliderMenu.$inject = ['$timeout'];
