@@ -5,20 +5,22 @@ export class SliderMenu {
     }
     
     sliderMenuFun(){
-        let CURRENT_URL = window.location.href.split('?')[0],
-            $BODY = $('body'),
-            $MENU_TOGGLE = $('#menu_toggle'),
-            $SIDEBAR_MENU = $('#sidebar-menu'),
-            $SIDEBAR_FOOTER = $('.sidebar-footer'),
-            $LEFT_COL = $('.left_col'),
-            $RIGHT_COL = $('.right_col'),
-            $NAV_MENU = $('.nav_menu'),
-            $FOOTER = $('footer'),
-            topNav = $('.main_container .top_nav');
+      
 
         this.$timeout(() => {
+                  
             // Sidebar
             $(document).ready(() => {
+                let CURRENT_URL = window.location.href.split('?')[0],
+                    $BODY = $('body'),
+                    $MENU_TOGGLE = $('#menu_toggle'),
+                    $SIDEBAR_MENU = $('#sidebar-menu'),
+                    $SIDEBAR_FOOTER = $('.sidebar-footer'),
+                    $LEFT_COL = $('.left_col'),
+                    $RIGHT_COL = $('.right_col'),
+                    $NAV_MENU = $('.nav_menu'),
+                    $FOOTER = $('footer'),
+                    topNav = $('.main_container .top_nav');                 
                 $RIGHT_COL.css('padding-top', $NAV_MENU.height());
                 // TODO: This is some kind of easy fix, maybe we can improve this
                 let setContentHeight = () => {
@@ -37,7 +39,7 @@ export class SliderMenu {
                     // $RIGHT_COL.css('min-height', contentHeight);
                 };
 
-                $SIDEBAR_MENU.find('a').on('click', (ev) => {
+                $SIDEBAR_MENU.find('a').on('click', function(ev){
                     let $li = $(this).parent(),
                         $slideUpTime = 150;
                     if ($BODY.hasClass('nav-md')) {
@@ -69,7 +71,7 @@ export class SliderMenu {
                 });
 
                 // toggle small or large menu
-                $MENU_TOGGLE.on('click', () => {
+                $MENU_TOGGLE.on('click',function(event){
                     if ($BODY.hasClass('nav-md')) {
                         $SIDEBAR_MENU.find('li.active ul').hide();
                         $SIDEBAR_MENU.find('li.active').addClass('active-sm').removeClass('active');
