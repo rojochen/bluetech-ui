@@ -1,8 +1,18 @@
 class FooterCompoentCtrl {
-    constructor() {
-        console.log(this);
-    }
+    constructor($log) {
+        'ngInject';
+        console.log($log);
+        $log.debug(this);
 
+    }
+    $onInit($log) {
+        console.log(this.name);
+    }
+    $onChanges() {
+        let vm = this;
+        vm.name = 123;
+        // this.name = "123";
+    }
 }
 export const BtFooter = {
     templateUrl: "./js/modules/demo/views/btFooter.html",
@@ -12,3 +22,5 @@ export const BtFooter = {
         name: '@'
     }
 }
+
+// FooterCompoentCtrl.$inject = ['abc']
