@@ -247,7 +247,7 @@ export class DemoCtrl {
         this.modalService.openModal('rr');
         };
         this.$scope.eventConfirm = (e) => {
-        this.$log.debugg(e);
+        this.$log.debug(e);
         if(e.status === 'yes'){
             this.pnotifyService.pnotifySuccess('confirmModal 狀態', '點選確定按鈕');
         }else{
