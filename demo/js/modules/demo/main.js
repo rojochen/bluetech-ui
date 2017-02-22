@@ -15,13 +15,16 @@ import {
 } from './controllers/DemoCtrl.js';
 import {
     BtFooter
-} from './components/componet.js'
+} from './components/componet.js';
+
+import {Header} from './components/Header.js';
 
 
 
 export const appModule = angular.module('bluetechUI.demo', ['bluetechUI', 'ngRoute'])
     .config(($routeProvider, $locationProvider) => new RouteConfig($routeProvider, $locationProvider))
-    .component('btFooter', BtFooter)
+    .component('btFooter',BtFooter)
+    .component('btHeader',Header)
     .controller('sliderMenu', ($timeout) => new SliderMenu($timeout))
     .controller('demoCtrl', ($scope, $log, paginationService, pnotifyService, modalService) => new DemoCtrl($scope, $log, paginationService, pnotifyService, modalService))
     .name;

@@ -1,8 +1,10 @@
 class FooterCompoentCtrl {
+
     constructor($log) {
         'ngInject';
         console.log($log);
         $log.debug(this);
+
 
     }
     $onInit($log) {
