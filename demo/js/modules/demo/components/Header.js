@@ -1,6 +1,6 @@
 class headerComponentCtrl{
     constructor(){
-        console.log('fff');
+        // console.log('fff');
     }
 }
 

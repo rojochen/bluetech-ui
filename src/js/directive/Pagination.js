@@ -73,7 +73,7 @@ export class Pagination{
                     pageSize: pageSize,
                     currentPage: x
                 }
-                paginationService.setInfo(scope.info);
+                this.paginationService.setInfo(scope.info);
                 
                 if(!isInit){
                     scope.onChangePage({e:scope.info});
