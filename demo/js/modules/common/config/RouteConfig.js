@@ -1,35 +1,32 @@
 
 export class RouteConfig {
- 	constructor($routeProvider,$locationProvider){
-		$routeProvider.eagerInstantiationEnabled(false);
-		$locationProvider.hashPrefix('');
-		$routeProvider
-				// .when('/', {
-				// 	templateUrl: "../demo/view/index.html"
-				// })
-				.when('/', {
-					templateUrl: "./../views/datepicker.html"
-				})
-				.when('/datepicker', {
-					templateUrl: './../views/datepicker.html'
-				})
-				.when('/datepicker_range', {
-					templateUrl: './../views/datepicker_range.html'
-				})
-				.when('/pagination', {
-					templateUrl: './../views/pagination.html'
-				})
-				.when('/pnotifyService', {
-					templateUrl: './../views/pnotifyService.html'
-				})
-				.when('/confirmModal', {
-					templateUrl: './../views/confirmModal.html'
-				})
-				.otherwise({
-					redirectTo: '/'
-				});		
+ 	constructor($stateProvider, $urlServiceProvider){
+
+		$stateProvider.
+		        state('datepicker', {
+					url: '/',
+					component: 'datepicker'
+				}).
+				state('datepicker_range', {
+					url: '/datepicker_range',
+					component: 'datepickerRange'
+				}).
+				state('pagination', {
+					url: '/pagination',
+					component: 'pagination'
+				}).
+				state('pnotifyService', {
+					url: '/pnotifyService',
+					component: 'pnotifyService'
+				}).
+				state('confirmModal', {
+					url: '/confirmModal',
+					component: 'confirmModal'
+				});
+				
+	    $urlServiceProvider.rules.otherwise({ state: 'datepicker' });	
 	}
  }
 
 
-RouteConfig.$inject = ['$routeProvider','$locationProvider'];
+RouteConfig.$inject = ['$stateProvider', '$urlServiceProvider'];

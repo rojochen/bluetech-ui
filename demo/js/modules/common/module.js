@@ -1,9 +1,10 @@
 import {
     bluetechUI
 } from './../../../../dist/js/bluetechUI.min.js';
-import {
-    ngRoute
-} from 'angular-route/angular-route.min';
+// import {
+//     ngRoute
+// } from 'angular-route/angular-route.min';
+import {uiRouter} from 'angular-ui-router/release/angular-ui-router.min.js';
 import {
     RouteConfig
 } from './config/RouteConfig';
@@ -28,8 +29,8 @@ import {Pagination} from './components/Pagination.js';
 import {PnotifyService} from './components/PnotifyService.js';
 
 
-export const appModule = angular.module('bluetechUI.common', ['bluetechUI', 'ngRoute'])
-    .config(($routeProvider, $locationProvider) => new RouteConfig($routeProvider, $locationProvider))
+export const appModule = angular.module('bluetechUI.common', ['bluetechUI', 'ui.router'])
+    .config(($stateProvider, $urlServiceProvider) => new RouteConfig($stateProvider, $urlServiceProvider))
     .component('btFooter', BtFooter)
     .component('btHeader', Header)
     .component('confirmModal', ConfirmModal)
