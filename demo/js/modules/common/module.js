@@ -1,4 +1,5 @@
 import {bluetechUI} from './../../../../dist/js/bluetechUI.min.js';
+// import angular from 'angular/angular.min.js';
 import {uiRouter} from 'angular-ui-router/release/angular-ui-router.min.js';
 import {RouteConfig} from './config/RouteConfig';
 import {SliderMenu} from './components/SliderMenu.js';
