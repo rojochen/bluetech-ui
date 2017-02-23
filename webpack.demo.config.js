@@ -4,7 +4,8 @@ var webpack = require('webpack'),
 module.exports = {
     devtool: 'eval',
     entry: {
-        app: './demo/js/app.js'
+        app: './demo/js/app.js',
+        bluetechStyle: './demo/js/style.js'
     },
     output: {
         path: 'demo/js/',
@@ -97,6 +98,6 @@ module.exports = {
         hot: true,
         inline: true,
         port: 3000,
-        contentBase: ["node_modules", "demo", "demo/view/", 'dist']
+        contentBase: ["node_modules", "demo"]
     }
 };
