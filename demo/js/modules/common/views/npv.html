@@ -1,0 +1,44 @@
+<div class="container body">
+    <div class="main_container">
+      <div class="col-md-3 left_col menu_fixed">
+        <div class="left_col scroll-view">
+          <!-- sidebar menu -->
+          <slider-menu></slider-menu>
+          <!-- /sidebar menu -->
+        </div>
+      </div>
+
+      <!-- top navigation -->
+      <div class="top_nav">
+          <!-- top menu -->
+          <!--<div ng-include="'../template/top-menu.html'"></div>-->
+          <bt-header></bt-header>
+          <!-- /top menu -->
+      </div>
+      <!-- /top navigation -->
+
+      <!-- page content -->
+
+      <div class="right_col" role="main">
+        <div ui-view></div>
+        <!--<div ng-view></div>-->
+        <!--<confirm-modal></confirm-modal>-->
+        <!--<datepicker></datepicker>-->
+        <!--<datepicker-range></datepicker-range>-->
+        <!--<pagination></pagination>-->
+        <!--<pnotify-service></pnotify-service>-->
+        <!--<hello-world>123</hello-world>-->
+        <div class="clearfix"></div>
+      </div>
+    </div>
+    <!-- /page content -->
+
+    <!-- footer content -->
+    <footer>
+        <!--  footer -->
+        <!--<div ng-include="'../template/footer.html'"></div>-->
+        <bt-footer name="New Prototype - 2017"></bt-footer>
+        <!-- /footer -->
+    </footer>
+    <!-- /footer content -->
+  </div>
