@@ -20,21 +20,23 @@
   "homepage": "https://github.com/rojochen/bluetech-ui#readme",
   "dependencies": {
     "bluetech": "git+https://github.com/rojochen/bluetech.git#0.1.5",
-    "angular-route": "1.6.2"
+    "angular-ui-router": "^1.0.0-rc.1"
   },
   "devDependencies": {
-    "webpack": "^2.2.1",
-    "webpack-dev-server": "^1.16.2",
-    "extract-text-webpack-plugin": "^2.0.0-rc.3",
-    "style-loader": "^0.13.1",
-    "file-loader": "^0.10.0",
+    "angular": "^1.6.2",
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.2",
+    "babel-preset-es2015": "^6.22.0",
     "css-loader": "^0.26.1",
+    "extract-text-webpack-plugin": "^2.0.0-rc.3",
+    "file-loader": "^0.10.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "html-loader": "^0.4.4",
     "node-sass": "^4.5.0",
     "sass-loader": "^5.0.1",
-    "babel-loader": "^6.3.2",
-    "babel-core": "^6.23.1",
-    "babel-preset-es2015": "^6.22.0",
-    "gulp": "^3.9.1",
-    "gulp-concat": "^2.6.1"
+    "style-loader": "^0.13.1",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^1.16.2"
   }
 }

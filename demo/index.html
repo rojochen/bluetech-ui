@@ -20,7 +20,7 @@
       <div class="col-md-3 left_col menu_fixed">
         <div class="left_col scroll-view">
           <!-- sidebar menu -->
-          <div ng-include="'view/slider-menu.html'"></div>
+          <slider-menu></slider-menu>
           <!-- /sidebar menu -->
         </div>
       </div>
@@ -37,7 +37,13 @@
       <!-- page content -->
 
       <div class="right_col" role="main">
-        <div ng-view></div>
+        <div ui-view></div>
+        <!--<div ng-view></div>-->
+        <!--<confirm-modal></confirm-modal>-->
+        <!--<datepicker></datepicker>-->
+        <!--<datepicker-range></datepicker-range>-->
+        <!--<pagination></pagination>-->
+        <!--<pnotify-service></pnotify-service>-->
         <!--<hello-world>123</hello-world>-->
         <div class="clearfix"></div>
       </div>
