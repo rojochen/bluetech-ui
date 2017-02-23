@@ -1,4 +1,4 @@
-import {bluetech} from 'bluetech';
+import {bluetech} from 'angular';
 import {PaginationService} from './service/PaginationService.js';
 import {ModalService} from './service/ModalService.js';
 import {PnotifyService} from './service/PnotifyService.js';
