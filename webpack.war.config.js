@@ -1,6 +1,5 @@
 var webpack = require('webpack'),
-    ExtractTextPlugin = require("extract-text-webpack-plugin"),
-    CleanWebpackPlugin = require('clean-webpack-plugin');
+    ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
     devtool: 'eval',
@@ -62,6 +61,9 @@ module.exports = {
                 }, "sass"]
             })
         }, {
+            test: /\.(jpg|png)([\?]?.*)$/,
+            use: "file?name=./css/img/[name].[ext]"
+        }, {
             test: /\.(jpg|woff|svg|ttf|png|eot)([\?]?.*)$/,
             use: "file?name=../css/img/[name].[ext]"
         }, {
@@ -83,7 +85,6 @@ module.exports = {
             // disable: false,
             allChunks: true
         }),
-        new CleanWebpackPlugin(['demo/js/css']),
         // new webpack.optimize.UglifyJsPlugin({  //壓縮
         //     beautify: false,
         //     sourceMap: false,

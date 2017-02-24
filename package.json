@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build-src": "webpack --config webpack.config.js",
+    "build-demo": "webpack --config webpack.demo.config.js",
     "dev": "webpack-dev-server --config webpack.demo.config.js --open",
-    "build-demo": "webpack --config webpack.demo.config.js"
+    "build-war": "webpack --config webpack.war.config.js && gulp build-war"
   },
   "repository": {
     "type": "git",
@@ -27,6 +29,7 @@
     "babel-core": "^6.23.1",
     "babel-loader": "^6.3.2",
     "babel-preset-es2015": "^6.22.0",
+    "clean-webpack-plugin": "^0.1.15",
     "css-loader": "^0.26.1",
     "extract-text-webpack-plugin": "^2.0.0-rc.3",
     "file-loader": "^0.10.0",
