@@ -1,5 +1,6 @@
 var webpack = require('webpack'),
-    ExtractTextPlugin = require("extract-text-webpack-plugin");
+    ExtractTextPlugin = require("extract-text-webpack-plugin"),
+    CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
     devtool: 'eval',
@@ -85,6 +86,7 @@ module.exports = {
             // disable: false,
             allChunks: true
         }),
+        new CleanWebpackPlugin(['demo/js/css']),
         // new webpack.optimize.UglifyJsPlugin({  //壓縮
         //     beautify: false,
         //     sourceMap: false,
