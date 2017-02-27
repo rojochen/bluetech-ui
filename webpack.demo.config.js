@@ -5,7 +5,7 @@ module.exports = {
     devtool: 'eval',
     entry: {
         app: './demo/js/app.js',
-        bluetechStyle: './demo/js/style.js'
+      
     },
     output: {
         path: 'demo/js/',
@@ -25,6 +25,7 @@ module.exports = {
     module: {
         rules: [{
             test: /\.html$/,
+            exclude: /(node_modules)/,
             use: [{
                 loader: 'html-loader',
                 options: {
@@ -33,9 +34,11 @@ module.exports = {
             }],
         }, {
             test: /\.(png|gif)$/,
+            exclude: /(node_modules)/,
             use: 'url?limit=100000'
         }, {
             test: /\.css$/,
+            exclude: /(node_modules)/,
             use: ExtractTextPlugin.extract({
                 fallback: 'style',
                 use: [{
@@ -49,6 +52,7 @@ module.exports = {
             })
         }, {
             test: /\.scss$/,
+            exclude: /(node_modules)/,
             use: ExtractTextPlugin.extract({
                 fallback: 'style',
                 use: [{
@@ -61,9 +65,17 @@ module.exports = {
                 }, "sass"]
             })
         }, {
+            test: /\.(jpg|woff|svg|ttf|png|eot)([\?]?.*)$/, 
+            exclude:/images/,           
+            use: "file?name=../assets/[name].[ext]"
+        },
+         {
             test: /\.(jpg|woff|svg|ttf|png|eot)([\?]?.*)$/,
-            use: "file?name=../css/img/[name].[ext]"
-        }, {
+            use: "file-loader?name=./assets/[name].[ext]&outputPath=./../assets/",
+            include:/images/,
+            exclude: /(node_modules)/,
+        }
+        , {
             test: /\.js$/,
             exclude: /(node_modules|vendors)/,
             loader: 'babel',
