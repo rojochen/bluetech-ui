@@ -8,8 +8,9 @@ module.exports = {
       
     },
     output: {
-        path: 'demo/js/',
+        path: 'demo/',
         filename: '[name].min.js',
+        publicPath:'/bluetech-ui/'
     },
     resolve: {
         modules: ['src/js/', 'src/css/', 'node_modules'],
@@ -66,12 +67,13 @@ module.exports = {
             })
         }, {
             test: /\.(jpg|woff|svg|ttf|png|eot)([\?]?.*)$/, 
-            exclude:/images/,           
-            use: "file?name=../assets/[name].[ext]"
-        },
+            include:/dist/,
+            use: "file?name=assets/[name].[ext]"
+        }
+        ,
          {
             test: /\.(jpg|woff|svg|ttf|png|eot)([\?]?.*)$/,
-            use: "file-loader?name=./assets/[name].[ext]&outputPath=./../assets/",
+            use: "file-loader?name=assets/[name].[ext]",
             include:/images/,
             exclude: /(node_modules)/,
         }
