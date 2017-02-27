@@ -66,17 +66,10 @@ module.exports = {
                 }, "sass"]
             })
         }, {
-            test: /\.(jpg|woff|svg|ttf|png|eot)([\?]?.*)$/, 
-            include:/dist/,
-            use: "file?name=assets/[name].[ext]"
-        }
-        ,
-         {
-            test: /\.(jpg|woff|svg|ttf|png|eot)([\?]?.*)$/,
-            use: "file-loader?name=assets/[name].[ext]",
-            include:/images/,
+            test: /\.(jpg|woff|svg|ttf|png|eot)([\?]?.*)$/,             
             exclude: /(node_modules)/,
-        }
+            use: "file?name=assets/[name].[ext]"
+        }        
         , {
             test: /\.js$/,
             exclude: /(node_modules|vendors)/,
@@ -92,7 +85,7 @@ module.exports = {
         //     minimize: true
         // }),
         new ExtractTextPlugin({
-            filename: "../css/bluetechStyle.min.css",
+            filename: "/css/bluetechStyle.min.css",
             // disable: false,
             allChunks: true
         }),
