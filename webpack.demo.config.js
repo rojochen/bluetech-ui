@@ -1,30 +1,26 @@
 var webpack = require('webpack'),
-    ExtractTextPlugin = require("extract-text-webpack-plugin"),
-    nodeExternals = require('webpack-node-externals');
+    ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
     devtool: 'eval',
     entry: {
-        main: './demo/js/app.js',
-
+        main: './demo/js/app.js'
     },
     output: {
         path: 'demo/',
-        filename: '[name].min.js',
+        filename: 'js/[name].min.js',
         publicPath: '/bluetech-ui/'
     },
     resolve: {
         modules: ['src/js/', 'src/css/', 'node_modules'],
         extensions: ['.js', '.css'],
         alias: {
-            bluetech: 'bluetech/dist/js/bluetech.min',
-            // angular: 'bluetech/dist/js/bluetech.min'
+            bluetech: 'bluetech/dist/js/bluetech.min'
         }
     },
     resolveLoader: {
         moduleExtensions: ['-loader'] //讓loader不用打
     },
-    // externals: [nodeExternals()], 排除node_module
     module: {
         rules: [{
             test: /\.html$/,
@@ -73,7 +69,6 @@ module.exports = {
             use: "file?name=assets/[name].[ext]"
         }, {
             test: /\.js$/,
-            // exclude: /node_modules/,
             include: './demo/js/**',
             loader: 'babel',
             query: {
