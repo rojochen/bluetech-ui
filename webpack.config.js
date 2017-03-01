@@ -1,5 +1,6 @@
 var webpack = require('webpack'),
-    ExtractTextPlugin = require("extract-text-webpack-plugin");
+    ExtractTextPlugin = require("extract-text-webpack-plugin"),
+    ngAnnotatePlugin = require('ng-annotate-webpack-plugin');
 
 module.exports = {
     devtool: 'eval',
@@ -66,12 +67,12 @@ module.exports = {
         }]
     },
     externals: {
-        "angular": {
-            root: 'angular',
-            amd: 'angular',
-            commonjs2: 'angular',
-            commonjs: 'angular'
-        }
+        // "angular": {
+        //     root: 'angular',
+        //     amd: 'angular',
+        //     commonjs2: 'angular',
+        //     commonjs: 'angular'
+        // }
     },
     plugins: [
         new ExtractTextPlugin({
@@ -85,6 +86,10 @@ module.exports = {
         new webpack.optimize.UglifyJsPlugin({
             include: /\.min\.js$/,
             minimize: true
+        }),
+        new ngAnnotatePlugin({
+            add: true,
+            // other ng-annotate options here
         })
     ],
     devServer: {

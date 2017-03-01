@@ -1,13 +1,12 @@
 var webpack = require('webpack'),
     ExtractTextPlugin = require("extract-text-webpack-plugin"),
-    nodeExternals = require('webpack-node-externals');
+    nodeExternals = require('webpack-node-externals'),
+    ngAnnotatePlugin = require('ng-annotate-webpack-plugin');
 
 module.exports = {
     devtool: 'eval',
     entry: {
-        vendor: ['angular', 'angular-ui-router'],
         main: './demo/js/app.js',
-
     },
     output: {
         path: 'demo/',
@@ -96,14 +95,8 @@ module.exports = {
         new webpack.LoaderOptionsPlugin({
             minimize: true
         }),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: "vendor",
-
-            // filename: "vendor.js"
-            // (给 chunk 一个不同的名字)
-
-            minChunks: Infinity,
-            // 随着 入口chunk 越来越多，这个配置保证没其它的模块会打包进 公共chunk
+        new ngAnnotatePlugin({
+            add: true,
         })
     ],
     devServer: {
