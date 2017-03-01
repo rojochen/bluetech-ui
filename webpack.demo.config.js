@@ -1,5 +1,6 @@
 var webpack = require('webpack'),
-    ExtractTextPlugin = require("extract-text-webpack-plugin");
+    ExtractTextPlugin = require("extract-text-webpack-plugin"),
+    nodeExternals = require('webpack-node-externals');
 
 module.exports = {
     devtool: 'eval',
@@ -23,6 +24,7 @@ module.exports = {
     resolveLoader: {
         moduleExtensions: ['-loader'] //讓loader不用打
     },
+    // externals: [nodeExternals()], 排除node_module
     module: {
         rules: [{
             test: /\.html$/,
