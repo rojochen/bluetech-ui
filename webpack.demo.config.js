@@ -26,7 +26,7 @@ module.exports = {
     module: {
         rules: [{
             test: /\.html$/,
-            exclude: /(node_modules)/,
+            exclude: /node_modules/,
             use: [{
                 loader: 'html-loader',
                 options: {
@@ -35,11 +35,11 @@ module.exports = {
             }],
         }, {
             test: /\.(png|gif)$/,
-            exclude: /(node_modules)/,
+            exclude: /node_modules/,
             use: 'url?limit=100000'
         }, {
             test: /\.css$/,
-            exclude: /(node_modules)/,
+            exclude: /node_modules/,
             use: ExtractTextPlugin.extract({
                 fallback: 'style',
                 use: [{
@@ -53,7 +53,7 @@ module.exports = {
             })
         }, {
             test: /\.scss$/,
-            exclude: /(node_modules)/,
+            exclude: /node_modules/,
             use: ExtractTextPlugin.extract({
                 fallback: 'style',
                 use: [{
@@ -71,7 +71,7 @@ module.exports = {
             use: "file?name=assets/[name].[ext]"
         }, {
             test: /\.js$/,
-            exclude: "node_modules",
+            exclude: /node_modules/,
             loader: 'babel',
             query: {
                 presets: ['es2015']
