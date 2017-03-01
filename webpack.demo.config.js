@@ -67,7 +67,7 @@ module.exports = {
             })
         }, {
             test: /\.(jpg|woff|svg|ttf|png|eot)([\?]?.*)$/,
-            exclude: /(node_modules)/,
+            exclude: /node_modules/,
             use: "file?name=assets/[name].[ext]"
         }, {
             test: /\.js$/,
