@@ -4,3 +4,6 @@ node_modules
 .vscode
 demo/js/app.min.js
 debug.log
+war/bluetech-ui.war
+demo/assets
+demo/css
