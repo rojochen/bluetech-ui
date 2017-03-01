@@ -5,7 +5,7 @@ module.exports = {
     devtool: 'eval',
     entry: {
         app: './demo/js/app.js',
-      
+
     },
     output: {
         path: 'demo/',
@@ -66,10 +66,10 @@ module.exports = {
                 }, "sass"]
             })
         }, {
-            test: /\.(jpg|woff|svg|ttf|png|eot)([\?]?.*)$/,             
+            test: /\.(jpg|woff|svg|ttf|png|eot)([\?]?.*)$/,
             exclude: /(node_modules)/,
             use: "file?name=assets/[name].[ext]"
-        }        
+        }
         , {
             test: /\.js$/,
             exclude: /(node_modules|vendors)/,
@@ -89,6 +89,10 @@ module.exports = {
             // disable: false,
             allChunks: true
         }),
+         new webpack.optimize.UglifyJsPlugin({
+            include: /\.min\.js$/,
+            minimize: true
+        })
         // new webpack.optimize.UglifyJsPlugin({  //壓縮
         //     beautify: false,
         //     sourceMap: false,
