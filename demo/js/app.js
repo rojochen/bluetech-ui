@@ -1,3 +1,4 @@
+import {ng} from 'angular';
 import bluetechUI from './../../dist/js/bluetechUI.min.js';
 // import angular from 'angular/angular.min.js';
 import bluetechUICommon from './modules/common/module.js';

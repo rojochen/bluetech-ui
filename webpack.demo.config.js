@@ -18,7 +18,7 @@ module.exports = {
         extensions: ['.js', '.css'],
         alias: {
             bluetech: 'bluetech/dist/js/bluetech.min',
-            // angular: 'bluetech/dist/js/bluetech.min'
+            angular:'angular/angular.min'
         }
     },
     resolveLoader: {

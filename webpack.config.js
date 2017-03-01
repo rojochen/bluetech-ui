@@ -16,7 +16,8 @@ module.exports = {
         modules: ['src/js/', 'src/css/', 'node_modules'],
         extensions: ['.js', '.css'],
         alias: {
-            bluetech: 'bluetech/dist/js/bluetech.min'
+            bluetech: 'bluetech/dist/js/bluetech.min',
+            angular: 'angular/angular.min'
         }
     },
     resolveLoader: {
@@ -63,6 +64,14 @@ module.exports = {
                 presets: ['es2015']
             }
         }]
+    },
+    externals: {
+        "angular": {
+            root: 'angular',
+            amd: 'angular',
+            commonjs2: 'angular',
+            commonjs: 'angular'
+        }
     },
     plugins: [
         new ExtractTextPlugin({
