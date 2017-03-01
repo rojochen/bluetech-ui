@@ -71,7 +71,8 @@ module.exports = {
             use: "file?name=assets/[name].[ext]"
         }, {
             test: /\.js$/,
-            exclude: /node_modules/,
+            // exclude: /node_modules/,
+            include: './demo/js/**',
             loader: 'babel',
             query: {
                 presets: ['es2015']
