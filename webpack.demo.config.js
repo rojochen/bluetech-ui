@@ -5,6 +5,7 @@ var webpack = require('webpack'),
 module.exports = {
     devtool: 'eval',
     entry: {
+        vendor: ['angular', 'angular-ui-router'],
         main: './demo/js/app.js',
 
     },
@@ -18,7 +19,8 @@ module.exports = {
         extensions: ['.js', '.css'],
         alias: {
             bluetech: 'bluetech/dist/js/bluetech.min',
-            angular:'angular/angular.min'
+            angular: 'angular/angular.min',
+            'angular-ui-router': 'angular-ui-router/release/angular-ui-router.min.js'
         }
     },
     resolveLoader: {
@@ -94,6 +96,15 @@ module.exports = {
         new webpack.LoaderOptionsPlugin({
             minimize: true
         }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: "vendor",
+
+            // filename: "vendor.js"
+            // (给 chunk 一个不同的名字)
+
+            minChunks: Infinity,
+            // 随着 入口chunk 越来越多，这个配置保证没其它的模块会打包进 公共chunk
+        })
     ],
     devServer: {
         hot: true,
