@@ -2,7 +2,6 @@ class ConfirmModalCtrl{
     constructor($scope, $log, pnotifyService, modalService){
         this.ConfirmModalFun($scope, $log, pnotifyService, modalService)
     }
-
     ConfirmModalFun($scope, $log, pnotifyService, modalService){
         /* begin btConfirmModal頁面 */
         $scope.confirmModal = {
@@ -22,7 +21,7 @@ class ConfirmModalCtrl{
         modalService.closeModal('rr');
         };
         /* end btConfirmModal頁面 */
-        
+
     }
 }
 

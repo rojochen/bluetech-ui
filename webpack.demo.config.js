@@ -72,6 +72,7 @@ module.exports = {
             include: './demo/js/**',
             loader: 'babel',
             query: {
+                plugins: ["transform-class-properties"],
                 presets: ['es2015']
             }
         }]
