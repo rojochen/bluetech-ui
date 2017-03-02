@@ -142,7 +142,8 @@ class PaginationCtrl{
 import template from "./../views/pagination.html";
 export const Pagination = {
     template,
-    controller: PaginationCtrl
+    controller: PaginationCtrl,
+    controllerAs:"vm"
 }
 
 Pagination.$inject = ['$scope', '$log', 'paginationService'];
