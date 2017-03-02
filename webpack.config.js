@@ -25,55 +25,69 @@ module.exports = {
     },
     module: {
         rules: [{
-            test: /\.(png|gif)$/,
-            use: 'url?limit=100000'
-        }, {
-            test: /\.css$/,
-            use: ExtractTextPlugin.extract({
-                fallback: 'style',
-                use: [{
-                    loader: 'css',
-                    query: {
-                        import: true,
-                        modules: false,
-                        sourceMaps: true
-                    }
-                }, "sass"]
-            })
-        }, {
-            test: /\.scss$/,
-            use: ExtractTextPlugin.extract({
-                fallback: 'style',
-                use: [{
-                    loader: 'css',
-                    query: {
-                        import: true,
-                        modules: false,
-                        sourceMaps: true
-                    }
-                }, "sass"]
-            })
-        }, {
-            test: /\.(jpg|woff|svg|ttf|png|eot)([\?]?.*)$/,
-            use: "file?name=../css/img/[name].[ext]"
-        }, {
-            test: /\.js$/,
-            exclude: /(node_modules)/,
-            loader: 'babel',
-            query: {
-                presets: ['es2015']
+                test: /\.(png|gif)$/,
+                use: 'url?limit=100000'
+            }, {
+                test: /\.css$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style',
+                    use: [{
+                        loader: 'css',
+                        query: {
+                            import: true,
+                            modules: false,
+                            sourceMaps: true
+                        }
+                    }, "sass"]
+                })
+            }, {
+                test: /\.scss$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style',
+                    use: [{
+                        loader: 'css',
+                        query: {
+                            import: true,
+                            modules: false,
+                            sourceMaps: true
+                        }
+                    }, "sass"]
+                })
+            }, {
+                test: /\.(jpg|woff|svg|ttf|png|eot)([\?]?.*)$/,
+                use: "file?name=../css/img/[name].[ext]"
+            }, {
+                test: /\.js$/,
+                // exclude: /node_module/,
+                loader: 'babel',
+                query: {
+                    cacheDirectory: true,
+                    presets: ['es2015'],
+                    plugins: ["syntax-decorators", "ng-annotate"]
+                }
+            },
+            {
+                test: /[\/\\]angular\.js$/,
+                loader: "exports?angular"
+            },
+            {
+                test: /[\/\\]angular\.js$/,
+                loader: 'exports?window.angular'
             }
-        }]
+        ]
     },
     externals: {
-        // "angular": {
-        //     root: 'angular',
-        //     amd: 'angular',
-        //     commonjs2: 'angular',
-        //     commonjs: 'angular'
-        // }
+        "angular": {
+            root: 'angular',
+            amd: 'angular',
+            commonjs2: 'angular',
+            commonjs: 'angular'
+        }
     },
     plugins: [
+        new webpack.ProvidePlugin({
+            'angular': 'angular'
+        }),
         new ExtractTextPlugin({
             filename: "../css/bluetechStyle.min.css",
             // disable: false,

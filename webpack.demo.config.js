@@ -1,6 +1,6 @@
 var webpack = require('webpack'),
     ExtractTextPlugin = require("extract-text-webpack-plugin");
-    // nodeExternals = require('webpack-node-externals');
+// nodeExternals = require('webpack-node-externals');
 
 module.exports = {
     devtool: 'eval',
@@ -27,61 +27,75 @@ module.exports = {
     // externals: [nodeExternals()], 排除node_module
     module: {
         rules: [{
-            test: /\.html$/,
-            exclude: /node_modules/,
-            use: [{
-                loader: 'html-loader',
-                options: {
-                    minimize: true
+                test: /\.html$/,
+                exclude: /node_modules/,
+                use: [{
+                    loader: 'html-loader',
+                    options: {
+                        minimize: true
+                    }
+                }],
+            }, {
+                test: /\.(png|gif)$/,
+                exclude: /node_modules/,
+                use: 'url?limit=100000'
+            }, {
+                test: /\.css$/,
+                exclude: /node_modules/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style',
+                    use: [{
+                        loader: 'css',
+                        query: {
+                            import: true,
+                            modules: false,
+                            sourceMaps: true
+                        }
+                    }, "sass"]
+                })
+            }, {
+                test: /\.scss$/,
+                exclude: /node_modules/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style',
+                    use: [{
+                        loader: 'css',
+                        query: {
+                            import: true,
+                            modules: false,
+                            sourceMaps: true
+                        }
+                    }, "sass"]
+                })
+            }, {
+                test: /\.(jpg|woff|svg|ttf|png|eot)([\?]?.*)$/,
+                exclude: /node_modules/,
+                use: "file?name=assets/[name].[ext]"
+            }, {
+                test: /\.js$/,
+                // exclude: /node_modules/,
+                // include: './demo/js/**',
+                loader: 'babel',
+                query: {
+                    cacheDirectory: true,
+                    presets: ['es2015'],
+                    plugins: ["syntax-decorators", "ng-annotate"]
                 }
-            }],
-        }, {
-            test: /\.(png|gif)$/,
-            exclude: /node_modules/,
-            use: 'url?limit=100000'
-        }, {
-            test: /\.css$/,
-            exclude: /node_modules/,
-            use: ExtractTextPlugin.extract({
-                fallback: 'style',
-                use: [{
-                    loader: 'css',
-                    query: {
-                        import: true,
-                        modules: false,
-                        sourceMaps: true
-                    }
-                }, "sass"]
-            })
-        }, {
-            test: /\.scss$/,
-            exclude: /node_modules/,
-            use: ExtractTextPlugin.extract({
-                fallback: 'style',
-                use: [{
-                    loader: 'css',
-                    query: {
-                        import: true,
-                        modules: false,
-                        sourceMaps: true
-                    }
-                }, "sass"]
-            })
-        }, {
-            test: /\.(jpg|woff|svg|ttf|png|eot)([\?]?.*)$/,
-            exclude: /node_modules/,
-            use: "file?name=assets/[name].[ext]"
-        }, {
-            test: /\.js$/,
-            // exclude: /node_modules/,
-            include: './demo/js/**',
-            loader: 'babel',
-            query: {
-                presets: ['es2015']
-            }
-        }]
+            },
+            {
+                test: /[\/\\]angular\.js$/,
+                loader: "exports?angular"
+            },
+            {
+                test: /[\/\\]angular\.js$/,
+                loader: 'exports?window.angular'
+            },
+        ]
     },
     plugins: [
+        new webpack.ProvidePlugin({
+            'angular': 'angular'
+        }),
         new ExtractTextPlugin({
             filename: "/css/bluetechStyle.min.css",
             // disable: false,
