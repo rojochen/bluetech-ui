@@ -1,11 +1,11 @@
-export class DemoCtrl {
+class PortletCtrl {
     constructor(){
-        this.DemoCtrlFun();
+        //this.PortletFun();
     }
     
-    DemoCtrlFun(){
+    PortletFun(){
         /*begin Portlet */
-        $('.collapse-link').on('click', () => {
+        $('.collapse-link').on('click', function() {
             let $BOX_PANEL = $(this).closest('.x_panel'),
                 $ICON = $(this).find('i'),
                 $BOX_CONTENT = $BOX_PANEL.find('.x_content');
@@ -22,8 +22,8 @@ export class DemoCtrl {
 
             $ICON.toggleClass('fa-chevron-up fa-chevron-down');
         });
-
-        $('.close-link').click( () => {
+        
+        $('.close-link').on('click', function() {
             let $BOX_PANEL = $(this).closest('.x_panel');
 
             $BOX_PANEL.remove();
@@ -32,4 +32,4 @@ export class DemoCtrl {
     }
 }
 
-DemoCtrl.$inject = [];
+export {PortletCtrl};

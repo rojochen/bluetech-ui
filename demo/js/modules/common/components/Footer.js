@@ -21,6 +21,7 @@ class FooterCompoentCtrl {
 }
 // import templateUrl from "./js/modules/demo/views/btFooter.html";
 import template from "./../views/btFooter.html";
+
 export const BtFooter = {
     template,
     controller: FooterCompoentCtrl,

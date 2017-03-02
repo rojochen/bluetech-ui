@@ -3,7 +3,6 @@ import {bluetechUI} from './../../../../dist/js/bluetechUI.min.js';
 import {uiRouter} from 'angular-ui-router/release/angular-ui-router.min.js';
 import {RouteConfig} from './config/RouteConfig';
 import {SliderMenu} from './components/SliderMenu.js';
-import {DemoCtrl} from './controllers/DemoCtrl.js';
 import {BtFooter} from './components/Footer.js';
 import {Header} from './components/Header.js';
 import {ConfirmModal} from './components/ConfirmModal.js';
@@ -23,5 +22,4 @@ export const appModule = angular.module('bluetechUI.common', ['bluetechUI', 'ui.
     .component('datepickerRange', DatepickerRange)
     .component('pagination', Pagination)
     .component('pnotifyService', PnotifyService)
-    .controller('demoCtrl', () => new DemoCtrl())
     .name;
