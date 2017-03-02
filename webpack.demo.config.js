@@ -1,7 +1,6 @@
 var webpack = require('webpack'),
-    ExtractTextPlugin = require("extract-text-webpack-plugin"),
-    nodeExternals = require('webpack-node-externals'),
-    ngAnnotatePlugin = require('ng-annotate-webpack-plugin');
+    ExtractTextPlugin = require("extract-text-webpack-plugin");
+    // nodeExternals = require('webpack-node-externals');
 
 module.exports = {
     devtool: 'eval',
@@ -94,9 +93,6 @@ module.exports = {
         }),
         new webpack.LoaderOptionsPlugin({
             minimize: true
-        }),
-        new ngAnnotatePlugin({
-            add: true,
         })
     ],
     devServer: {
