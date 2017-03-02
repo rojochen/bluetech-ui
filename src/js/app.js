@@ -1,4 +1,5 @@
-import {ng} from 'angular';
+// import {ng} from 'angular';
+require('angular');
 import {bluetech} from 'bluetech';
 import {PaginationService} from './service/PaginationService.js';
 import {ModalService} from './service/ModalService.js';
