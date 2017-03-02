@@ -1,14 +1,15 @@
+import {PortletCtrl} from "./../controllers/PortletCtrl.js";
 class PaginationCtrl extends PortletCtrl{
-    constructor($scope, $log, paginationService){
+    constructor( $log, paginationService){
         super();
-        this.PaginationFun($scope, $log, paginationService);
+        super.PortletFun();        
+        this.$log = $log;
+        this.paginationService = paginationService;
+       
     }
-
-    PaginationFun($scope, $log, paginationService){
-        super.PortletFun();
-
-        /* begin pagination頁面 */
-        $scope.tableInfo = {
+    $onInit(){
+        console.log('do component init');
+         this.tableInfo = {
         "totalCount": 15,
         "result": [{
             "id": "121000000",
@@ -132,18 +133,19 @@ class PaginationCtrl extends PortletCtrl{
             "list": "View"
         }]
         };
-        $scope.eventChange = (e) => {
-        $log.debug(e);
-        };
-        $scope.goFirst = () =>{
-        paginationService.goFirst('ss');
-        }
-        /* end pagination頁面 */
     }
+    eventChange(e){
+        this.$log.debug(e);
+    }
+    goFirst(){
+        this.paginationService.goFirst('ss');
+    }
+    
+   
 }
 
-PaginationCtrl.$inject = ['$scope', '$log', 'paginationService'];
+PaginationCtrl.$inject = [ '$log', 'paginationService'];
 
-import {PortletCtrl} from "./../controllers/PortletCtrl.js";
+
 
 export {PaginationCtrl};

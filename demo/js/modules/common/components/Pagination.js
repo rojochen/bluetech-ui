@@ -3,5 +3,6 @@ import {PaginationCtrl} from "./../controllers/PaginationCtrl.js";
 
 export const Pagination = {
     template,
-    controller: PaginationCtrl
+    controller: PaginationCtrl,
+    controllerAs: 'vm'
 }
