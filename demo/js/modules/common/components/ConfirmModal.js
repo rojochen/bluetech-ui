@@ -3,5 +3,6 @@ import {ConfirmModalCtrl} from "./../controllers/ConfirmModalCtrl.js";
 
 export const ConfirmModal = {
     template,
-    controller: ConfirmModalCtrl
+    controller: ConfirmModalCtrl,
+    controllerAs: 'vm'
 }

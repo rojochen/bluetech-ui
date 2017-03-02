@@ -3,5 +3,6 @@ import {DatepickerCtrl} from "./../controllers/DatepickerCtrl.js";
 
 export const Datepicker = {
     template,
-    controller: DatepickerCtrl
+    controller: DatepickerCtrl,
+    controllerAs: 'vm'
 }

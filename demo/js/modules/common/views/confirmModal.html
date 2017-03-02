@@ -54,11 +54,11 @@
 						<li>提供modalService.closeModal(id Name)，關閉modal視窗。</li>
 					</ol>
 					<div class="col-md-6 col-sm-12 col-xs-12">
-						<button class="btn btn-primary" ng-click="openConfirmModal()">open modal</button>
+						<button class="btn btn-primary" ng-click="vm.openConfirmModal()">open modal</button>
 					</div>	
 				</div>
 			</div>
 		</div>	
 	</div>
-	<bt-confirm-modal modal-id="rr" ng-model="confirmModal" keyboard="false" backdrop="static" on-confirm-event="eventConfirm(e)"></bt-confirm-modal>
+	<bt-confirm-modal modal-id="rr" ng-model="vm.confirmModal" keyboard="false" backdrop="static" on-confirm-event="vm.eventConfirm(e)"></bt-confirm-modal>
 </div>

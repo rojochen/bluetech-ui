@@ -3,5 +3,6 @@ import {PnotifyServiceCtrl} from "./../controllers/PnotifyServiceCtrl.js";
 
 export const PnotifyService = {
     template,
-    controller: PnotifyServiceCtrl
+    controller: PnotifyServiceCtrl,
+    controllerAs: 'vm'
 }

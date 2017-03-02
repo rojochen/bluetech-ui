@@ -1,37 +1,38 @@
 import {PortletCtrl} from "./../controllers/PortletCtrl.js";
 
 class ConfirmModalCtrl extends PortletCtrl{
-    constructor($scope, $log, pnotifyService, modalService){
+    constructor($log, pnotifyService, modalService){
         super();
-        this.confirmModalFun($scope, $log, pnotifyService, modalService)
+        this.$log = $log;
+        this.pnotifyService = pnotifyService;
+        this.modalService = modalService;
     }
-    
-    confirmModalFun($scope, $log, pnotifyService, modalService){
-        super.PortletFun();
 
-        /* begin btConfirmModal頁面 */
-        $scope.confirmModal = {
-        title: 'title-text',
-        content: 'content-text'
-        }
-        $scope.openConfirmModal = () => {
-        modalService.openModal('rr');
-        };
-        $scope.eventConfirm = (e) => {
-        $log.debug(e);
-        if(e.status === 'yes'){
-            pnotifyService.pnotifySuccess('confirmModal 狀態', '點選確定按鈕');
-        }else{
-            pnotifyService.pnotifyError('confirmModal 狀態', '點選取消按鈕');
-        }
-        modalService.closeModal('rr');
-        };
-        /* end btConfirmModal頁面 */
+    $onInit(){
+        this.$log.debug('do component init');
+        super.PortletFun();
         
+        this.confirmModal = {
+            title: 'title-text',
+            content: 'content-text'
+        }
+    }
+
+    openConfirmModal(){
+        this.modalService.openModal('rr');
+    }
+
+    eventConfirm(e){
+        this.$log.debug(e);
+        if(e.status === 'yes'){
+            this.pnotifyService.pnotifySuccess('confirmModal 狀態', '點選確定按鈕');
+        }else{
+            this.pnotifyService.pnotifyError('confirmModal 狀態', '點選取消按鈕');
+        } 
+        this.modalService.closeModal('rr');
     }
 }
 
-ConfirmModalCtrl.$inject = ['$scope', '$log', 'pnotifyService', 'modalService'];
-
+ConfirmModalCtrl.$inject = ['$log', 'pnotifyService', 'modalService'];
 
 export {ConfirmModalCtrl};

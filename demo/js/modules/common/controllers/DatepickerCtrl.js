@@ -1,41 +1,46 @@
+import {PortletCtrl} from "./../controllers/PortletCtrl.js";
+
 class DatepickerCtrl extends PortletCtrl{
-    constructor($scope, $log){
+    constructor($log){
         super();
-        this.DatepickerFun($scope, $log);
+        this.$log = $log;
     }
 
-    DatepickerFun($scope, $log){
+    $onInit(){
+        this.$log.debug('do component init');
         super.PortletFun();
 
-        /* begin datepicker頁面 */
-        $scope.datesingle = new Date('2016/02/28 9:00:00 PM');
-        $scope.console_single = () => {
-        $log.debug($scope.datesingle);
-        }
-        $scope.remove_single = () => {
-        $scope.datesingle = '';
-        }
-        $scope.minMax_change = () => {
-        $scope.obj = {
+        this.datesingle = new Date('2016/02/28 9:00:00 PM');
+    }
+
+    console_single(){
+        this.$log.debug(this.datesingle);
+    }
+
+    remove_single(){
+        this.datesingle = '';
+    }
+
+    minMax_change(){
+        this.obj = {
             'minDate': '2016-01-15',
             'maxDate': '2017-11-11'
         }
-        }
-        $scope.disabled_change = () => {
-        $scope.disableStatus = !$scope.disableStatus;
-        }
-        $scope.eventSelect = (e) => {
-        $log.debug(e);
-        }
-        $scope.eventCancel = (e) => {
-        $log.debug(e);
-        }
-        /* end datepicker頁面 */
+    }
+
+    disabled_change(){
+        this.disableStatus = !this.disableStatus;
+    }
+
+    eventSelect(e){
+        this.$log.debug(e);
+    }
+
+    eventCancel(e){
+        this.$log.debug(e);
     }
 }
 
-DatepickerCtrl.$inject = ['$scope', '$log'];
-
-import {PortletCtrl} from "./../controllers/PortletCtrl.js";
+DatepickerCtrl.$inject = ['$log'];
 
 export {DatepickerCtrl};

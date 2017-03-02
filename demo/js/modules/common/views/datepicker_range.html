@@ -63,13 +63,13 @@
 						<li>on-date-cancel，datepicker清除後的事件。</li>
 					</ol>
 					<div class="col-md-6 col-sm-12 col-xs-12">
-						<bt-datepicker-range datepicker-id="ss" ng-model="daterange1" format="YYYY-MM-DD h:mm:ss A" drops="up" opens="right" min-date="2016-01-10" max-date="2017-10-23" show-dropdowns="true" time-picker="true" time-picker-increment="30" time-picker24-hour="false" time-picker-seconds="true" bindon-data="obj_range" bindon-disable="disable" on-date-select="eventSelect_range(e)" on-date-cancel="eventCancel_range(e)"></bt-datepicker-range>
+						<bt-datepicker-range datepicker-id="ss" ng-model="vm.daterange1" format="YYYY-MM-DD h:mm:ss A" drops="up" opens="right" min-date="2016-01-10" max-date="2017-10-23" show-dropdowns="true" time-picker="true" time-picker-increment="30" time-picker24-hour="false" time-picker-seconds="true" bindon-data="vm.obj_range" bindon-disable="vm.disable" on-date-select="vm.eventSelect_range(e)" on-date-cancel="vm.eventCancel_range(e)"></bt-datepicker-range>
 					</div>
 					<div class="col-md-6 col-sm-12 col-xs-12">
-						<button class="btn btn-primary" ng-click='console()'>console</button>
-						<button class="btn btn-default" ng-click='remove()'>remove</button>
-						<button class="btn btn-default" ng-click='minMax()'>minMax</button>
-						<button class="btn btn-default" ng-click='disabled()'>disabled</button>
+						<button class="btn btn-primary" ng-click='vm.console()'>console</button>
+						<button class="btn btn-default" ng-click='vm.remove()'>remove</button>
+						<button class="btn btn-default" ng-click='vm.minMax()'>minMax</button>
+						<button class="btn btn-default" ng-click='vm.disabled()'>disabled</button>
 					</div>	
                 </div>
               </div>
