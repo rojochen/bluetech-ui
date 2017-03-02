@@ -1,10 +1,12 @@
+import {PortletCtrl} from "./../controllers/PortletCtrl.js";
+
 class ConfirmModalCtrl extends PortletCtrl{
     constructor($scope, $log, pnotifyService, modalService){
         super();
-        this.ConfirmModalFun($scope, $log, pnotifyService, modalService)
+        this.confirmModalFun($scope, $log, pnotifyService, modalService)
     }
-
-    ConfirmModalFun($scope, $log, pnotifyService, modalService){
+    
+    confirmModalFun($scope, $log, pnotifyService, modalService){
         super.PortletFun();
 
         /* begin btConfirmModal頁面 */
@@ -31,6 +33,5 @@ class ConfirmModalCtrl extends PortletCtrl{
 
 ConfirmModalCtrl.$inject = ['$scope', '$log', 'pnotifyService', 'modalService'];
 
-import {PortletCtrl} from "./../controllers/PortletCtrl.js";
 
 export {ConfirmModalCtrl};
