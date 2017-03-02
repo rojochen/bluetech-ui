@@ -8,7 +8,6 @@ class DatepickerCtrl extends PortletCtrl{
 
     $onInit(){
         this.$log.debug('do component init');
-        super.PortletFun();
 
         this.datesingle = new Date('2016/02/28 9:00:00 PM');
     }

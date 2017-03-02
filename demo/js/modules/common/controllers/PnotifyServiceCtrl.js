@@ -9,7 +9,6 @@ class PnotifyServiceCtrl extends PortletCtrl{
 
     $onInit(){
         this.$log.debug('do component init');
-        super.PortletFun();
     }
 
     pnotify_success(){

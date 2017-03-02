@@ -10,7 +10,6 @@ class ConfirmModalCtrl extends PortletCtrl{
 
     $onInit(){
         this.$log.debug('do component init');
-        super.PortletFun();
         
         this.confirmModal = {
             title: 'title-text',

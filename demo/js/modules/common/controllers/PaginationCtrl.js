@@ -1,15 +1,15 @@
 import {PortletCtrl} from "./../controllers/PortletCtrl.js";
+
 class PaginationCtrl extends PortletCtrl{
     constructor( $log, paginationService){
         super();
         //super.PortletFun();        
         this.$log = $log;
         this.paginationService = paginationService;
-       
     }
+
     $onInit(){
-        super.$onInit();
-        console.log('do component init');
+        this.$log.debug('do component init');
          this.tableInfo = {
             "totalCount": 15,
             "result": [{
@@ -141,12 +141,8 @@ class PaginationCtrl extends PortletCtrl{
     goFirst(){
         this.paginationService.goFirst('ss');
     }
-
-   
 }
 
 PaginationCtrl.$inject = [ '$log', 'paginationService'];
-
-
 
 export {PaginationCtrl};
