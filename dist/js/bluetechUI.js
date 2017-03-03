@@ -1,3 +1,9 @@
+/*!
+ * 
+ * @version v0.1.0
+ * @publish date 2017-03-03
+ * @license BlueTechnology.com
+ */
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -126,7 +132,7 @@ eval("/*!\n * Admin is a free to use Bootstrap admin template base on gentelella
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\nexports.AppModule = undefined;\n\nvar _bluetech = __webpack_require__(7);\n\nvar _PaginationService = __webpack_require__(5);\n\nvar _ModalService = __webpack_require__(4);\n\nvar _PnotifyService = __webpack_require__(6);\n\nvar _Pagination = __webpack_require__(3);\n\nvar _ConfirmModal = __webpack_require__(0);\n\nvar _Datepicker = __webpack_require__(1);\n\nvar _DatepickerRange = __webpack_require__(2);\n\nvar AppModule = exports.AppModule = angular.module(\"bluetechUI\", []).factory('paginationService', function ($log) {\n    return new _PaginationService.PaginationService($log);\n}).factory('modalService', function ($log) {\n    return new _ModalService.ModalService($log);\n}).factory('pnotifyService', function ($log) {\n    return new _PnotifyService.PnotifyService($log);\n}).directive('btPagination', function (paginationService) {\n    return new _Pagination.Pagination(paginationService);\n}).directive('btConfirmModal', function ($timeout) {\n    return new _ConfirmModal.ConfirmModal($timeout);\n}).directive('btDatepicker', function ($timeout) {\n    return new _Datepicker.Datepicker($timeout);\n}).directive('btDatepickerRange', function ($timeout) {\n    return new _DatepickerRange.DatepickerRange($timeout);\n}).name;\n\n//////////////////\n// WEBPACK FOOTER\n// ./src/js/app.js\n// module id = 8\n// module chunks = 0 1\n\n//# sourceURL=webpack:///./src/js/app.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\nexports.AppModule = undefined;\n\nvar _bluetech = __webpack_require__(7);\n\nvar _PaginationService = __webpack_require__(5);\n\nvar _ModalService = __webpack_require__(4);\n\nvar _PnotifyService = __webpack_require__(6);\n\nvar _Pagination = __webpack_require__(3);\n\nvar _ConfirmModal = __webpack_require__(0);\n\nvar _Datepicker = __webpack_require__(1);\n\nvar _DatepickerRange = __webpack_require__(2);\n\n// import './style.js';\n\nvar AppModule = exports.AppModule = angular.module(\"bluetechUI\", []).factory('paginationService', function ($log) {\n    return new _PaginationService.PaginationService($log);\n}).factory('modalService', function ($log) {\n    return new _ModalService.ModalService($log);\n}).factory('pnotifyService', function ($log) {\n    return new _PnotifyService.PnotifyService($log);\n}).directive('btPagination', function (paginationService) {\n    return new _Pagination.Pagination(paginationService);\n}).directive('btConfirmModal', function ($timeout) {\n    return new _ConfirmModal.ConfirmModal($timeout);\n}).directive('btDatepicker', function ($timeout) {\n    return new _Datepicker.Datepicker($timeout);\n}).directive('btDatepickerRange', function ($timeout) {\n    return new _DatepickerRange.DatepickerRange($timeout);\n}).name;\n\n//////////////////\n// WEBPACK FOOTER\n// ./src/js/app.js\n// module id = 8\n// module chunks = 0 1\n\n//# sourceURL=webpack:///./src/js/app.js?");
 
 /***/ })
 /******/ ]);

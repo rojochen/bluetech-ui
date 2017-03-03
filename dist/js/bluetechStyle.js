@@ -1,3 +1,9 @@
+/*!
+ * 
+ * @version v0.1.0
+ * @publish date 2017-03-03
+ * @license BlueTechnology.com
+ */
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
