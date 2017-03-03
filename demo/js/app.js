@@ -6,5 +6,5 @@ import bluetechUIRenSiang from './modules/rensiang-demo/module.js';
 
 
 
-angular.module('app', ['bluetechUI','ui.router', 'bluetechUI.common', 'bluetechUI.yvonne', 'bluetechUI.rensiang-demo']);
+angular.module('app', ['bluetechUI', 'bluetechUI.common', 'bluetechUI.yvonne', 'bluetechUI.rensiang-demo']);
 angular.bootstrap(document, ['app']);
