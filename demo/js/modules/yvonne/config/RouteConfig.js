@@ -1,12 +1,12 @@
-export class yvvone {
+export class RouteConfig {
 	constructor($stateProvider, $urlServiceProvider) {
 
 		// ui-sref 吃state
 		// url是打url的樣子
 
 		$stateProvider.
-		state('bluetechui-yvvone/activityGroup', {
-			url: '/bluetechui-yvvone',
+		state('bluetechUI/yvvone/activity-group', {
+			url: '/bluetechUI/yvvone/activity-group',
 			component: 'activityGroup'
 		});
 		// 共用那邊才可以設定
@@ -17,4 +17,4 @@ export class yvvone {
 }
 
 
-yvvone.$inject = ['$stateProvider', '$urlServiceProvider'];
+RouteConfig.$inject = ['$stateProvider', '$urlServiceProvider'];
