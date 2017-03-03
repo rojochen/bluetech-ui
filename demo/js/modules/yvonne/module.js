@@ -1,13 +1,5 @@
-import {
-    bluetechUI
-} from './../../../../dist/js/bluetechUI.min.js';
-
-import {
-    yvvone
-} from './config/RouteConfig';
-import {
-    ActivityGroup
-} from './../yvonne/components/ActivityGroup.js';
+import {yvvone} from './config/RouteConfig';
+import {ActivityGroup} from './../yvonne/components/ActivityGroup.js';
 
 
 
