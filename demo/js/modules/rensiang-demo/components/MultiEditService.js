@@ -1,5 +1,7 @@
 import template from "./../views/multiEditService.html";
-import multiEditServiceCtrl from "./../controller/MultiEditServiceCtrl.js";
+import {
+    MultiEditServiceCtrl
+} from "./../controller/MultiEditServiceCtrl.js";
 // class multiEditServiceCtrl {
 //     constructor() {
 //         console.log("asdf");
@@ -7,6 +9,6 @@ import multiEditServiceCtrl from "./../controller/MultiEditServiceCtrl.js";
 // }
 export const MultiEditService = {
     template,
-    controller: multiEditServiceCtrl,
+    controller: MultiEditServiceCtrl,
     controllerAs: 'vm'
 }
