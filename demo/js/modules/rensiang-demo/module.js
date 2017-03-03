@@ -1,9 +1,7 @@
 import {
     bluetechUI
 } from './../../../../dist/js/bluetechUI.min.js';
-import {
-    uiRouter
-} from 'angular-ui-router/release/angular-ui-router.min.js';
+
 
 import {
     RouteConfig2
