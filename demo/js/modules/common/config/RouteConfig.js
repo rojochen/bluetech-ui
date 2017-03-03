@@ -1,5 +1,7 @@
 export class RouteConfig {
-	constructor($stateProvider, $urlServiceProvider) {
+	constructor($stateProvider, $urlServiceProvider, $logProvider) {
+		$logProvider.debugEnabled(true);
+
 
 		$stateProvider.
 		state('datepicker', {
@@ -35,4 +37,4 @@ export class RouteConfig {
 }
 
 
-RouteConfig.$inject = ['$stateProvider', '$urlServiceProvider'];
+RouteConfig.$inject = ['$stateProvider', '$urlServiceProvider', '$logProvider'];

@@ -1,4 +1,4 @@
-<div class="" ng-controller="demoCtrl">
+<div class="">
 	<div class="page-title">
 		<div class="title_left">
 			<h3>分頁</h3>
@@ -24,7 +24,7 @@
                 <div class="x_title">
                   <h2>分頁設計</h2>
                   <ul class="nav navbar-right panel_toolbox">
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    <li><a class="collapse-link"  ng-click="vm.collapseLink($event);"><i class="fa fa-chevron-up"></i></a>
                     </li>
                     <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
@@ -35,7 +35,7 @@
                         </li>
                       </ul>
                     </li>
-                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                    <li><a class="close-link" ng-click="vm.closeLink($event);"><i class="fa fa-close"></i></a>
                     </li>
                   </ul>
                   <div class="clearfix"></div>
@@ -58,12 +58,12 @@
 					</ol>
 					<div class="col-md-12 col-sm-12 col-xs-12">
 						<div class="pull-right">
-							<bt-pagination id="ss" ng-model="tableInfo" page-size="4" page-count="3" current-page="2" show-info="true" info-text="顯示第 0 至 0 項結果，共 0 項" is-disabled="false" on-change-page="eventChange(e)"></bt-pagination>
+							<bt-pagination id="ss" ng-model="vm.tableInfo" page-size="4" page-count="3" current-page="2" show-info="true" info-text="顯示第 0 至 0 項結果，共 0 項" is-disabled="false" on-change-page="vm.eventChange(e)"></bt-pagination>
 						</div>
 					</div>
 					<div class="col-md-12 col-sm-12 col-xs-12">
 						<div class="pull-right">
-							<button class="btn btn-primary" ng-click="goFirst()">go first function</button>
+							<button class="btn btn-primary" ng-click="vm.goFirst()">go first function</button>
 						</div>
 					</div>
                 </div>

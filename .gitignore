@@ -2,7 +2,7 @@ npm-debug.log
 node_modules
 .sass-cache
 .vscode
-demo/js/app.min.js
+demo/js/main.min.js
 debug.log
 war/bluetech-ui.war
 demo/assets

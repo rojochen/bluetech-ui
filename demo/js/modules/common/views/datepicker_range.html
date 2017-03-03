@@ -1,4 +1,4 @@
-<div class="" ng-controller="demoCtrl">
+<div class="">
 	<div class="page-title">
 		<div class="title_left">
 			<h3>日期區間選擇器</h3>
@@ -24,7 +24,7 @@
                 <div class="x_title">
                   <h2>日期區間選擇器設計</h2>
                   <ul class="nav navbar-right panel_toolbox">
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    <li><a class="collapse-link" ng-click="vm.collapseLink($event);"><i class="fa fa-chevron-up"></i></a>
                     </li>
                     <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
@@ -35,7 +35,7 @@
                         </li>
                       </ul>
                     </li>
-                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                    <li><a class="close-link" ng-click="vm.closeLink($event);"><i class="fa fa-close"></i></a>
                     </li>
                   </ul>
                   <div class="clearfix"></div>
@@ -63,13 +63,13 @@
 						<li>on-date-cancel，datepicker清除後的事件。</li>
 					</ol>
 					<div class="col-md-6 col-sm-12 col-xs-12">
-						<bt-datepicker-range datepicker-id="ss" ng-model="daterange1" format="YYYY-MM-DD h:mm:ss A" drops="up" opens="right" min-date="2016-01-10" max-date="2017-10-23" show-dropdowns="true" time-picker="true" time-picker-increment="30" time-picker24-hour="false" time-picker-seconds="true" bindon-data="obj_range" bindon-disable="disable" on-date-select="eventSelect_range(e)" on-date-cancel="eventCancel_range(e)"></bt-datepicker-range>
+						<bt-datepicker-range datepicker-id="ss" ng-model="vm.daterange1" format="YYYY-MM-DD h:mm:ss A" drops="up" opens="right" min-date="2016-01-10" max-date="2017-10-23" show-dropdowns="true" time-picker="true" time-picker-increment="30" time-picker24-hour="false" time-picker-seconds="true" bindon-data="vm.obj_range" bindon-disable="vm.disable" on-date-select="vm.eventSelect_range(e)" on-date-cancel="vm.eventCancel_range(e)"></bt-datepicker-range>
 					</div>
 					<div class="col-md-6 col-sm-12 col-xs-12">
-						<button class="btn btn-primary" ng-click='console()'>console</button>
-						<button class="btn btn-default" ng-click='remove()'>remove</button>
-						<button class="btn btn-default" ng-click='minMax()'>minMax</button>
-						<button class="btn btn-default" ng-click='disabled()'>disabled</button>
+						<button class="btn btn-primary" ng-click='vm.console()'>console</button>
+						<button class="btn btn-default" ng-click='vm.remove()'>remove</button>
+						<button class="btn btn-default" ng-click='vm.minMax()'>minMax</button>
+						<button class="btn btn-default" ng-click='vm.disabled()'>disabled</button>
 					</div>	
                 </div>
               </div>
