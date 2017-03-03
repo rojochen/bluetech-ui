@@ -1,7 +1,10 @@
+let dateFormat = require('dateformat');
+let nowDate = dateFormat(new Date(), "yyyy-mm-dd");
+
 const webpack = require('webpack'),
     ExtractTextPlugin = require("extract-text-webpack-plugin"),
     pkg = require("./package.json"),
-    banner = `${pkg.description}\n@version v${pkg.version}\n@license BlueTechnology.com`;
+    banner = `${pkg.description}\n@version v${pkg.version}\n@publish date ${nowDate}\n@license BlueTechnology.com`;
 
 module.exports = {
     devtool: 'eval',
