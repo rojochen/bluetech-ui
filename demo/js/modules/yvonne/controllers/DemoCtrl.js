@@ -3,6 +3,8 @@ import {PortletCtrl} from "./../../common/controllers/PortletCtrl.js";
 
  class DemoCtrl  extends PortletCtrl{
      constructor() {
+        //  繼承了 PortletCtrl 可以直接使用他的function 請看html
+        // supre執行繼承function
          super();
          this.DemoCtrlFun();
          console.log('a111s');
