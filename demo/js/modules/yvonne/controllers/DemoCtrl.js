@@ -1,36 +1,44 @@
-export class DemoCtrl {
-    constructor() {
-        this.DemoCtrlFun();
-        console.log('a111s');
-    }
+// ps. import 都在上方 export 都在下方
+import {PortletCtrl} from "./../../common/controllers/PortletCtrl.js";
 
-    DemoCtrlFun() {
-        /*begin Portlet */
-        $('.collapse-link').on('click', () => {
-            let $BOX_PANEL = $(this).closest('.x_panel'),
-                $ICON = $(this).find('i'),
-                $BOX_CONTENT = $BOX_PANEL.find('.x_content');
+ class DemoCtrl  extends PortletCtrl{
+     constructor() {
+         super();
+         this.DemoCtrlFun();
+         console.log('a111s');
+     }
 
-            // fix for some div with hardcoded fix class
-            if ($BOX_PANEL.attr('style')) {
-                $BOX_CONTENT.slideToggle(200, () => {
-                    $BOX_PANEL.removeAttr('style');
-                });
-            } else {
-                $BOX_CONTENT.slideToggle(200);
-                $BOX_PANEL.css('height', 'auto');
-            }
+     DemoCtrlFun() {
+         /*begin Portlet */
+         // $('.collapse-link').on('click', () => {
+         //     let $BOX_PANEL = $(this).closest('.x_panel'),
+         //         $ICON = $(this).find('i'),
+         //         $BOX_CONTENT = $BOX_PANEL.find('.x_content');
 
-            $ICON.toggleClass('fa-chevron-up fa-chevron-down');
-        });
+         //     // fix for some div with hardcoded fix class
+         //     if ($BOX_PANEL.attr('style')) {
+         //         $BOX_CONTENT.slideToggle(200, () => {
+         //             $BOX_PANEL.removeAttr('style');
+         //         });
+         //     } else {
+         //         $BOX_CONTENT.slideToggle(200);
+         //         $BOX_PANEL.css('height', 'auto');
+         //     }
 
-        $('.close-link').click(() => {
-            let $BOX_PANEL = $(this).closest('.x_panel');
+         //     $ICON.toggleClass('fa-chevron-up fa-chevron-down');
+         // });
 
-            $BOX_PANEL.remove();
-        });
-        /* end Portlet*/
-    }
-}
+         // $('.close-link').click(() => {
+         //     let $BOX_PANEL = $(this).closest('.x_panel');
 
-DemoCtrl.$inject = [];
+         //     $BOX_PANEL.remove();
+         // });
+         /* end Portlet*/
+     }
+ }
+
+ DemoCtrl.$inject = [];
+
+ export {
+     DemoCtrl
+ }
