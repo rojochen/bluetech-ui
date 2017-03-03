@@ -1,5 +1,7 @@
-import template from "./../views/multiEditService.html";
-import {MultiEditServiceCtrl} from "./../controller/MultiEditServiceCtrl.js";
+import template from "./../views/multi-edit-service.html";
+import {
+    MultiEditServiceCtrl
+} from "./../controller/MultiEditServiceCtrl.js";
 
 export const MultiEditService = {
     template,

@@ -1,13 +1,13 @@
-export class RouteConfig2 {
+export class RouteConfig {
     constructor($stateProvider, $urlServiceProvider) {
 
         $stateProvider.
-        state('multiEditService', {
-            url: '/multiEditService',
+        state('bluetechUI/rensiang-demo/multi-edit-service', {
+            url: '/bluetechUI/rensiang-demo/multi-edit-service',
             component: 'multiEditService'
         });
     }
 }
 
 
-RouteConfig2.$inject = ['$stateProvider', '$urlServiceProvider'];
+RouteConfig.$inject = ['$stateProvider', '$urlServiceProvider'];
