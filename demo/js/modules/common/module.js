@@ -13,7 +13,7 @@ import {PnotifyService} from './components/PnotifyService.js';
 
 
 
-export const appModule = angular.module('bluetechUI.common', ['bluetechUI', 'ui.router'])
+export const appModule = angular.module('bluetechUI.common', [])
     .config(($stateProvider, $urlServiceProvider, $logProvider) => new RouteConfig($stateProvider, $urlServiceProvider, $logProvider))
     .component('btFooter', BtFooter)
     .component('btHeader', Header)
