@@ -2,8 +2,8 @@ export class yvvone {
 	constructor($stateProvider, $urlServiceProvider) {
 
 		$stateProvider.
-		state('activityGroup', {
-			url: '/activityGroup',
+		state('bluetechui/yvvone/activityGroup', {
+			url: '/bluetechui/yvvone/activityGroup',
 			component: 'activityGroup'
 		});
 		// 共用那邊才可以設定
