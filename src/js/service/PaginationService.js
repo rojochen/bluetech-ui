@@ -4,7 +4,7 @@ export class PaginationService{
             this.paginationInfo = null;
         }
         setInfo(paginationInfo){
-            this.paginationInfo = angular
+            this.paginationInfo = paginationInfo;
         }
         getInfo(){
             return this.paginationInfo;

@@ -1,4 +1,5 @@
 import {bluetech} from 'bluetech';
+import {uiRouter} from 'angular-ui-router/release/angular-ui-router.min.js';
 import {PaginationService} from './service/PaginationService.js';
 import {ModalService} from './service/ModalService.js';
 import {PnotifyService} from './service/PnotifyService.js';
