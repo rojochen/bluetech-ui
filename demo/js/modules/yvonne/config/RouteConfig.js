@@ -6,7 +6,7 @@ export class yvvone {
 
 		$stateProvider.
 		state('bluetechui-yvvone/activityGroup', {
-			url: '/bluetechui-yvvone/activityGroup',
+			url: '/bluetechui-yvvone',
 			component: 'activityGroup'
 		});
 		// 共用那邊才可以設定
