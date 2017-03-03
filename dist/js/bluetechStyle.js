@@ -63,30 +63,30 @@
 /******/ 	__webpack_require__.p = "";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 11);
+/******/ 	return __webpack_require__(__webpack_require__.s = 14);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 10:
+/***/ 12:
 /***/ (function(module, exports) {
 
-eval("// removed by extract-text-webpack-plugin\n\n//////////////////\n// WEBPACK FOOTER\n// ./src/css/custom.css\n// module id = 10\n// module chunks = 2\n\n//# sourceURL=webpack:///./src/css/custom.css?");
+eval("// removed by extract-text-webpack-plugin\n\n//////////////////\n// WEBPACK FOOTER\n// ./~/bluetech/dist/css/bluetech.min.css\n// module id = 12\n// module chunks = 2\n\n//# sourceURL=webpack:///./~/bluetech/dist/css/bluetech.min.css?");
 
 /***/ }),
 
-/***/ 11:
+/***/ 13:
+/***/ (function(module, exports) {
+
+eval("// removed by extract-text-webpack-plugin\n\n//////////////////\n// WEBPACK FOOTER\n// ./src/css/custom.css\n// module id = 13\n// module chunks = 2\n\n//# sourceURL=webpack:///./src/css/custom.css?");
+
+/***/ }),
+
+/***/ 14:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\n__webpack_require__(9);\n__webpack_require__(10);\n\n//////////////////\n// WEBPACK FOOTER\n// ./src/js/style.js\n// module id = 11\n// module chunks = 2\n\n//# sourceURL=webpack:///./src/js/style.js?");
-
-/***/ }),
-
-/***/ 9:
-/***/ (function(module, exports) {
-
-eval("// removed by extract-text-webpack-plugin\n\n//////////////////\n// WEBPACK FOOTER\n// ./~/bluetech/dist/css/bluetech.min.css\n// module id = 9\n// module chunks = 2\n\n//# sourceURL=webpack:///./~/bluetech/dist/css/bluetech.min.css?");
+eval("\n\n__webpack_require__(12);\n__webpack_require__(13);\n\n//////////////////\n// WEBPACK FOOTER\n// ./src/js/style.js\n// module id = 14\n// module chunks = 2\n\n//# sourceURL=webpack:///./src/js/style.js?");
 
 /***/ })
 

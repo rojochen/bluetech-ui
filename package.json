@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/rojochen/bluetech-ui#readme",
   "dependencies": {
-    "bluetech": "git+https://github.com/rojochen/bluetech.git#0.2.2",
+    "bluetech": "git+https://github.com/rojochen/bluetech.git#0.2.3",
     "angular-ui-router": "^1.0.0-rc.1"
   },
   "devDependencies": {
