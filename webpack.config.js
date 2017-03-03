@@ -1,5 +1,7 @@
-var webpack = require('webpack'),
-    ExtractTextPlugin = require("extract-text-webpack-plugin");
+const webpack = require('webpack'),
+    ExtractTextPlugin = require("extract-text-webpack-plugin"),
+    pkg = require("./package.json"),
+    banner = `${pkg.description}\n@version v${pkg.version}\n@license BlueTechnology.com`;
 
 module.exports = {
     devtool: 'eval',
@@ -76,7 +78,8 @@ module.exports = {
         new webpack.optimize.UglifyJsPlugin({
             include: /\.min\.js$/,
             minimize: true
-        })
+        }),
+        new webpack.BannerPlugin(banner)
     ],
     devServer: {
         hot: true,
