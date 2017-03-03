@@ -5,8 +5,8 @@ export class RouteConfig {
 		// url是打url的樣子
 
 		$stateProvider.
-		state('bluetechUI/yvvone/activity-group', {
-			url: '/bluetechUI/yvvone/activity-group',
+		state('bluetechUI/yvonne/activity-group', {
+			url: '/bluetechUI/yvonne/activity-group',
 			component: 'activityGroup'
 		});
 		// 共用那邊才可以設定

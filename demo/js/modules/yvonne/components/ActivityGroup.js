@@ -3,7 +3,7 @@
 //         console.log('zzz');
 //     }
 // }
-import template from "./../../yvonne/views/activityGroup.html";
+import template from "./../../yvonne/views/activity-group.html";
 import {
     ActivityGroupCtrl
 } from "./../controllers/ActivityGroupCtrl.js";

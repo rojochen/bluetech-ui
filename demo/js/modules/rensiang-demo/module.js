@@ -8,6 +8,6 @@ import {
 
 
 export const appModule = angular.module('bluetechUI.rensiang-demo', ['bluetechUI', 'ui.router'])
-    .config(($stateProvider, $urlServiceProvider) => new RouteConfig2($stateProvider, $urlServiceProvider))
+    .config(($stateProvider, $urlServiceProvider) => new RouteConfig($stateProvider, $urlServiceProvider))
     .component('multiEditService', MultiEditService)
     .name;
