@@ -35,9 +35,9 @@ import {
 import {
     PnotifyService
 } from './components/PnotifyService.js';
-import {
-    ActivityGroup
-} from './../yvonne/components/ActivityGroup.js';
+// import {
+//     ActivityGroup
+// } from './../yvonne/components/ActivityGroup.js';
 
 
 
@@ -51,6 +51,6 @@ export const appModule = angular.module('bluetechUI.common', ['bluetechUI', 'ui.
     .component('datepickerRange', DatepickerRange)
     .component('pagination', Pagination)
     .component('pnotifyService', PnotifyService)
-    .component('activityGroup', ActivityGroup)
+    // .component('activityGroup', ActivityGroup)
     .controller('demoCtrl', () => new DemoCtrl())
     .name;

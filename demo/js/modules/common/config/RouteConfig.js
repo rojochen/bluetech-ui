@@ -21,11 +21,12 @@ export class RouteConfig {
 		state('confirmModal', {
 			url: '/confirmModal',
 			component: 'confirmModal'
-		}).
-		state('activityGroup', {
-			url: '/activityGroup',
-			component: 'activityGroup'
 		});
+		// .
+		// state('activityGroup', {
+		// 	url: '/activityGroup',
+		// 	component: 'activityGroup'
+		// });
 
 		$urlServiceProvider.rules.otherwise({
 			state: 'datepicker'
