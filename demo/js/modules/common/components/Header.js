@@ -3,7 +3,9 @@ class headerComponentCtrl {
         // console.log('fff');
     }
 }
+
 import template from "./../views/btHeader.html";
+
 export const Header = {
     template,
     controller: headerComponentCtrl,
