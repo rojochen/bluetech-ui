@@ -3,7 +3,7 @@ import {PortletCtrl} from "./../controllers/PortletCtrl.js";
 class PaginationCtrl extends PortletCtrl{
     constructor( $log, paginationService){
         super();
-        //super.PortletFun();        
+        //super.PortletFun();
         this.$log = $log;
         this.paginationService = paginationService;
     }

@@ -1,7 +1,7 @@
 /*!
  * 
  * @version v0.1.0
- * @publish date 2017-03-03
+ * @publish date 2017-03-06
  * @license BlueTechnology.com
  */
 /******/ (function(modules) { // webpackBootstrap

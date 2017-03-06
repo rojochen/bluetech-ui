@@ -1,3 +1,4 @@
+import bluetechUI from './../../../../dist/js/bluetechUI.min.js'
 import {RouteConfig} from './config/RouteConfig';
 import {SliderMenu} from './components/SliderMenu.js';
 import {BtFooter} from './components/Footer.js';
@@ -7,6 +8,7 @@ import {Datepicker} from './components/Datepicker.js';
 import {DatepickerRange} from './components/DatepickerRange.js';
 import {Pagination} from './components/Pagination.js';
 import {PnotifyService} from './components/PnotifyService.js';
+
 
 
 export const appModule = angular.module('bluetechUI.common', ['bluetechUI', 'ui.router'])
@@ -19,4 +21,5 @@ export const appModule = angular.module('bluetechUI.common', ['bluetechUI', 'ui.
     .component('datepickerRange', DatepickerRange)
     .component('pagination', Pagination)
     .component('pnotifyService', PnotifyService)
+    .controller('demoCtrl', () => new DemoCtrl())
     .name;
