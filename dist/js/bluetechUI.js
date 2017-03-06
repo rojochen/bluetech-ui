@@ -1,6 +1,6 @@
 /*!
  * 
- * @version v0.1.0
+ * @version v0.1.2
  * @publish date 2017-03-06
  * @license BlueTechnology.com
  */
