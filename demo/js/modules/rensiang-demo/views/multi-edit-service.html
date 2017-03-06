@@ -160,13 +160,13 @@
                                                     <thead>
                                                         <tr>
                                                             <th class="table-header-color">
-                                                                <input type="checkbox" ng-model="allClickMaster">
+                                                                <input type="checkbox" ng-model="vm.allClickMaster">
                                                             </th>
                                                             <th class="table-header-color">
                                                                 <label>NO.</label>
                                                             </th>
-                                                            <th class="table-header-color">SR NO.</th>
-                                                            <th class="table-header-color">SPV NO.</th>
+                                                            <th class="table-header-color">SR NO</th>
+                                                            <th class="table-header-color">NPV NO</th>
                                                             <th class="table-header-color">OFFER ID</th>
                                                             <th class="table-header-color">類型</th>
                                                             <th class="table-header-color">版本</th>
@@ -175,9 +175,9 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr ng-repeat="x in multiEditSeviceTableData track by $index">
+                                                        <tr ng-repeat="x in vm.multiEditSeviceTableData track by $index">
                                                             <td>
-                                                                <input type="checkbox" ng-checked="allClickMaster">
+                                                                <input type="checkbox" ng-checked="vm.allClickMaster">
                                                             </td>
                                                             <td ng-bind="x.multiEditSeviceNo"></td>
                                                             <td ng-bind="x.multiEditSeviceSrNo"></td>
@@ -510,7 +510,7 @@
                                                                                                     <input id="renewalSuitableDateEnd" type="text" class="form-control" style="width: 147px; display: inline-block;">
                                                                                                 </div>-->
                                                                                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                                                                                     <bt-datepicker-range datepicker-id="renewalSuitableDateStart" ng-model="renewalSuitableDateStart" format="YYYY-MM-DD" drops="down" show-dropdowns="true"></bt-datepicker-range>
+                                                                                                     <bt-datepicker-range datepicker-id="renewalSuitableDateStart" ng-model="vm.renewalSuitableDateStart" format="YYYY-MM-DD" drops="down" show-dropdowns="true"></bt-datepicker-range>
                                                                                                 </div>
                                                                                                 <!--<label class="col-md-1">~</label>
                                                                                                     <div class="col-md-4 col-sm-4 col-xs-12">
@@ -721,8 +721,8 @@
                                             </form>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-primary" data-toggle="modal" href="#masterMultiItemEditUpload">修改</button>
-                                            <button type="button" class="btn btn-primary" data-toggle="modal" href="#masterMultiItemEditReset">重置</button>
+                                            <button type="button" class="btn btn-primary" data-toggle="modal" ng-click="vm.openConfirmModal()">修改</button>
+                                            <button type="button" class="btn btn-primary" data-toggle="modal" ng-click="vm.masterMultiItemEditReset()">重置</button>
                                             <button type="button" class="btn btn-primary" data-dismiss="modal">離開</button>
                                         </div>
                                     </div>
@@ -878,7 +878,7 @@
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody>
-                                                                        <tr ng-repeat="x in punitiveTableData  track by $index">
+                                                                        <tr ng-repeat="x in vm.punitiveTableData  track by $index">
                                                                             <td ng-bind="x.punitiveNo"></td>
                                                                             <td ng-bind="x.punitiveType"></td>
                                                                             <td ng-bind="x.punitiveStartDate"></td>
@@ -1185,38 +1185,40 @@
                         </div>
                         <!--詳細頁面 end-->
                         <!--修改畫面 start-->
-                        <div class="modal fade bs-example-modal-lg" id="masterMultiItemEditUpload" tabindex="-1" role="dialog">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal">
+                        <bt-confirm-modal modal-id="masterMultiItemEditUpload" ng-model="vm.editMultiConfirm" keyboard="false" backdrop="static"
+                            on-confirm-event="vm.eventConfirm(e)"></bt-confirm-modal>
+                            <!--<div class="modal fade bs-example-modal-lg" id="masterMultiItemEditUpload" tabindex="-1" role="dialog">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">
                                         <span aria-hidden="true">&times;</span>
                                         <span class="sr-only">Close</span>
                                     </button>
-                                        <h4 class="modal-title">修改主約類型多筆維護畫面</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="row">
-                                            <br>
-                                            <div class="col-md-8 col-md-offset-2 text-center">
-                                                <h3>確定修改主約類型多筆維護？</h3>
+                                            <h4 class="modal-title">修改主約類型多筆維護畫面</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                <br>
+                                                <div class="col-md-8 col-md-offset-2 text-center">
+                                                    <h3>確定修改主約類型多筆維護？</h3>
+                                                </div>
+                                                <br>
+                                                <br>
+                                                <br>
                                             </div>
-                                            <br>
-                                            <br>
-                                            <br>
+                                        </div>
+                                        <div class="modal-footer">-->
+                            <!--<button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" href="#masterMultiItemEditUploadOk">確認</button>-->
+                            <!--<button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" ng-click="vm.masterMultiItemEditUploadOk()">確認</button>
+                                            <button type="button" class="btn btn-default" data-toggle="modal" href="#masterMultiItemEditUploadCancel">取消</button>
                                         </div>
                                     </div>
-                                    <div class="modal-footer">
-                                        <!--<button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" href="#masterMultiItemEditUploadOk">確認</button>-->
-                                        <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" ng-click="masterMultiItemEditUploadOk()">確認</button>
-                                        <button type="button" class="btn btn-default" data-toggle="modal" href="#masterMultiItemEditUploadCancel">取消</button>
-                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <!--修改畫面 end-->
-                        <!--修改成功畫面 start-->
-                        <!--<div class="modal fade bs-example-modal-sm" id="masterMultiItemEditUploadOk" tabindex="-1" role="dialog">
+                            </div>-->
+                            <!--修改畫面 end-->
+                            <!--修改成功畫面 start-->
+                            <!--<div class="modal fade bs-example-modal-sm" id="masterMultiItemEditUploadOk" tabindex="-1" role="dialog">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -1238,95 +1240,100 @@
                             </div>
                         </div>
                     </div>-->
-                        <!--修改成功畫面 end-->
-                        <!--修改取消 start-->
-                        <div class="modal fade bs-example-modal-lg" id="masterMultiItemEditUploadCancel" tabindex="-1" role="dialog">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal"><span
+                            <!--修改成功畫面 end-->
+                            <!--修改取消 start-->
+                            <!--<bt-confirm-modal modal-id="masterMultiItemEditUpload" ng-model="vm.editMultiConfirm" keyboard="false" backdrop="static"
+                            on-confirm-event="vm.eventConfirm(e)"></bt-confirm-modal>
+
+                            <div class="modal fade bs-example-modal-lg" id="masterMultiItemEditUploadCancel" tabindex="-1" role="dialog">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"><span
                             aria-hidden="true">&times;</span><span class="sr-only">Close</span>
                                     </button>
-                                        <h4 class="modal-title">取消修改畫面</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="row">
-                                            <br>
-                                            <div class="col-md-4 col-md-offset-4 text-center">
-                                                <h3>確定取消修改？</h3>
+                                            <h4 class="modal-title">取消修改畫面</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                <br>
+                                                <div class="col-md-4 col-md-offset-4 text-center">
+                                                    <h3>確定取消修改？</h3>
+                                                </div>
+                                                <br>
+                                                <br>
+                                                <br>
                                             </div>
-                                            <br>
-                                            <br>
-                                            <br>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" ng-click="masterMultiItemEditUploadCancelOk()">確定</button>
+                                            <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal">取消</button>
                                         </div>
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" ng-click="masterMultiItemEditUploadCancelOk()">確定</button>
-                                        <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal">取消</button>
-                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <!--修改取消 end-->
-                        <!--重置畫面 start-->
-                        <div class="modal fade bs-example-modal-lg" id="masterMultiItemEditReset" tabindex="-1" role="dialog">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal">
+                            </div>-->
+                            <!--修改取消 end-->
+                            <!--重置畫面 start-->
+                            <bt-confirm-modal modal-id="masterMultiItemEditReset" ng-model="vm.editMultiResetConfirm" keyboard="false" backdrop="static"
+                                on-confirm-event="vm.resetConfirm(e)"></bt-confirm-modal>
+                                <!--<div class="modal fade bs-example-modal-lg" id="masterMultiItemEditReset" tabindex="-1" role="dialog">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">
                                         <span aria-hidden="true">&times;</span>
                                         <span class="sr-only">Close</span>
                                     </button>
-                                        <h4 class="modal-title">重置主約類型多筆維護畫面</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="row">
-                                            <br>
-                                            <div class="col-md-8 col-md-offset-2 text-center">
-                                                <h3>確定重置主約類型多筆維護？</h3>
+                                            <h4 class="modal-title">重置主約類型多筆維護畫面</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                <br>
+                                                <div class="col-md-8 col-md-offset-2 text-center">
+                                                    <h3>確定重置主約類型多筆維護？</h3>
+                                                </div>
+                                                <br>
+                                                <br>
+                                                <br>
                                             </div>
-                                            <br>
-                                            <br>
-                                            <br>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-primary" data-toggle="modal" ng-click="masterMultiItemEditResetOk()">確認</button>
+                                            <button type="button" class="btn btn-default" data-toggle="modal" href="#masterMultiItemEditResetCancel">取消</button>
                                         </div>
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary" data-toggle="modal" ng-click="masterMultiItemEditResetOk()">確認</button>
-                                        <button type="button" class="btn btn-default" data-toggle="modal" href="#masterMultiItemEditResetCancel">取消</button>
-                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <!--重置畫面 end-->
-                        <!--重置取消 start-->
-                        <div class="modal fade bs-example-modal-lg" id="masterMultiItemEditResetCancel" tabindex="-1" role="dialog">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal"><span
+                            </div>-->
+                                <!--重置畫面 end-->
+                                <!--重置取消 start-->
+                                <!--<div class="modal fade bs-example-modal-lg" id="masterMultiItemEditResetCancel" tabindex="-1" role="dialog">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal"><span
                             aria-hidden="true">&times;</span><span class="sr-only">Close</span>
                                     </button>
-                                        <h4 class="modal-title">取消重置畫面</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="row">
-                                            <br>
-                                            <div class="col-md-4 col-md-offset-4 text-center">
-                                                <h3>確定取消重置？</h3>
+                                                <h4 class="modal-title">取消重置畫面</h4>
                                             </div>
-                                            <br>
-                                            <br>
-                                            <br>
+                                            <div class="modal-body">
+                                                <div class="row">
+                                                    <br>
+                                                    <div class="col-md-4 col-md-offset-4 text-center">
+                                                        <h3>確定取消重置？</h3>
+                                                    </div>
+                                                    <br>
+                                                    <br>
+                                                    <br>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" ng-click="mergeListResetCancelOk()">確定</button>
+                                                <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal">取消</button>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" ng-click="mergeListResetCancelOk()">確定</button>
-                                        <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal">取消</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--重置取消 end-->
+                                </div>-->
+                                <!--重置取消 end-->
                     </div>
                 </div>
             </div>
