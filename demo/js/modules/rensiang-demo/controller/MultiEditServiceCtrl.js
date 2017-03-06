@@ -8,12 +8,14 @@ class MultiEditServiceCtrl extends PortletCtrl {
         this.$log = $log;
         this.pnotifyService = pnotifyService;
         this.modalService = modalService;
-        this.MultiEditServiceA();
+
     }
     $onInit() {
         this.$log.debug('do component init');
+        "命名規則 ‘開頭要小寫’ ,‘開頭先動詞後名詞’"
+        this.editMultiServiceA();
     }
-    MultiEditServiceA() {
+    editMultiServiceA() {
         this.multiEditSeviceTableData = [{
             'multiEditSeviceNo': 1,
             'multiEditSeviceSrNo': '',
