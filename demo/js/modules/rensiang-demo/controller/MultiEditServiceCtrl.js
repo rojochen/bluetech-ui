@@ -11,6 +11,15 @@ class MultiEditServiceCtrl extends PortletCtrl {
 
     }
     $onInit() {
+        /* lightbox open */
+        $(document).on('hidden.bs.modal', '.modal', function () {
+            $('.modal:visible').length && $(document.body).addClass('modal-open');
+        });
+        $(document).on('show.bs.modal', '.modal', function () {
+            $("element.style").css("padding-right", "0");
+        });
+
+        /* lightbox end */
         this.$log.debug('do component init');
         "命名規則 ‘開頭要小寫’ ,‘開頭先動詞後名詞’"
         // table假資料
