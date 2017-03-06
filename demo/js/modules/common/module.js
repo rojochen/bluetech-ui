@@ -1,6 +1,4 @@
-
-
-
+import bluetechUI from './../../../../dist/js/bluetechUI.min.js'
 import {RouteConfig} from './config/RouteConfig';
 import {SliderMenu} from './components/SliderMenu.js';
 import {BtFooter} from './components/Footer.js';

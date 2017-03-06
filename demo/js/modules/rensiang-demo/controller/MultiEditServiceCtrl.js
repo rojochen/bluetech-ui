@@ -4,7 +4,6 @@ import {
 
 class MultiEditServiceCtrl extends PortletCtrl {
     constructor($log, pnotifyService, modalService) {
-        console.log("asd");
         super();
         this.$log = $log;
         this.pnotifyService = pnotifyService;
