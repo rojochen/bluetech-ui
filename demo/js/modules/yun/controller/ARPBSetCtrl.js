@@ -93,7 +93,7 @@ class ArpbSetCtrl extends PortletCtrl {
         this.modalService.openModal('editARPBSetCancelCheck');
     }
 
-    editARPBSetCancelDecide() {
+    editARPBSetCancelDecide(e) {
         console.log(e);
         if (e.status == "yes") {
             this.modalService.closeModal('editARBSet');
