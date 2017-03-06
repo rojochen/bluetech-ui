@@ -1,6 +1,4 @@
-import {
-    PortletCtrl
-} from "./../../common/controllers/PortletCtrl.js";
+import {PortletCtrl} from "./../../common/controllers/PortletCtrl.js";
 
 class MultiEditServiceCtrl extends PortletCtrl {
     constructor($log, pnotifyService, modalService) {
