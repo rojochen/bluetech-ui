@@ -1,5 +1,4 @@
-export class ARPBSetCtrl {
-    constructor() {
-    }
+export class ArpbSetCtrl {
+    constructor() {}
 }
-ARPBSetCtrl.$inject = [];
+ArpbSetCtrl.$inject = [];

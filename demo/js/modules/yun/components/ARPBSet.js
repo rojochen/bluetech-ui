@@ -1,10 +1,10 @@
-import template from "./../views/ARPBSet.html";
+import template from "./../views/arpb-set.html";
 import {
-    ARPBSetCtrl
-} from "./../controller/ARPBSetCtrl.js";
+    ArpbSetCtrl
+} from "./../controller/ArpbSetCtrl.js";
 
-export const ARPBSet = {
+export const ArpbSet = {
     template,
-    controller: ARPBSetCtrl,
+    controller: ArpbSetCtrl,
     controllerAs: 'vm'
 }
