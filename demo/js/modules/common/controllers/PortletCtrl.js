@@ -4,13 +4,13 @@ class PortletCtrl {
     }
 
     closeLink(event){
-        let $BOX_PANEL = $(event.srcElement).closest('.x_panel');
+        let $BOX_PANEL = $(event.target).closest('.x_panel');
         $BOX_PANEL.remove();
     }
     
     collapseLink(event){
-           let $BOX_PANEL = $(event.srcElement).closest('.x_panel'),
-                $ICON = $(event.srcElement).find('i'),
+           let $BOX_PANEL = $(event.target).closest('.x_panel'),
+                $ICON = $(event.target).find('i'),
                 $BOX_CONTENT = $BOX_PANEL.find('.x_content');
             
             // fix for some div with hardcoded fix class
