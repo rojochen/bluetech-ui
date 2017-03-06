@@ -2,9 +2,9 @@ export class RouteConfig {
     constructor($stateProvider, $urlServiceProvider) {
 
         $stateProvider.
-        state('bluetechUI/yun/ARPBSet', {
-            url:'/bluetechUI/yun/ARPBSet',
-            component: 'aRPBSet'
+        state('bluetechUI/yun/arpb-set', {
+            url: '/bluetechUI/yun/arpb-set',
+            component: 'arpbSet'
         });
     }
 }
