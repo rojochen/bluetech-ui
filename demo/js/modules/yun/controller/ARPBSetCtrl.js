@@ -31,6 +31,11 @@ class ArpbSetCtrl extends PortletCtrl {
             title: '刪除',
             content: '確定刪除？'
         }
+
+        this.editARPBSetCancelData = {
+            title: '取消修改ARPBSet',
+            content: '確定取消編輯ARPBSet？'
+        }
     }
 
     // 確定confirm start
@@ -81,6 +86,24 @@ class ArpbSetCtrl extends PortletCtrl {
         }
     }
     // 修改停機可能率 end
+
+    // 修改停機可能率 取消
+
+    editARPBSetCancelBtn() {
+        this.modalService.openModal('editARPBSetCancelCheck');
+    }
+
+    editARPBSetCancelDecide() {
+        console.log(e);
+        if (e.status == "yes") {
+            this.modalService.closeModal('editARBSet');
+            this.modalService.closeModal('editARPBSetCancelCheck');
+
+        } else {
+            this.modalService.closeModal('editARPBSetCancelCheck');
+        }
+    }
+    // 修改停機可能率取消 end
 
     // 刪除按鈕 start
     editDeleteBtn() {
